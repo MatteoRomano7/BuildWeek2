@@ -1,0 +1,45 @@
+#player{
+    display: flex;
+}
+
+.leftDiv {
+    flex-basis: 30%;
+    display: flex;
+    align-items: center;
+}
+
+.leftDiv img {
+    width: 10%;
+    margin: 0% 2% 2% 0%;
+    background-color: black;
+}
+
+.leftDiv div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.leftDiv p {
+    margin: 0;
+    margin-right: 15px;
+}
+
+.leftDiv div p:last-child{
+    color: gray;
+    font-size: smaller;
+}
+
+.centralDiv{
+    flex-basis: 100%;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin-top: 15px;
+}
+
+.rightDiv{
+    flex-basis: 30%;
+    align-items: center;
+    margin-top: 30px;
+}
