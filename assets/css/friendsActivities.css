@@ -1,0 +1,75 @@
+body {
+  font-family: Circular;
+  margin: 0;
+  padding: 0;
+}
+svg {
+  color: white;
+  :hover {
+    cursor: pointer;
+  }
+}
+
+#headerAmici {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+#titoloAmici {
+  flex-grow: 1;
+  color: white;
+}
+
+.activity-section {
+  background-color: #2b2a2a;
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.activity-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.avatar {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+.activity-details {
+  flex-grow: 1;
+}
+
+.activity-details h3 {
+  margin: 0 0 5px;
+  font-size: 1rem;
+  color: white;
+}
+
+.activity-details p {
+  margin: 0;
+  font-size: 1rem;
+  color: #ececec;
+}
+
+.friendPlaylist {
+  font-size: 0.9rem;
+  color: #ececec;
+  margin-top: 10rem;
+}
+
+.notaMusicale {
+  color: white;
+}
+
+.timeline {
+  color: white;
+  justify-self: center;
+}
