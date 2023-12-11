@@ -1,0 +1,122 @@
+body {
+  font-family: Circular;
+  background-color: #242424;
+}
+
+h1,
+h2,
+h3,
+p {
+  color: white;
+}
+span {
+  color: grey;
+}
+
+a {
+  color: grey;
+  text-decoration: none;
+  :hover {
+    cursor: pointer;
+  }
+}
+
+svg {
+  color: lightblue;
+}
+
+#artistHeader {
+  background-image: url(/assets/imgs/main/torylanez.webp);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 25rem;
+  padding-bottom: 4rem;
+}
+
+#artistInfo {
+  padding-top: 17rem;
+  padding-left: 5rem;
+  margin-bottom: 5rem;
+  line-height: 1rem;
+}
+
+#artistInfo h1 {
+  font-size: 4.5rem;
+}
+
+#bigContainer {
+  display: flex;
+  margin-top: 3rem;
+}
+
+#musicSection {
+  margin-top: 4rem;
+  padding-left: 5rem;
+}
+
+#buttonsContainer {
+  display: flex;
+}
+
+.playButton {
+  color: green;
+  margin-right: 1.5rem;
+}
+.followButton {
+  background-color: transparent;
+  color: white;
+  border: 2px solid white;
+  letter-spacing: 0.1rem;
+  margin-right: 1.5rem;
+  width: 8rem;
+  height: 3rem;
+}
+
+#menuOpzioni {
+  background-color: transparent;
+  color: white;
+  text-align: center;
+  border-style: none;
+}
+
+.flexList {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 45rem;
+  margin-bottom: 1rem;
+}
+
+.flexList img {
+  width: 4rem;
+  margin-left: -8rem;
+}
+
+.songtitle {
+  margin-left: -8rem;
+}
+
+.smallContainer {
+  margin-left: 15rem;
+}
+
+.artistLiked {
+  display: flex;
+  justify-content: space-between;
+  width: 45rem;
+}
+.artistLiked img {
+  width: 7rem;
+  height: 7rem;
+  border-radius: 50%;
+}
+
+.artistLiked h3 {
+  margin-left: -12rem;
+}
+
+.artistLiked span {
+  position: relative;
+  right: 29.8rem;
+  top: 3rem;
+}
