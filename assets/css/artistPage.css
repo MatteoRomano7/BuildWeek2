@@ -27,6 +27,10 @@ svg {
   color: lightblue;
 }
 
+#ArtistPage {
+  display: block;
+}
+
 .headerTop {
   display: flex;
   align-items: center;
@@ -159,6 +163,7 @@ svg {
 #artistHeader img {
   position: absolute;
   top: -7rem;
+  max-width: 100%;
 }
 
 .verified {
@@ -268,3 +273,11 @@ svg {
 .youLiked p {
   color: grey;
 }
+
+/* @media screen and (min-width: 1024px) {
+  #ArtistPage {
+    display: block;
+    width: 100%;
+  }
+}
+ */
