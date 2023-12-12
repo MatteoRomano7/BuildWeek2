@@ -1,0 +1,277 @@
+@import "circular-font.css";
+
+body {
+    font-family: 'Circular';
+}
+
+.albumPage {
+    width: 70%;
+    margin: 0 auto;
+    background-color: #212121;
+    color: white;
+    
+}
+
+h4 {
+    margin: 0;
+    color: white;
+    margin-bottom: 10px;
+}
+
+/* HEADER */
+
+header {
+    background: rgb(229, 198, 81);
+    background: linear-gradient(180deg, rgba(229, 198, 81, 1) 20%, rgba(119, 103, 43, 1) 88%);
+}
+
+
+
+/*HEADER TOP*/
+
+.headerTop {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin: 0 0 10px 0;
+    /* padding: 0px 30px; */
+}
+
+.backwardForwardBtns {
+    width: 50%;
+}
+
+.backwardForwardBtns button {
+    font-family: 'Nanum Gothic', sans-serif;
+    font-weight: 700;
+    font-size: 1em;
+    text-align: center;
+    background-color: #131313;
+    border: none;
+    border-radius: 55%;
+    height: 30px;
+    width: 30px;
+    color: rgba(255,255,255,0.5);
+    transition: background-color 0.3s ease;
+}
+
+.backwardForwardBtns button:hover {
+    color: rgba(255,255,255,1);
+    background-color: #0a0a0a;
+    cursor: pointer;
+}
+
+.backward {
+    padding: 0 2px 0 0;
+    margin: 0 10px 0 0;
+}
+
+.forward {
+    padding: 0 0 0 2px;
+}
+
+.dropdownDiv {
+    position: relative;
+    width: 50%;
+    display: flex;
+    justify-content: end;
+}
+
+.dropdown {
+    display: flex;
+    align-items: center;
+    background-color: #131313;
+    border-radius: 50px;
+    padding: 3px;
+    transition: background-color 0.3s ease;
+}
+
+.dropdown:hover {
+    background-color: #0a0a0a;
+    cursor: pointer;
+}
+
+.dropdown img {
+    height: 25px;
+    border-radius: 55%;
+}
+
+.dropdown p {
+    color: white;
+    padding: 4px 10px 2px 10px;
+    font-size: 0.9em;
+}
+
+.dropdown svg {
+    padding: 0 5px;
+}
+
+.dropdownMenu {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    top: 35px;
+    right: 0px;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: #252525;
+    box-shadow: 0px 5px 10px rgba(0,0,0,0.3);
+    transition: opacity 0.2s ease-in-out;
+}
+
+.dropdownMenu.show {
+    opacity: 1;
+    visibility: visible;
+    z-index: 10;
+}
+
+.dropdownMenuLi {
+    font-weight: 300;
+    font-size: 0.9em;
+    padding: 15px 15px;
+    border-radius: 3px;
+    transition: background-color 0.1s ease;
+}
+
+.dropdownMenuLi:hover {
+    background-color: rgba(255,255,255,0.1);
+}
+
+.dropdownMenuLi:last-of-type {
+    border-top: 1px solid gray;
+}
+
+/*HEADER BOTTOM*/
+
+#presentazioneAlbum {
+    padding: 30px 30px 20px 30px ;
+    display: flex;
+    align-items: flex-end;
+}
+
+#fotoAlbum {
+    margin-right: 30px;
+}
+
+#fotoAlbum img {
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
+}
+
+#titoloArtistaAlbum h1 {
+    font-size: 80px;
+    font-weight: bold;
+    margin: 10px 0px 20px 0px;
+
+}
+
+#dettagliAlbum {
+    display: flex;
+    align-items: center;
+}
+
+.iconaArtista {
+    width: 30px;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.iconaArtista img {
+    width: 100%;
+    border-radius: 50%;
+}
+
+.dot {
+    margin: 0 5px;
+}
+
+
+/* MAIN */
+
+main {
+    background: rgb(87,76,31);
+    background: linear-gradient(180deg, rgba(87,76,31,1) 2%, rgba(42,38,23,1) 5%, rgba(33,33,33,1) 10%);
+    color: #a7a7a7;
+}
+
+/*BOTTONI*/
+#bottoni {
+    padding: 30px;
+}
+
+#bottoni button {
+    margin-right: 20px;
+}
+
+#player {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #1ed760;
+    border: none;
+}
+
+#player svg {
+    width: 30px;
+    position: relative;
+    top: 2px;
+    left: 2px;
+}
+
+.fixBtn {
+    width: 40px;
+    height: 40px;
+    background-color: transparent;
+    border: none;
+    color: white;
+}
+
+/*CONTENUTO ALBUM*/
+#contenutoAlbum {
+    padding: 0px 30px;
+}
+
+#rigaIntestazione {
+    padding: 10px 0px;
+    margin-bottom: 40px;
+    border-bottom: 1px solid hsla(0,0%,100%,.1);
+}
+
+.row {
+    padding: 0px 10px;
+    display: flex; 
+    margin-bottom: 20px; 
+}
+
+.row-top{
+    margin-bottom: 0;
+}
+
+.colTitoli {
+    display: flex;
+    align-items: center;
+    flex-basis: 33%;
+    
+}
+
+/* .mr-2 {
+    margin-right: 20px;
+} */
+
+.numBrano {
+    font-size: 20px;
+    flex-basis: 4%;
+}
+
+.titoloBrano {
+    flex-basis: 45%;
+}
+
+.nRiproduzioni {
+    text-align: right;
+    flex-basis: 20%;
+}
+
+.tempoBrano {
+    text-align: right;
+    flex-basis: 31%;
+}

@@ -4,11 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Album Page</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/albumstyle.css">
+    <script src="albumScript.js" defer></script>
 </head>
 <body>
 <div class="albumPage">
     <header>
+        <div class="headerTop">
+            <div class="backwardForwardBtns">
+                <button class="backward">&lt</button>
+                <button class="forward">&gt</button>
+            </div>
+            <div class="dropdownDiv">
+                <div class="dropdown">
+                    <img src="assets/imgs/main/image-1.jpg" alt="accountAvatar">
+                    <p>Nickname prova</p>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+                        <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
+                    </svg>
+                </div>
+                <div class="dropdownMenu">
+                    <ul class="dropdownMenuUl">
+                        <li class="dropdownMenuLi">Account</li>
+                        <li class="dropdownMenuLi">Profilo</li>
+                        <li class="dropdownMenuLi">Effettua l'upgrade a Premium</li>
+                        <li class="dropdownMenuLi">Impostazioni</li>
+                        <li class="dropdownMenuLi">Esci</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
         <div id="presentazioneAlbum">
             <div id="fotoAlbum">
                 <img src="	https://i.scdn.co/image/ab67616d00001e025b3cb5aa936655424de11fa2" alt="Gioventu brucata">
@@ -20,9 +46,9 @@
                     <div class="iconaArtista"><img
                             src="https://i.scdn.co/image/ab6761610000f17818505fd55b5918fe7c6b1fcc"
                             alt="Pinguini Tattici Nucleari"></div>
-                    <span class="dot">.</span>
+                    <span class="dot">·</span>
                     <p class="annoUscita">2017</p>
-                    <span class="dot">.</span>
+                    <span class="dot">·</span>
                     <p class="nBrani">12 brani,<span class="minutaggioAlbum">53 min 20 sec</span></p>
                 </div>
             </div>
@@ -57,149 +83,125 @@
         <section id="contenutoAlbum">
 
             <div id="rigaIntestazione">
-                <div class="row">
-                    <div class="colTitoli">
-                        <p class="mr-2">#</p>
-                        <p>TITOLO</p>
+                <div class="row row-top">
+                    <p class="numBrano">#</p>
+                    <p class="titoloBrano">TITOLO</p>
+                    <p class="nRiproduzioni">RIPRODUZIONI</p>
+                    <div class="tempoBrano">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-clock" viewBox="0 0 16 16">
+                            <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71z" />
+                            <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0" />
+                        </svg>
                     </div>
-                    <p>RIPRODUZIONI</p>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                        class="bi bi-clock" viewBox="0 0 16 16">
-                        <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71z" />
-                        <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0" />
-                    </svg>
                 </div>
             </div>
 
             <div id="elencoBrani">
                 <div class="row">
-                    <div class="colTitoli">
-                        <div class="numBrano mr-2">1</div>
-                        <div class="titoloBrano">
-                            <h4>Montanelli - Intro</h4>
-                            <span class="artista">Pinguini Tattici Nucleari</span>
-                        </div>
+                    <div class="numBrano">1</div>
+                    <div class="titoloBrano">
+                        <h4>Montanelli - Intro</h4>
+                        <span class="artista">Pinguini Tattici Nucleari</span>
                     </div>
                     <div class="nRiproduzioni">694.578</div>
                     <div class="tempoBrano">1:28</div>
                 </div>
                 <div class="row">
-                    <div class="colTitoli">
-                        <div class="numBrano mr-2">2</div>
-                        <div class="titoloBrano">
-                            <h4>Sciare</h4>
-                            <span class="artista">Pinguini Tattici Nucleari</span>
-                        </div>
+                    <div class="numBrano mr-2">2</div>
+                    <div class="titoloBrano">
+                        <h4>Sciare</h4>
+                        <span class="artista">Pinguini Tattici Nucleari</span>
                     </div>
                     <div class="nRiproduzioni">5.585.178</div>
                     <div class="tempoBrano">4:41</div>
                 </div>
                 <div class="row">
-                    <div class="colTitoli">
-                        <div class="numBrano mr-2">3</div>
-                        <div class="titoloBrano">
-                            <h4>Gioventù brucata</h4>
-                            <span class="artista">Pinguini Tattici Nucleari</span>
-                        </div>
+                    <div class="numBrano mr-2">3</div>
+                    <div class="titoloBrano">
+                        <h4>Gioventù brucata</h4>
+                        <span class="artista">Pinguini Tattici Nucleari</span>
                     </div>
                     <div class="nRiproduzioni">3.421.342</div>
                     <div class="tempoBrano">5:24</div>
                 </div>
                 <div class="row">
-                    <div class="colTitoli">
-                        <div class="numBrano mr-2">4</div>
-                        <div class="titoloBrano">
-                            <h4>Ninnananna per genitori disattenti</h4>
-                            <span class="artista">Pinguini Tattici Nucleari</span>
-                        </div>
+                    <div class="numBrano mr-2">4</div>
+                    <div class="titoloBrano">
+                        <h4>Ninnananna per genitori disattenti</h4>
+                        <span class="artista">Pinguini Tattici Nucleari</span>
                     </div>
                     <div class="nRiproduzioni">2.365.629</div>
                     <div class="tempoBrano">4:04</div>
                 </div>
                 <div class="row">
-                    <div class="colTitoli">
-                        <div class="numBrano mr-2">5</div>
-                        <div class="titoloBrano">
-                            <h4>L'uomo che inventò il fuoco</h4>
-                            <span class="artista">Pinguini Tattici Nucleari</span>
-                        </div>
+                    <div class="numBrano mr-2">5</div>
+                    <div class="titoloBrano">
+                        <h4>L'uomo che inventò il fuoco</h4>
+                        <span class="artista">Pinguini Tattici Nucleari</span>
                     </div>
                     <div class="nRiproduzioni">3.417.862</div>
                     <div class="tempoBrano">5:23</div>
                 </div>
                 <div class="row">
-                    <div class="colTitoli">
-                        <div class="numBrano mr-2">6</div>
-                        <div class="titoloBrano">
-                            <h4>Irene</h4>
-                            <span class="artista">Pinguini Tattici Nucleari</span>
-                        </div>
+                    <div class="numBrano mr-2">6</div>
+                    <div class="titoloBrano">
+                        <h4>Irene</h4>
+                        <span class="artista">Pinguini Tattici Nucleari</span>
                     </div>
                     <div class="nRiproduzioni">17.249.689</div>
                     <div class="tempoBrano">5:11</div>
                 </div>
                 <div class="row">
-                    <div class="colTitoli">
-                        <div class="numBrano mr-2">7</div>
-                        <div class="titoloBrano">
-                            <h4>Senti che cantare questi!</h4>
-                            <span class="artista">Pinguini Tattici Nucleari</span>
-                        </div>
+                    <div class="numBrano mr-2">7</div>
+                    <div class="titoloBrano">
+                        <h4>Senti che cantare questi!</h4>
+                        <span class="artista">Pinguini Tattici Nucleari</span>
                     </div>
                     <div class="nRiproduzioni">760.496</div>
                     <div class="tempoBrano">1:11</div>
                 </div>
                 <div class="row">
-                    <div class="colTitoli">
-                        <div class="numBrano mr-2">8</div>
-                        <div class="titoloBrano">
-                            <h4>Pula</h4>
-                            <span class="artista">Pinguini Tattici Nucleari</span>
-                        </div>
+                    <div class="numBrano mr-2">8</div>
+                    <div class="titoloBrano">
+                        <h4>Pula</h4>
+                        <span class="artista">Pinguini Tattici Nucleari</span>
                     </div>
                     <div class="nRiproduzioni">899.318</div>
                     <div class="tempoBrano">5:46</div>
                 </div>
                 <div class="row">
-                    <div class="colTitoli">
-                        <div class="numBrano mr-2">9</div>
-                        <div class="titoloBrano">
-                            <h4>79</h4>
-                            <span class="artista">Pinguini Tattici Nucleari</span>
-                        </div>
+                    <div class="numBrano mr-2">9</div>
+                    <div class="titoloBrano">
+                        <h4>79</h4>
+                        <span class="artista">Pinguini Tattici Nucleari</span>
                     </div>
                     <div class="nRiproduzioni">1.231.254</div>
                     <div class="tempoBrano">4:19</div>
                 </div>
                 <div class="row">
-                    <div class="colTitoli">
-                        <div class="numBrano mr-2">10</div>
-                        <div class="titoloBrano">
-                            <h4>Gigi cinque ottavi</h4>
-                            <span class="artista">Pinguini Tattici Nucleari</span>
-                        </div>
+                    <div class="numBrano mr-2">10</div>
+                    <div class="titoloBrano">
+                        <h4>Gigi cinque ottavi</h4>
+                        <span class="artista">Pinguini Tattici Nucleari</span>
                     </div>
                     <div class="nRiproduzioni">965.231</div>
                     <div class="tempoBrano">4:27</div>
                 </div>
                 <div class="row">
-                    <div class="colTitoli">
-                        <div class="numBrano mr-2">11</div>
-                        <div class="titoloBrano">
-                            <h4>Tetris</h4>
-                            <span class="artista">Pinguini Tattici Nucleari</span>
-                        </div>
+                    <div class="numBrano mr-2">11</div>
+                    <div class="titoloBrano">
+                        <h4>Tetris</h4>
+                        <span class="artista">Pinguini Tattici Nucleari</span>
                     </div>
                     <div class="nRiproduzioni">1.523.102</div>
                     <div class="tempoBrano">5:50</div>
                 </div>
                 <div class="row">
-                    <div class="colTitoli">
-                        <div class="numBrano mr-2">12</div>
-                        <div class="titoloBrano">
-                            <h4>Il concorso musicale</h4>
-                            <span class="artista">Pinguini Tattici Nucleari</span>
-                        </div>
+                    <div class="numBrano mr-2">12</div>
+                    <div class="titoloBrano">
+                        <h4>Il concorso musicale</h4>
+                        <span class="artista">Pinguini Tattici Nucleari</span>
                     </div>
                     <div class="nRiproduzioni">23.520.789</div>
                     <div class="tempoBrano">5:31</div>
