@@ -17,6 +17,7 @@ heartFill.addEventListener('click', heartFillBtn)
 
 
 //CENTRAL PLAYER
+const audioPlayer = document.getElementById('audioPlayer');
 const progressElement = document.getElementById('progress')
 const timerElement = document.querySelector('.timer')
 const durationElement = document.querySelector('.duration')
@@ -24,8 +25,8 @@ const playIcon = document.getElementById('play-icon')
 const stopIcon = document.getElementById('stop-icon')
 
 let currentTime = 0
-const duration = 200 //DURATION DEL TIMER IN SECONDS
-let isPlaying = false //FALSE PER FARLO INZIARE DA SUBITO TRUE PER L INVERSO
+const duration = 242 //DURATION DEL TIMER IN SECONDS
+let isPlaying = true //FALSE PER FARLO INZIARE DA SUBITO TRUE PER L INVERSO
 let interval
 
 const totalMinutes = Math.floor(duration / 60)
@@ -45,16 +46,17 @@ function advanceProgressBar() {
     const minutes = Math.floor(currentTime / 60)
     const seconds = currentTime % 60
     const formattedTime = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`
-
     timerElement.textContent = formattedTime
 
   } else {
-    clearInterval(interval);
-    isPlaying = false;
+    clearInterval(interval)
+    isPlaying = false
     playIcon.style.display = 'block'
     stopIcon.style.display = 'none'
+    audioPlayer.pause()
   }
 }
+
 
 function togglePlayback() {
   if (isPlaying) {
@@ -62,28 +64,32 @@ function togglePlayback() {
     isPlaying = false
     playIcon.style.display = 'block'
     stopIcon.style.display = 'none'
+    audioPlayer.pause()
   } else {
-    interval = setInterval(advanceProgressBar, 1000)
-    isPlaying = true
+    interval = setInterval(advanceProgressBar, 1000);
+    isPlaying = true;
     playIcon.style.display = 'none'
     stopIcon.style.display = 'block'
+    audioPlayer.play()
   }
 }
+
 
 togglePlayback()
 
 playIcon.addEventListener('click', togglePlayback)
 stopIcon.addEventListener('click', togglePlayback)
 
-const backBtn = document.getElementById('backbtn');
+const backBtn = document.getElementById('backbtn')
 
 function resetTimer() {
-  currentTime = 0;
-  const minutes = Math.floor(currentTime / 60);
-  const seconds = currentTime % 60;
-  const formattedTime = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
-  timerElement.textContent = formattedTime;
-  progress.style.width = "0%";
+  currentTime = 0
+  const minutes = Math.floor(currentTime / 60)
+  const seconds = currentTime % 60
+  const formattedTime = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`
+  timerElement.textContent = formattedTime
+  progress.style.width = '0%'
+  audioPlayer.currentTime = 0
 }
 
 backBtn.addEventListener('click', resetTimer);
@@ -128,7 +134,9 @@ function updateProgress(event) {
   const formattedTime = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`
 
   timerElement.textContent = formattedTime
+  audioPlayer.currentTime = currentTime
 }
+
 //CENTRAL PLAYER BTN REPEATER & SHUFFLE
 const shuffle = document.getElementById("shuffle");
 let isGreen = false;
@@ -188,18 +196,19 @@ repeater.addEventListener('click', repeaterBtn);
 let rightProgress; 
 
 document.addEventListener("DOMContentLoaded", function() {
-  const rightProgressContainer = document.querySelector('.rightDiv .progress-bar');
-  rightProgress = document.querySelector('.rightDiv #progress');
+  const rightProgressContainer = document.querySelector('.rightDiv .progress-bar')
+  rightProgress = document.querySelector('.rightDiv #progress')
 
-  const randomWidth = Math.floor(Math.random() * 101);
-  rightProgress.style.width = `${randomWidth}%`;
+  const randomWidth = Math.floor(Math.random() * 51) + 20
+  rightProgress.style.width = `${randomWidth}%`
+  audioPlayer.volume = randomWidth/100
 
   let isRightDragging = false;
 
   rightProgressContainer.addEventListener('mousedown', (e) => {
     isRightDragging = true;
     updateRightProgress(e);
-    volumeUp.style.display = 'block';
+    volumeUp.style.display = 'block'
     volumeMute.style.display = 'none'
   });
 
@@ -214,32 +223,37 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 
   function updateRightProgress(event) {
-    const rightRect = rightProgressContainer.getBoundingClientRect();
-    const rightOffsetX = event.clientX - rightRect.left;
-    const rightContainerWidth = rightRect.width;
-
-    let newRightWidth = (rightOffsetX / rightContainerWidth) * 100;
-    newRightWidth = Math.max(0, Math.min(100, newRightWidth));
-
-    rightProgress.style.width = `${newRightWidth}%`;
+    const rightRect = rightProgressContainer.getBoundingClientRect()
+    const rightOffsetX = event.clientX - rightRect.left
+    const rightContainerWidth = rightRect.width
+  
+    let newRightWidth = (rightOffsetX / rightContainerWidth) * 100
+    newRightWidth = Math.max(0, Math.min(100, newRightWidth))
+  
+    rightProgress.style.width = `${newRightWidth}%`
+  
+    const newVolume = newRightWidth / 100
+    audioPlayer.volume = newVolume
   }
 });
 
 //RIGHT VOLUME BAR BUTTON
-const volumeUp = document.getElementById("volume-up");
-const volumeMute = document.getElementById("volume-mute");
+const volumeUp = document.getElementById("volume-up")
+const volumeMute = document.getElementById("volume-mute")
 
 function VolumeUpBtn() {
-  volumeUp.style.display = 'none';
-  volumeMute.style.display = 'block';
-  rightProgress.style.width = "0%";
+  volumeUp.style.display = 'none'
+  volumeMute.style.display = 'block'
+  rightProgress.style.width = "0%"
+  audioPlayer.volume = 0
 }
 
 function VolumeMuteBtn() {
-  volumeUp.style.display = 'block';
-  volumeMute.style.display = 'none';
-  rightProgress.style.width = '10%';
+  volumeUp.style.display = 'block'
+  volumeMute.style.display = 'none'
+  rightProgress.style.width = '10%'
+  audioPlayer.volume = 0.1
 }
 
-volumeUp.addEventListener('click', VolumeUpBtn);
-volumeMute.addEventListener('click', VolumeMuteBtn);
+volumeUp.addEventListener('click', VolumeUpBtn)
+volumeMute.addEventListener('click', VolumeMuteBtn)

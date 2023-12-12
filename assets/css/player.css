@@ -8,7 +8,6 @@
 
 /* left */
 .leftDiv {
-    flex-basis: 30%;
     display: flex;
     align-items: center;
 }
@@ -29,12 +28,15 @@
     margin-right: 15px;
 }
 
-.leftDiv div p:last-child{
+.leftDiv h4{
     color: gray;
     font-size: smaller;
 }
+.leftDiv svg{
+    width: 20%;
+}
 
-.leftDiv #heart-fill{
+#heart-fill{
     display: none;
 }
 
@@ -76,7 +78,7 @@
 }
 
 .progress-bar {
-    width: 800px;
+    width: 730px;
     height: 4px;
     background-color: #ccc;
     border-radius: 2px;
@@ -93,7 +95,6 @@
 
 /* right */
 .rightDiv{
-    flex-basis: 30%;
     align-items: center;
     margin-top: 10px;
     display: flex;
@@ -123,22 +124,112 @@
 
 @media screen and (max-width: 1250px) {
     .centralDiv .progress-bar {
-        width: 600px;
+        width: 550px;
     }
     .rightDiv .progress-bar {
         width: 70px;
     }
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1024px) {
     .centralDiv .progress-bar {
-        width: 400px;
+        width: 320px;
     }
     .rightDiv .progress-bar {
         width: 50px;
     }
 }
 
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 768px) { /*MOBILE*/
+        .leftDiv h4, .leftDiv img{
+            display: none;
+        }
+        .progress-container{
+            display: none;
+        }
+        .centralDiv .svg svg:nth-child(5), .centralDiv .svg svg:nth-child(6), .centralDiv .svg svg:nth-child(1), .centralDiv .svg svg:nth-child(2){
+            display: none;
+        }
+        .rightDiv svg:nth-child(1), .rightDiv svg:nth-child(2), .rightDiv svg:nth-child(7),.rightDiv svg:nth-child(3)  {
+            display: none;
+        }
+        #player{
+            flex-direction: column;
+            margin: 10px;
+            border-radius: 25px;
+            display: flex;
+            padding: 1%;
+           
+        }
+        div{
+            display: block;
+        }
+        .leftDiv{
+            flex-direction: column;
+            flex-grow: 1;
+            max-height: 90px;
+            max-width: 50%;
+            overflow: hidden;
+        }
+        
+        .rightDiv svg{
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            left: 66%;
+            top: 3.5%;
+            margin: 1%;
+        }
+        .leftDiv svg{
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            left: 76%;
+            top: 3.5%;
+            margin: 1%;
+            margin-right: 2%;
+        }
+        
+        .centralDiv svg{
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            left: 86%;
+            top: 3.4%;
+            margin: 1%;
+        }
 
-}
+        .leftDiv h2 {
+            margin-top: 30px;
+            font-size: 20px;
+            width: 800px;
+            overflow: hidden;
+            position: relative;
+            display: inline-block;
+            white-space: nowrap;
+            animation: scrollText 5s linear infinite;
+          }
+          
+          @keyframes scrollText {
+            0% {
+              transform: translateX(70%);
+            }
+            100% {
+              transform: translateX(0%);
+            }
+          }
+    }
+
+    @media screen and (max-width: 430px){
+        .rightDiv svg, .leftDiv svg, .centralDiv svg {
+            width: 20px;
+            height: 20px;
+            top: 5%;
+        }
+        .leftDiv h2{
+            font-size: 14px;
+            margin-top: 34px;
+        }
+    }
+
+
