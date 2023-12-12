@@ -22,11 +22,14 @@ ul {
 /* Homepage */
 
 .homepage {
-    width: 70%;
-    margin: 0 auto;
-    background-color: #212121;
+    background-color: /* #212121 */#121212;
     padding: 10px 20px;
-    overflow-y: scroll;
+}
+
+/* Header */
+
+.homepageHeader {
+    display: none;
 }
 
 /* Header top */
@@ -72,6 +75,7 @@ ul {
 }
 
 .dropdownDiv {
+    position: relative;
     width: 50%;
     display: flex;
     justify-content: end;
@@ -88,10 +92,10 @@ ul {
 
 .dropdown:hover {
     background-color: #0a0a0a;
+    cursor: pointer;
 }
 
 .dropdown img {
-    cursor: pointer;
     height: 25px;
     border-radius: 55%;
 }
@@ -103,8 +107,42 @@ ul {
 }
 
 .dropdown svg {
-    cursor: pointer;
     padding: 0 5px;
+}
+
+.dropdownMenu {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    top: 35px;
+    right: 0px;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: #252525;
+    box-shadow: 0px 5px 10px rgba(0,0,0,0.3);
+    transition: opacity 0.2s ease-in-out;
+}
+
+.dropdownMenu.show {
+    opacity: 1;
+    visibility: visible;
+    z-index: 10;
+}
+
+.dropdownMenuLi {
+    font-weight: 300;
+    font-size: 0.9em;
+    padding: 15px 15px;
+    border-radius: 3px;
+    transition: background-color 0.1s ease;
+}
+
+.dropdownMenuLi:hover {
+    background-color: rgba(255,255,255,0.1);
+}
+
+.dropdownMenuLi:last-of-type {
+    border-top: 1px solid gray;
 }
 
 /* Header bot */
@@ -213,11 +251,42 @@ ul {
 
 /* Main top */
 
+.greetingAndIcons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
 .greetingAndIcons h2 {
+    width: 70%;
     font-size: 2em;
     font-weight: 700;
     letter-spacing: -1px;
     margin: 25px 0;
+}
+
+.greetingAndIcons div {
+    width: 30%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.mainTags {
+    margin: 0 0 20px 5px;
+}
+
+.mainTag {
+    border: none;
+    color: white;
+    background-color: rgba(255,255,255,0.02);
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin: 0 10px 0 0;
+    transition: background-color 0.2s ease;
+}
+
+.mainTag:hover {
+    background-color: rgba(255,255,255,0.05);
 }
 
 .cardsContainerTop {
@@ -227,12 +296,12 @@ ul {
 }
 
 .cardTop {
-    flex-basis: 32%;
-    height: 70px;
+    flex-basis: 48%;
+    height: 60px;
     margin: 0 0 15px 0;
     display: flex;
     align-items: center;
-    background-color: rgba(255,255,255,0.08);
+    background-color: rgba(255,255,255,0.01);
     border-radius: 5px;
     overflow: hidden;
     transition: background-color 0.2s ease;
@@ -244,22 +313,117 @@ ul {
 }
 
 .cardTop img {
-    width: 25%;
+    width: 35%;
+    height: 100%;
     box-shadow: 5px 0 20px -5px rgba(0, 0, 0, 0.3);
 }
 
+.cardTopText {
+    width: 65%;
+}
+
 .cardTop p {
-    padding: 0 15px 0 10px;
-    width: auto;
-    font-size: 0.9em;
+    padding: 0 10px;
+    font-size: 0.8em;
     line-height: 1.5;
     box-shadow: 0px 0px 3px rgba(0,0,0,0.1);
 }
 
 /* Main bot */
 
-.otherAlbums {
+/* Mobile */
+
+.cardMobile {
+    margin: 10px 0 20px 0;
+    padding: 15px 15px 7px 15px;
+    background-color: rgba(255,255,255,0.1);
+    border-radius: 9px;
+    transition: background-color 0.2s ease;
+}
+
+.cardMobile:last-of-type {
+    margin: 10px 0;
+}
+
+.cardMobile:hover {
+    background-color: rgba(255,255,255,0.2);
+}
+
+.cardTopMobile {
     display: flex;
+}
+
+.cardTopMobile img {
+    width: 50%;
+    margin: 0 20px 20px 0;
+    box-shadow: 0px 0px 10px rgba(255,255,255,0.5);
+}
+
+.cardTopTextMobile p:first-of-type {
+    font-size: 0.7em;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+    color: rgba(255,255,255,0.3);
+}
+
+.cardTopTextMobile p:nth-of-type(2) {
+    margin: 10px 0;
+    line-height: 25px;
+}
+
+.cardBotMobile {
+    display: flex;
+}
+
+.cardBotMobileLeft {
+    width: 50%;
+    display: flex;
+    align-items: center;
+}
+
+.cardBotMobileLeft svg {
+    width: 20px;
+    height: 20px;
+    margin: 0 20px 0 0;
+    opacity: 0.7;
+    transition: opacity 0.15s ease;
+}
+
+.cardBotMobileLeft svg:hover {
+    opacity: 1;
+}
+
+.cardBotMobileRight {
+    width: 50%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+.cardBotMobileRight p {
+    font-size: 0.7em;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+    color: rgba(255,255,255,0.3); 
+}
+
+.cardBotMobileRight div {
+    margin: 0 0 0 10px;
+    padding: 5px 6.5px;
+    background-color:rgba(0, 0, 0, 0.2);
+    border-radius: 50%;
+}
+
+.cardBotPlay {
+    height: 30px;
+    width: 30px;
+    text-align: center;
+}
+
+/* Desktop */
+
+.otherAlbums {
+    display: none;
     align-items: center;
     justify-content: space-between;
 }
@@ -284,7 +448,7 @@ ul {
 }
 
 .cardsContainerBot {
-    display: flex;
+    display: none;
     justify-content: space-between;
     flex-wrap: wrap;
     margin: 0 0 20px 0;
@@ -325,6 +489,7 @@ ul {
 /* Footer */
 
 .homepageFooter {
+    display: none;
     margin: 125px 0 0 0;
     padding: 0px 20px;
 }
@@ -410,4 +575,105 @@ ul {
 .footerNavBot p {
     font-weight: 300;
     color: rgba(255,255,255,0.7);
+}
+
+/* MEDIA QUERIES */
+
+@media screen and (min-width:576px) {
+    .cardTop {
+        flex-basis: 48%;
+        height: 70px;
+    }
+
+    .cardsContainerMobile {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .cardMobile {
+        flex-basis: 44%;
+    }
+}
+
+@media screen and (min-width:640px) {
+    .cardTop img {
+        width: 28%;
+    }
+
+    .cardTopText {
+        width: 72%;
+    }
+}
+
+@media screen and (min-width:768px) {
+    .cardTop {
+        flex-basis: 32%;
+        height: 80px;
+    }
+
+    .cardTop img {
+        width: 35%;
+    }
+
+    .cardTopText {
+        width: 65%;
+    }
+
+    .cardsContainerMobile {
+        justify-content: space-evenly;
+    }
+
+    .cardMobile {
+        flex-basis: 28%;
+    }
+
+    .cardMobile:last-of-type {
+        justify-self: left;
+    }
+}
+
+@media screen and (min-width:1024px) {
+    .homepage {
+        background-color: #212121;
+    }
+
+    .homepageHeader {
+        display: block;
+    }
+
+    .greetingAndIcons svg {
+        display: none;
+    }
+
+    .mainTags {
+        display: none;
+    }
+
+    .cardTop {
+        background-color: rgba(255,255,255,0.1);
+    }
+    
+    .cardTop img {
+        width: 25%;
+    }
+    .cardTopText {
+        width: 75%;
+    }
+
+    .cardsContainerMobile {
+        display: none;
+    }
+
+    .otherAlbums {
+        display: flex;
+    }
+
+    .cardsContainerBot {
+        display: flex;
+    }
+
+    .homepageFooter {
+        display: block;
+    }
 }
