@@ -11,8 +11,8 @@ function heartFillBtn() {
   heartFill.style.display = 'none';
 }
 
-heart.addEventListener('click', heartBtn); // Rimuovi le parentesi qui
-heartFill.addEventListener('click', heartFillBtn); // Rimuovi le parentesi qui
+heart.addEventListener('click', heartBtn)
+heartFill.addEventListener('click', heartFillBtn)
 
 
 

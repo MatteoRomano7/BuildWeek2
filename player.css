@@ -76,13 +76,13 @@
 }
 
 .progress-bar {
-    width: 600px;
+    width: 800px;
     height: 4px;
     background-color: #ccc;
     border-radius: 2px;
   }
   
-  .progress {
+.progress {
     height: 100%;
     background-color: #1db954;
     border-radius: 2px;
@@ -119,4 +119,26 @@
 
 .rightDiv #volume-mute{
     display: none;
+}
+
+@media screen and (max-width: 1250px) {
+    .centralDiv .progress-bar {
+        width: 600px;
+    }
+    .rightDiv .progress-bar {
+        width: 70px;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .centralDiv .progress-bar {
+        width: 400px;
+    }
+    .rightDiv .progress-bar {
+        width: 50px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+
 }
