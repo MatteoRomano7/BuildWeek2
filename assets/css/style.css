@@ -1,0 +1,136 @@
+@import "circular-font.css";
+
+body {
+    font-family: 'Circular';
+}
+
+.albumPage {
+    width: 70%;
+    margin: 0 auto;
+    background-color: #212121;
+    color: white;
+    
+}
+
+h4 {
+    margin: 0;
+    color: white;
+    margin-bottom: 10px;
+}
+
+/* HEADER */
+
+header {
+    background: rgb(229, 198, 81);
+    background: linear-gradient(180deg, rgba(229, 198, 81, 1) 20%, rgba(119, 103, 43, 1) 88%);
+}
+
+#presentazioneAlbum {
+    padding: 80px 30px 20px 30px ;
+    display: flex;
+    align-items: flex-end;
+}
+
+#fotoAlbum {
+    margin-right: 30px;
+}
+
+#fotoAlbum img {
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
+}
+
+#titoloArtistaAlbum h1 {
+    font-size: 80px;
+    font-weight: bold;
+    margin: 10px 0px 20px 0px;
+
+}
+
+#dettagliAlbum {
+    display: flex;
+    align-items: center;
+}
+
+.iconaArtista {
+    width: 30px;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.iconaArtista img {
+    width: 100%;
+    border-radius: 50%;
+}
+
+.dot {
+    margin: 0 5px;
+}
+
+
+/* MAIN */
+
+main {
+    background: rgb(87,76,31);
+    background: linear-gradient(180deg, rgba(87,76,31,1) 2%, rgba(42,38,23,1) 5%, rgba(33,33,33,1) 10%);
+    color: #a7a7a7;
+}
+
+/*BOTTONI*/
+#bottoni {
+    padding: 30px;
+}
+
+#bottoni button {
+    margin-right: 20px;
+}
+
+#player {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #1ed760;
+    border: none;
+}
+
+#player svg {
+    width: 30px;
+    position: relative;
+    top: 2px;
+    left: 2px;
+}
+
+.fixBtn {
+    width: 40px;
+    height: 40px;
+    background-color: transparent;
+    border: none;
+    color: white;
+}
+
+/*CONTENUTO ALBUM*/
+#contenutoAlbum {
+    padding: 0px 30px;
+}
+
+.row {
+    padding: 0px 10px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    
+}
+
+.colTitoli {
+    display: flex;
+    align-items: center;
+    flex-basis: 33%;
+    
+}
+
+.mr-2 {
+    margin-right: 20px;
+}
+
+.numBrano {
+    font-size: 20px;
+}

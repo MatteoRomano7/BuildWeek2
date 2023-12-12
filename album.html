@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Album Page</title>
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
+<div class="albumPage">
     <header>
         <div id="presentazioneAlbum">
             <div id="fotoAlbum">
@@ -15,7 +17,9 @@
                 <span>Album</span>
                 <h1 id="titoloAlbum">Gioventù brucata</h1>
                 <div id="dettagliAlbum">
-                    <div class="iconaArtista"><img src="https://i.scdn.co/image/ab6761610000f17818505fd55b5918fe7c6b1fcc" alt="Pinguini Tattici Nucleari"></div>
+                    <div class="iconaArtista"><img
+                            src="https://i.scdn.co/image/ab6761610000f17818505fd55b5918fe7c6b1fcc"
+                            alt="Pinguini Tattici Nucleari"></div>
                     <span class="dot">.</span>
                     <p class="annoUscita">2017</p>
                     <span class="dot">.</span>
@@ -28,20 +32,22 @@
     <main>
         <section id="bottoni">
             <button type="button" id="player">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16">
-                <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/>
-              </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                    class="bi bi-play-fill" viewBox="0 0 16 16">
+                    <path
+                        d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z" />
+                </svg>
             </button>
-            <button type="button" id="salvaInLibreria">
-                <svg data-encore-id="icon" role="img" aria-hidden="true" viewBox="0 0 24 24">
+            <button type="button" id="salvaInLibreria" class="fixBtn">
+                <svg data-encore-id="icon" role="img" fill="currentColor" viewBox="0 0 24 24">
                     <path
                         d="M5.21 1.57a6.757 6.757 0 0 1 6.708 1.545.124.124 0 0 0 .165 0 6.741 6.741 0 0 1 5.715-1.78l.004.001a6.802 6.802 0 0 1 5.571 5.376v.003a6.689 6.689 0 0 1-1.49 5.655l-7.954 9.48a2.518 2.518 0 0 1-3.857 0L2.12 12.37A6.683 6.683 0 0 1 .627 6.714 6.757 6.757 0 0 1 5.21 1.57zm3.12 1.803a4.757 4.757 0 0 0-5.74 3.725l-.001.002a4.684 4.684 0 0 0 1.049 3.969l.009.01 7.958 9.485a.518.518 0 0 0 .79 0l7.968-9.495a4.688 4.688 0 0 0 1.049-3.965 4.803 4.803 0 0 0-3.931-3.794 4.74 4.74 0 0 0-4.023 1.256l-.008.008a2.123 2.123 0 0 1-2.9 0l-.007-.007a4.757 4.757 0 0 0-2.214-1.194z">
                     </path>
                 </svg>
             </button>
-            <button type="button" id="altreOpzioni">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots"
-                    viewBox="0 0 16 16">
+            <button type="button" id="altreOpzioni" class="fixBtn">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                    class="bi bi-three-dots" viewBox="0 0 16 16">
                     <path
                         d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3" />
                 </svg>
@@ -52,11 +58,13 @@
 
             <div id="rigaIntestazione">
                 <div class="row">
-                    <p>#</p>
-                    <p>TITOLO</p>
+                    <div class="colTitoli">
+                        <p class="mr-2">#</p>
+                        <p>TITOLO</p>
+                    </div>
                     <p>RIPRODUZIONI</p>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clock"
-                        viewBox="0 0 16 16">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-clock" viewBox="0 0 16 16">
                         <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71z" />
                         <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0" />
                     </svg>
@@ -65,109 +73,133 @@
 
             <div id="elencoBrani">
                 <div class="row">
-                    <div class="numBrano">1</div>
-                    <div class="titoloBrano">
-                        <h4>Montanelli - Intro</h4>
-                        <span class="artista">Pinguini Tattici Nucleari</span>
+                    <div class="colTitoli">
+                        <div class="numBrano mr-2">1</div>
+                        <div class="titoloBrano">
+                            <h4>Montanelli - Intro</h4>
+                            <span class="artista">Pinguini Tattici Nucleari</span>
+                        </div>
                     </div>
                     <div class="nRiproduzioni">694.578</div>
                     <div class="tempoBrano">1:28</div>
                 </div>
                 <div class="row">
-                    <div class="numBrano">2</div>
-                    <div class="titoloBrano">
-                        <h4>Sciare</h4>
-                        <span class="artista">Pinguini Tattici Nucleari</span>
+                    <div class="colTitoli">
+                        <div class="numBrano mr-2">2</div>
+                        <div class="titoloBrano">
+                            <h4>Sciare</h4>
+                            <span class="artista">Pinguini Tattici Nucleari</span>
+                        </div>
                     </div>
                     <div class="nRiproduzioni">5.585.178</div>
                     <div class="tempoBrano">4:41</div>
                 </div>
                 <div class="row">
-                    <div class="numBrano">3</div>
-                    <div class="titoloBrano">
-                        <h4>Gioventù brucata</h4>
-                        <span class="artista">Pinguini Tattici Nucleari</span>
+                    <div class="colTitoli">
+                        <div class="numBrano mr-2">3</div>
+                        <div class="titoloBrano">
+                            <h4>Gioventù brucata</h4>
+                            <span class="artista">Pinguini Tattici Nucleari</span>
+                        </div>
                     </div>
                     <div class="nRiproduzioni">3.421.342</div>
                     <div class="tempoBrano">5:24</div>
                 </div>
                 <div class="row">
-                    <div class="numBrano">4</div>
-                    <div class="titoloBrano">
-                        <h4>Ninnananna per genitori disattenti</h4>
-                        <span class="artista">Pinguini Tattici Nucleari</span>
+                    <div class="colTitoli">
+                        <div class="numBrano mr-2">4</div>
+                        <div class="titoloBrano">
+                            <h4>Ninnananna per genitori disattenti</h4>
+                            <span class="artista">Pinguini Tattici Nucleari</span>
+                        </div>
                     </div>
                     <div class="nRiproduzioni">2.365.629</div>
                     <div class="tempoBrano">4:04</div>
                 </div>
                 <div class="row">
-                    <div class="numBrano">5</div>
-                    <div class="titoloBrano">
-                        <h4>L'uomo che inventò il fuoco</h4>
-                        <span class="artista">Pinguini Tattici Nucleari</span>
+                    <div class="colTitoli">
+                        <div class="numBrano mr-2">5</div>
+                        <div class="titoloBrano">
+                            <h4>L'uomo che inventò il fuoco</h4>
+                            <span class="artista">Pinguini Tattici Nucleari</span>
+                        </div>
                     </div>
                     <div class="nRiproduzioni">3.417.862</div>
                     <div class="tempoBrano">5:23</div>
                 </div>
                 <div class="row">
-                    <div class="numBrano">6</div>
-                    <div class="titoloBrano">
-                        <h4>Irene</h4>
-                        <span class="artista">Pinguini Tattici Nucleari</span>
+                    <div class="colTitoli">
+                        <div class="numBrano mr-2">6</div>
+                        <div class="titoloBrano">
+                            <h4>Irene</h4>
+                            <span class="artista">Pinguini Tattici Nucleari</span>
+                        </div>
                     </div>
                     <div class="nRiproduzioni">17.249.689</div>
                     <div class="tempoBrano">5:11</div>
                 </div>
                 <div class="row">
-                    <div class="numBrano">7</div>
-                    <div class="titoloBrano">
-                        <h4>Senti che cantare questi!</h4>
-                        <span class="artista">Pinguini Tattici Nucleari</span>
+                    <div class="colTitoli">
+                        <div class="numBrano mr-2">7</div>
+                        <div class="titoloBrano">
+                            <h4>Senti che cantare questi!</h4>
+                            <span class="artista">Pinguini Tattici Nucleari</span>
+                        </div>
                     </div>
                     <div class="nRiproduzioni">760.496</div>
                     <div class="tempoBrano">1:11</div>
                 </div>
                 <div class="row">
-                    <div class="numBrano">8</div>
-                    <div class="titoloBrano">
-                        <h4>Pula</h4>
-                        <span class="artista">Pinguini Tattici Nucleari</span>
+                    <div class="colTitoli">
+                        <div class="numBrano mr-2">8</div>
+                        <div class="titoloBrano">
+                            <h4>Pula</h4>
+                            <span class="artista">Pinguini Tattici Nucleari</span>
+                        </div>
                     </div>
                     <div class="nRiproduzioni">899.318</div>
                     <div class="tempoBrano">5:46</div>
                 </div>
                 <div class="row">
-                    <div class="numBrano">9</div>
-                    <div class="titoloBrano">
-                        <h4>79</h4>
-                        <span class="artista">Pinguini Tattici Nucleari</span>
+                    <div class="colTitoli">
+                        <div class="numBrano mr-2">9</div>
+                        <div class="titoloBrano">
+                            <h4>79</h4>
+                            <span class="artista">Pinguini Tattici Nucleari</span>
+                        </div>
                     </div>
                     <div class="nRiproduzioni">1.231.254</div>
                     <div class="tempoBrano">4:19</div>
                 </div>
                 <div class="row">
-                    <div class="numBrano">10</div>
-                    <div class="titoloBrano">
-                        <h4>Gigi cinque ottavi</h4>
-                        <span class="artista">Pinguini Tattici Nucleari</span>
+                    <div class="colTitoli">
+                        <div class="numBrano mr-2">10</div>
+                        <div class="titoloBrano">
+                            <h4>Gigi cinque ottavi</h4>
+                            <span class="artista">Pinguini Tattici Nucleari</span>
+                        </div>
                     </div>
                     <div class="nRiproduzioni">965.231</div>
                     <div class="tempoBrano">4:27</div>
                 </div>
                 <div class="row">
-                    <div class="numBrano">11</div>
-                    <div class="titoloBrano">
-                        <h4>Tetris</h4>
-                        <span class="artista">Pinguini Tattici Nucleari</span>
+                    <div class="colTitoli">
+                        <div class="numBrano mr-2">11</div>
+                        <div class="titoloBrano">
+                            <h4>Tetris</h4>
+                            <span class="artista">Pinguini Tattici Nucleari</span>
+                        </div>
                     </div>
                     <div class="nRiproduzioni">1.523.102</div>
                     <div class="tempoBrano">5:50</div>
                 </div>
                 <div class="row">
-                    <div class="numBrano">12</div>
-                    <div class="titoloBrano">
-                        <h4>Il concorso musicale</h4>
-                        <span class="artista">Pinguini Tattici Nucleari</span>
+                    <div class="colTitoli">
+                        <div class="numBrano mr-2">12</div>
+                        <div class="titoloBrano">
+                            <h4>Il concorso musicale</h4>
+                            <span class="artista">Pinguini Tattici Nucleari</span>
+                        </div>
                     </div>
                     <div class="nRiproduzioni">23.520.789</div>
                     <div class="tempoBrano">5:31</div>
@@ -204,7 +236,8 @@
                     <p>2023</p>
                 </div>
                 <div class="cardAlbum">
-                    <img src="https://i.scdn.co/image/ab67616d00001e029d4cb13f84ae3a5fd0a93890" alt="Fuori dall'hype Ringo Star">
+                    <img src="https://i.scdn.co/image/ab67616d00001e029d4cb13f84ae3a5fd0a93890"
+                        alt="Fuori dall'hype Ringo Star">
                     <h4>Fuori dall'hype Ringo Star</h4>
                     <p>2020</p>
                 </div>
@@ -214,21 +247,21 @@
             <div id="footerTop">
                 <div class="linksGroup">
                     <ul>
-    
+
                     </ul>
                 </div>
                 <div class="linksGroup">
                     <ul>
-    
+
                     </ul>
                 </div>
                 <div class="linksGroup">
                     <ul>
-    
+
                     </ul>
                 </div>
                 <div class="linksIcons">
-                    
+
                 </div>
             </div>
             <div id="footerBottom">
@@ -244,5 +277,6 @@
             </div>
         </footer>
     </main>
+</div>
 </body>
 </html>
