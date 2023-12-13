@@ -9,6 +9,7 @@ const urlPlaylist = 'https://deezerdevs-deezer.p.rapidapi.com/search?q=playlist&
 const urlEminem = 'https://deezerdevs-deezer.p.rapidapi.com/search?q=eminem';
 const cardsContainerTop = document.querySelector('.cardsContainerTop')
 const cardsDesktop = document.querySelector('.cardsDesktop')
+const cardsContainerMobile = document.querySelector('.cardsContainerMobile')
 
 fetchApi(urlPlaylist ,options)
 showSongs(urlEminem,options)
@@ -74,9 +75,47 @@ async function showSongs(url, option) {
         container4 += createCardDesktop(array[i].album.cover_medium, array[i].title, array[i].album.title)
     }
     cardsContainerBot[4].innerHTML = container4
+
+    let cardsMobile = ''
+    for (let i = 0; i < 10; i++) {
+        cardsMobile += createMobileCards(array[i])
+    }
+    cardsContainerMobile.innerHTML = cardsMobile
 }
 
-    
+
+function createMobileCards (card) {
+    return `
+            <div class="cardMobile">
+                <div class="cardTopMobile">
+                    <img src="${card.album.cover_medium}">
+                    <div class="cardTopTextMobile">
+                        <p>${card.title}</p>
+                        <p>${card.title} from ${card.album.title}</p>
+                    </div>
+                </div>
+                <div class="cardBotMobile">
+                    <div class="cardBotMobileLeft">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#19D95F" class="bi bi-heart-fill" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314"/>
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
+                            <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0"/>
+                        </svg>
+                    </div>
+                    <div class="cardBotMobileRight">
+                        <p>${card.type}</p>
+                        <div>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-play-fill cardBotPlay" viewBox="0 0 16 16">
+                                <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `
+}
+
 function createContainer(categoryName) {
     return `
         <div class="otherAlbums">
