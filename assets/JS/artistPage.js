@@ -1,3 +1,4 @@
+/* Fetch from Deezer API */
 const url = "https://deezerdevs-deezer.p.rapidapi.com/search?q=eminem";
 const options = {
   method: "GET",
