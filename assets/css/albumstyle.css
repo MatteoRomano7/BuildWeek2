@@ -246,9 +246,11 @@ main {
 }
 
 .row {
-    padding: 0px 10px;
+    padding: 10px 60px 10px 20px;
     display: flex; 
-    margin-bottom: 20px; 
+    margin-bottom: 20px;
+    align-items: center;
+    border-radius: 5px;
 }
 
 .row-top{
@@ -265,6 +267,19 @@ main {
 .numBrano {
     font-size: 20px;
     flex-basis: 4%;
+    position: relative;
+}
+
+.numBrano span {
+    position: absolute;
+    top: -3px;
+    left: -5px;
+    opacity: 0;
+}
+
+.numBrano svg {
+    color: white;
+    width: 25px;
 }
 
 .titoloBrano {
@@ -279,6 +294,43 @@ main {
 .tempoBrano {
     text-align: right;
     flex-basis: 31%;
+    position: relative;
+}
+
+.tempoBrano span {
+    position: absolute;
+    top: -2px;
+    right: 70px;
+    opacity: 0;
+}
+
+.tempoBrano strong {
+    position: absolute;
+    top: -2px;
+    right: -40px;
+    opacity: 0;
+}
+
+.tempoBrano svg {
+    width: 20px;
+}
+
+.tempoBrano svg:hover {
+    color: white;
+    cursor: pointer;
+}
+
+#elencoBrani .row:hover {
+    background-color: rgba(255,255,255,0.1);
+}
+
+#elencoBrani .row:hover span,
+#elencoBrani .row:hover strong {
+    opacity: 1;
+}
+
+#elencoBrani .row:hover p {
+    opacity: 0;
 }
 
 #creditiAlbum {
@@ -371,6 +423,6 @@ address {
 }
 
 .cardAlbum .cardBtn {
-    transition-delay: 0.1s
+    transition-delay: 0.1s;
 }
 
