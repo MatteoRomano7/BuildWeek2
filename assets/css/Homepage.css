@@ -299,7 +299,7 @@ main{
 
 .cardTop {
     flex-basis: 48%;
-    height: 60px;
+    height: 50px;
     margin: 0 0 15px 0;
     display: flex;
     align-items: center;
@@ -315,13 +315,9 @@ main{
 }
 
 .cardTop img {
-    width: 35%;
+    width: 50px;
     height: 100%;
     box-shadow: 5px 0 20px -5px rgba(0, 0, 0, 0.3);
-}
-
-.cardTopText {
-    width: 65%;
 }
 
 .cardTop p {
@@ -342,10 +338,10 @@ main{
     border-radius: 9px;
     transition: background-color 0.2s ease;
 }
-
+/* 
 .cardMobile:last-of-type {
     margin: 10px 0;
-}
+} */
 
 .cardMobile:hover {
     background-color: rgba(255,255,255,0.2);
@@ -584,7 +580,6 @@ main{
 @media screen and (min-width:576px) {
     .cardTop {
         flex-basis: 48%;
-        height: 70px;
     }
 
     .cardsContainerMobile {
@@ -598,44 +593,32 @@ main{
     }
 }
 
-@media screen and (min-width:640px) {
-    .cardTop img {
-        width: 28%;
-    }
-
-    .cardTopText {
-        width: 72%;
-    }
-}
-
 @media screen and (min-width:768px) {
-    .cardTop {
-        flex-basis: 32%;
-        height: 80px;
-    }
-
-    .cardTop img {
-        width: 35%;
-    }
-
-    .cardTopText {
-        width: 65%;
-    }
-
     .cardsContainerMobile {
-        justify-content: space-evenly;
+        display: none;
     }
 
-    .cardMobile {
-        flex-basis: 28%;
+    .otherAlbums {
+        display: flex;
     }
 
-    .cardMobile:last-of-type {
-        justify-self: left;
+    .cardsContainerBot {
+        display: flex;
+    }
+
+    .cardBot {
+        flex-basis: 45%;
+        margin-bottom: 20px;
     }
 }
 
-@media screen and (min-width:1024px) {
+@media screen and (min-width:1025px) {
+    .cardBot {
+        flex-basis: 43%;
+    }
+}
+
+@media screen and (min-width:1200px) {
     .homepage {
         background-color: #212121;
     }
@@ -656,11 +639,12 @@ main{
         background-color: rgba(255,255,255,0.1);
     }
     
-    .cardTop img {
-        width: 25%;
+    .cardBot {
+        flex-basis: 29%;
     }
-    .cardTopText {
-        width: 75%;
+
+    .cardBot:last-of-type {
+        justify-self: baseline;
     }
 
     .cardsContainerMobile {
@@ -673,6 +657,7 @@ main{
 
     .cardsContainerBot {
         display: flex;
+        justify-content: space-evenly;
     }
 
     .homepageFooter {

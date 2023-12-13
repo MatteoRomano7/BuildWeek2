@@ -4,7 +4,7 @@
     padding: 2% 1% 2% 1%;
     color: white;
     width: 100%;
-    height: 106px;
+    height: 10vh;
     bottom: 0%;
     z-index: 100;
     box-sizing: border-box;
@@ -144,7 +144,7 @@
     }
 }
 
-@media screen and (max-width: 768px) { /*MOBILE*/
+@media screen and (max-width: 767px) { /*MOBILE*/
         .leftDiv h4, .leftDiv img{
             display: none;
         }
@@ -164,7 +164,7 @@
             padding: 1%;
             height: 70px;
             position: absolute;
-            top: 80%;
+            bottom: 80px;
             border-radius: 0; 
         }
         div{

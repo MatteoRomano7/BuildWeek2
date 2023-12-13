@@ -1,5 +1,11 @@
 #mainContainer{
     display: flex;
-    max-height: 89vh;
+    max-height: calc(100vh - 150px);
+}
+
+@media screen and (min-width:768px) {
+    #mainContainer{
+        max-height: 90vh;
+    }
 }
 
