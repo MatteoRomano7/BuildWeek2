@@ -10,7 +10,7 @@ const container = document.querySelector(".placeholder-categories");
 const searchForm = document.querySelector("form");
 const searchBar = document.querySelector("input");
 const showMoreContainer = document.querySelector(".show-more");
-let index = 0
+let index = 0;
 
 function removeAllElements() {
   while (container.firstChild) {
@@ -19,11 +19,29 @@ function removeAllElements() {
 }
 
 function searchResults(index = "") {
-  const searchText = searchBar.value;
+  const searchText = searchBar.value.trim().toLowerCase();
 
   fetch(`${endpoint}${searchText}${index}`, options)
     .then((response) => response.json())
     .then((data) => {
+      document.querySelector('h2').style.display = 'none'
+
+      if (data.hasOwnProperty('error')) {
+        const nothing = document.createElement('p')
+        nothing.innerText = "Invalid search query"
+        container.appendChild(nothing)
+        setTimeout(() => {location.reload()}, 2000);
+        return
+      }
+
+      if (data.data.length === 0) {
+        const nothing = document.createElement('p')
+        nothing.innerText = "No results were found matching your search query"
+        container.appendChild(nothing)
+        setTimeout(() => {location.reload()}, 2000);
+        return
+      }
+
       for (i = 0; i < data.data.length; i++) {
         let content = data.data[i];
         const card = document.createElement("div");
@@ -39,21 +57,23 @@ function searchResults(index = "") {
             `;
         container.appendChild(card);
       }
-      index = 0
-      console.log(data);
+      if (data.data.length < 25) {
+        moreButton.setAttribute('disabled', 'true')
+      }
+      showMoreContainer.style.display = "block";
+
+      index = 0;
     });
 }
 
 const moreButton = showMoreContainer.querySelector("button");
 moreButton.addEventListener("click", () => {
-    index += 25
+  index += 25;
   searchResults(`&index=${index}`);
 });
 searchForm.addEventListener("submit", removeAllElements);
-searchForm.addEventListener(
-  "submit",
-  () => (showMoreContainer.style.display = "block")
-);
+// searchForm.addEventListener("submit", () => {
+// });
 searchForm.addEventListener("submit", (e) => {
   e.preventDefault();
   searchResults();

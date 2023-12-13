@@ -1,8 +1,14 @@
-body, a {
+body, button {
     font-family: 'Circular';
     background-color: #222222;
+    color: white;
+
+}
+
+a, button {
     color:white;
     text-decoration: none;
+
 
 }
 
@@ -41,6 +47,7 @@ main {
     flex-wrap: wrap;
     justify-content: space-evenly;
     gap: 1rem;
+    margin-top: 1rem;
 }
 
 .card-placeholder {
@@ -83,4 +90,27 @@ img {
 
 .show-more {
     display: none;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.show-more button {
+    background-color: #3b3b3b;
+    border: 0;
+    color: white;
+    padding: 0.75rem;
+    border-radius: 3%;
+
+}
+
+.show-more button:hover {
+    background-color: #a1a1a1;
+}
+
+[disabled=true] {
+    color: gray !important;
+}
+
+[disabled=true]:hover {
+    background-color: #3b3b3b !important;
 }
