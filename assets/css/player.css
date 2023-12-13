@@ -17,8 +17,8 @@
 }
 
 .leftDiv img {
-    width: 30%;
-    margin: 0% 4% 2% 0%;
+    width: 25%;
+    margin: 1% 4% 2% 1%;
 }
 
 .leftDiv div {
@@ -163,7 +163,8 @@
             display: flex;
             padding: 1%;
             height: 70px;
-            top: 78%;
+            position: absolute;
+            top: 80%;
             border-radius: 0; 
         }
         div{
