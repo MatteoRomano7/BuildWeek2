@@ -50,10 +50,6 @@ function random(n) {
   return Math.round(Math.random() * n) + 1;
 }
 
-const tansitionTimePerPixel = 0.01;
-const textBoxes = document.querySelectorAll(
-  ".auto-playlists li"
-);
 
 generatePlaylists();
 dots();
