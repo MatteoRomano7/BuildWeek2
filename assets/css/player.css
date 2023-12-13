@@ -1,9 +1,13 @@
 #player{
-    margin-top: 20px;
     display: flex;
     background-color: #181818;
     padding: 2% 1% 2% 1%;
     color: white;
+    width: 100%;
+    height: 10vh;
+    bottom: 0%;
+    z-index: 100;
+    box-sizing: border-box;
 }
 
 /* left */
@@ -13,8 +17,8 @@
 }
 
 .leftDiv img {
-    width: 30%;
-    margin: 0% 4% 2% 0%;
+    width: 25%;
+    margin: 1% 4% 2% 1%;
 }
 
 .leftDiv div {
@@ -46,7 +50,7 @@
     align-items: center;
     display: flex;
     flex-direction: column;
-    margin-top: 25px;
+    justify-content: center;
 }
 
 .progress-container {
@@ -66,7 +70,7 @@
 
 .centralDiv .svg{
     display: flex;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 }
 
 .centralDiv .svg svg{
@@ -140,7 +144,7 @@
     }
 }
 
-@media screen and (max-width: 768px) { /*MOBILE*/
+@media screen and (max-width: 767px) { /*MOBILE*/
         .leftDiv h4, .leftDiv img{
             display: none;
         }
@@ -155,11 +159,13 @@
         }
         #player{
             flex-direction: column;
-            margin: 10px;
             border-radius: 25px;
             display: flex;
             padding: 1%;
-           
+            height: 70px;
+            position: absolute;
+            bottom: 80px;
+            border-radius: 0; 
         }
         div{
             display: block;
@@ -169,7 +175,7 @@
             flex-grow: 1;
             max-height: 90px;
             max-width: 50%;
-            overflow: hidden;
+            
         }
         
         .rightDiv svg{
@@ -177,7 +183,7 @@
             height: 40px;
             position: absolute;
             left: 66%;
-            top: 3.5%;
+            top: 15%;
             margin: 1%;
         }
         .leftDiv svg{
@@ -185,7 +191,7 @@
             width: 40px;
             height: 40px;
             left: 76%;
-            top: 3.5%;
+            top: 15%;
             margin: 1%;
             margin-right: 2%;
         }
@@ -195,27 +201,31 @@
             height: 40px;
             position: absolute;
             left: 86%;
-            top: 3.4%;
+            top: 15%;
             margin: 1%;
         }
 
         .leftDiv h2 {
-            margin-top: 30px;
+            margin-top: 25px;
             font-size: 20px;
-            width: 800px;
-            overflow: hidden;
+            
             position: relative;
             display: inline-block;
             white-space: nowrap;
-            animation: scrollText 5s linear infinite;
+            overflow: hidden;
+            animation: scrollText 6s linear infinite;
           }
           
           @keyframes scrollText {
             0% {
-              transform: translateX(70%);
+              transform: translateX(25%);
+              opacity: 0;
+            }
+            30%{
+                opacity: 1;
             }
             100% {
-              transform: translateX(0%);
+              transform: translateX(-120%);
             }
           }
     }
@@ -224,12 +234,13 @@
         .rightDiv svg, .leftDiv svg, .centralDiv svg {
             width: 20px;
             height: 20px;
-            top: 5%;
+            top: 33%;
         }
         .leftDiv h2{
             font-size: 14px;
-            margin-top: 34px;
+            margin-top: 30px;
         }
+        
     }
 
 
