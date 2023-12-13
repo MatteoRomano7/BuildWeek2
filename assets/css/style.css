@@ -9,3 +9,20 @@
     }
 }
 
+/* SCROLLBAR */
+
+::-webkit-scrollbar {
+width: 10px;
+}
+
+::-webkit-scrollbar-track {
+background: #242424; 
+}
+
+::-webkit-scrollbar-thumb {
+background: #3d3d3d; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+background: #505050; 
+}

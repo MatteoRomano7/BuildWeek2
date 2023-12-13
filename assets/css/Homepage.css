@@ -454,7 +454,7 @@ main{
 
 .cardBot {
     flex-basis: 17%;
-    background-color: rgba(255,255,255,0.025);
+    background-color: rgba(255,255,255,0.03);
     padding: 10px;
     border-radius: 15px;
     transition: background-color 0.5s ease;
@@ -638,9 +638,18 @@ main{
     .cardTop {
         background-color: rgba(255,255,255,0.1);
     }
+
+    .cardsContainerBot {
+        display: flex;
+        justify-content: flex-start;
+    }
     
     .cardBot {
-        flex-basis: 29%;
+        flex-basis: 28%;
+    }
+
+    .cardBot:nth-of-type(1), .cardBot:nth-of-type(2),  .cardBot:nth-of-type(4), .cardBot:nth-of-type(5){
+        margin-right: 2.4%;
     }
 
     .cardBot:last-of-type {
@@ -655,12 +664,44 @@ main{
         display: flex;
     }
 
-    .cardsContainerBot {
-        display: flex;
-        justify-content: space-evenly;
-    }
-
     .homepageFooter {
         display: block;
+    }
+}
+
+@media screen and (min-width:1400px) {
+    .cardTop {
+        flex-basis: 32%;
+    }
+    
+    .cardBot {
+        flex-basis: 21%;
+    }
+
+    .cardBot:nth-of-type(4) {
+        margin: 0 0 20px 0;
+    }
+
+    .cardBot:nth-of-type(1), .cardBot:nth-of-type(2),  .cardBot:nth-of-type(3), .cardBot:nth-of-type(5){
+        margin-right: 1.66%;
+    }
+}
+
+@media screen and (min-width:1800px) {
+    .cardsContainerBot {
+        justify-content: space-between;
+    }
+
+    .cardBot {
+        flex-basis: 17%;
+        margin: 0;
+    }
+
+    .cardBot:nth-of-type(4) {
+        margin: 0;
+    }
+
+    .cardBot:nth-of-type(1), .cardBot:nth-of-type(2),  .cardBot:nth-of-type(3), .cardBot:nth-of-type(5){
+        margin-right: 0;
     }
 }

@@ -1,9 +1,4 @@
-
-  svg {
-    color: grey;
-  }
-  
-  #friends {
+#friends {
     display: flex;
     align-items: center;
     margin-bottom: 2rem;
