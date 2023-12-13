@@ -248,7 +248,10 @@ ul {
 }
 
 /* Main */
-
+main{
+    
+    overflow: scroll;
+}
 /* Main top */
 
 .greetingAndIcons {
