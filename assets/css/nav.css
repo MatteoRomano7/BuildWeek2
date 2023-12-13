@@ -18,7 +18,6 @@ body {
 .sidebar.nav {
   position: fixed;
   bottom: 0;
-
   overflow-y: scroll;
   width: 100%;
 }
@@ -144,9 +143,11 @@ nav ul:last-child {
   }
 
   .sidebar.nav {
-    width: 300px;
+    min-width: 300px;
+    max-width: 300px;
     position: static;
   }
+
   .main-nav {
     display: block;
     border-bottom: 1px solid #2c2c2c;

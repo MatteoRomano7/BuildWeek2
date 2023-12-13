@@ -87,7 +87,7 @@ body {
     justify-self: center;
   }
 
-  @media screen and (max-width: 768px) { /*MOBILE*/
+  @media screen and (max-width: 1024px) { /*MOBILE*/
     .activitySection{
       display: none;
     }

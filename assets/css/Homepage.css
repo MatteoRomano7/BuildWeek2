@@ -249,8 +249,7 @@ ul {
 
 /* Main */
 main{
-    
-    overflow: scroll;
+    overflow-y: scroll;
 }
 /* Main top */
 
