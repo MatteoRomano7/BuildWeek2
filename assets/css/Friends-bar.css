@@ -1,14 +1,4 @@
-body {
-    font-family: Circular;
-    margin: 0;
-    padding: 0;
-    font-weight:lighter;
-  }
-  svg {
-    color: grey;
-  }
-  
-  #friends {
+#friends {
     display: flex;
     align-items: center;
     margin-bottom: 2rem;
@@ -33,13 +23,12 @@ body {
     background-color: black;
     color: #b3b3b3;
     max-height:100vh;
-    padding: 1rem;
   }
   
   .activitySection {
     background-color: black;
-    max-width: 600px;
-    padding: 20px;
+    min-width: 250px;
+    max-width: 250px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
   
@@ -50,8 +39,8 @@ body {
   }
   
   .avatar {
-    width: 3.5rem;
-    height: 3.5rem;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     margin-right: 15px;
   }
@@ -63,12 +52,13 @@ body {
   .activityDetails h3 {
     margin: 0 0 5px;
     font-size: 1rem;
-    color: grey;
+    font-weight: 600;
   }
   
   .activityDetails p {
     margin: 0;
-    font-size: 1rem;
+    font-size: 0.7rem;
+
     color: grey;
   }
   
@@ -85,9 +75,11 @@ body {
   .timeline {
     color: grey;
     justify-self: center;
+    align-self: baseline;
+    font-size: 0.7em;
   }
 
-  @media screen and (max-width: 768px) { /*MOBILE*/
+  @media screen and (max-width: 1024px) { /*MOBILE*/
     .activitySection{
       display: none;
     }
