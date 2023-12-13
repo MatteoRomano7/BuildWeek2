@@ -188,6 +188,11 @@ header {
     align-items: center;
 }
 
+.nomeArtista {
+    display: flex;
+    align-items: center;
+}
+
 .iconaArtista {
     width: 30px;
     overflow: hidden;
@@ -204,6 +209,66 @@ header {
     margin: 0 5px;
 }
 
+.releaseAlbum {
+    display: flex;
+}
+
+.albumWriteMobile {
+    display: none;
+}
+
+.dettagliBrani {
+    display: flex;
+}
+
+@media screen and (max-width:1024px) {
+    .headerTop {
+        display: none;
+    }
+
+    .albumWriteDesktop {
+        display: none;
+    }
+
+    #presentazioneAlbum {
+        flex-direction: column;
+    }
+
+    #fotoAlbum {
+        align-self: center;
+        margin: 0;
+    }
+
+    #fotoAlbum img {
+        width: 18rem;
+    }
+
+    #titoloArtistaAlbum {
+        align-self: flex-start;
+    }
+
+    #titoloArtistaAlbum h1 {
+        font-size: 2em;
+    }
+
+    #dettagliAlbum {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nomeArtista {
+        padding-bottom: 15px;
+    }
+
+    .albumWriteMobile {
+        display: block;
+    }
+
+    .dettagliBrani {
+        display: none;
+    }
+
+}
 
 /* MAIN */
 
@@ -218,8 +283,16 @@ main {
     padding: 30px;
 }
 
+#bottoni div {
+    display: inline;
+}
+
 #bottoni button {
     margin-right: 20px;
+}
+
+#playRandom {
+    display: none;
 }
 
 #player {
@@ -256,6 +329,23 @@ main {
 
 .fixBtn:hover {
     color: white;
+}
+
+@media screen and (max-width:1024px) {
+    #bottoni {
+        display: flex;
+        align-items: center;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+    }
+
+    #playRandom {
+        display: inline;
+    }
+
+    #altreOpzioni svg {
+        transform: rotate(90deg);
+    }
 }
 
 /*CONTENUTO ALBUM*/
@@ -369,15 +459,36 @@ main {
     margin-top: 40px;
 }
 
-address {
-    font-size: 0.7rem;
+@media screen and (max-width:1024px) {
+    #rigaIntestazione {
+        display: none;
+    }
+
+    .row {
+        padding: 0;
+        font-size: 1.3rem;
+    }
+
+    .numBrano, .nRiproduzioni, .tempoBrano {
+        display: none;
+    }
+
+    
 }
 
-
 /*SECTION DISCOGRAFIA*/
+
 #discografia {
     margin: 50px 0px 10px;
     padding: 0px 30px;
+}
+
+#creditiAlbum {
+    padding-bottom: 50px;
+}
+
+address {
+    font-size: 0.7rem;
 }
 
 #vediDiscografia {
