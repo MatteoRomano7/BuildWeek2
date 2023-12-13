@@ -462,3 +462,104 @@ address {
     transition-delay: 0.1s;
 }
 
+
+/*FOOTER*/
+.albumPageFooter {
+    display: none;
+    margin: 125px 0 0 0;
+    padding: 0px 30px;
+}
+
+/* Footer top */
+
+.footerNavTop {
+    display: flex;
+    padding: 0 0 20px 0;
+    border-bottom: 1px solid rgb(70, 70, 70);
+}
+
+.navTop {
+    display: flex;
+    justify-content: space-between;
+    width: 60%;
+}
+
+.navTitle {
+    font-size: 1.1em;
+}
+
+.navTop p {
+    color: white;
+}
+
+.navTop li {
+    margin: 15px 0;
+}
+
+.navTop li a:hover {
+    color: white;
+}
+
+.navLinks {
+    color: rgba(255,255,255,0.5);
+}
+
+.socialIcons {
+    width: 40%;
+    display: flex;
+    justify-content: end;
+}
+
+.socialIcons div {
+    margin: 0 5px;
+    height: 40px;
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    background-color: rgba(255,255,255,0.1);
+    transition: background-color 0.1s ease;
+}
+
+.socialIcons div:hover {
+    cursor: pointer;
+    background-color: rgba(255,255,255,0.3);
+}
+
+/* Footer bot */
+
+.footerNavBot {
+    font-size: 0.9em;
+    padding-top: 50px;
+    padding-bottom: 70px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.footerNavBot ul {
+    display: flex;
+    font-size: 0.9em;
+}
+
+.footerNavBot ul .navBotLinks {
+    text-decoration: none;
+    color: rgba(255,255,255,0.5);
+    margin: 0 10px 0 0;
+    transition: color 0.1s ease;
+}
+
+.footerNavBot ul .navBotLinks:hover {
+    color: rgba(255,255,255,0.8);
+}
+
+.footerNavBot p {
+    font-weight: 300;
+    color: rgba(255,255,255,0.7);
+}
+
+@media screen and (min-width:1024px) {
+    .albumPageFooter {
+        display: block;
+    }
+}
