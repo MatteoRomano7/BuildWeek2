@@ -28,6 +28,19 @@ a:hover {
 h4 {
     color: white;
     margin-bottom: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+h4.overflowing:hover {
+    overflow: visible;
+    transform: translateX(calc(-100% + 40px));
+    transition: all 3.4s linear;
+}
+
+.toolText {
+    overflow: hidden;
 }
 
 /* HEADER */
@@ -295,7 +308,7 @@ main {
     display: none;
 }
 
-#player {
+#player1 {
     width: 50px;
     height: 50px;
     border-radius: 50%;
@@ -303,7 +316,7 @@ main {
     border: none;
 }
 
-#player svg {
+#player1 svg {
     width: 30px;
     position: relative;
     top: 2px;
@@ -343,7 +356,7 @@ main {
         display: inline;
     }
 
-    #player {
+    #player1 {
         margin-right: 0 !important;
     }
 
