@@ -1,22 +1,23 @@
 /* Fetch from Deezer API */
-const url = "https://deezerdevs-deezer.p.rapidapi.com/search?q=eminem";
-const options = {
-  method: "GET",
-  headers: {
-    "X-RapidAPI-Key": "a605a3896bmsh1507f4a8a062864p1562ecjsn9f02d02f8e99",
-    "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
-  },
-};
+fetchApi();
 
-fetchApi(url, options);
-
-async function fetchApi(url, option) {
+async function fetchApi() {
   try {
-    const response = await fetch(url, option);
+    const artistID = `13`;
+    const url = `https://deezerdevs-deezer.p.rapidapi.com/artist/${artistID}`;
+    const options = {
+      method: "GET",
+      headers: {
+        "X-RapidAPI-Key": "a605a3896bmsh1507f4a8a062864p1562ecjsn9f02d02f8e99",
+        "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
+      },
+    };
+
+    const response = await fetch(url, options);
     const data = await response.json();
     console.log(data);
   } catch (error) {
-    alert("Errore nel caricamento");
+    console.error(error);
   }
 }
 
@@ -62,3 +63,23 @@ document.addEventListener("DOMContentLoaded", function () {
     scrollPos = scrollTop;
   });
 });
+
+let imageArtist = document.getElementById("imageArtist");
+let nameArtist = document.getElementById("imageArtist");
+let songTitle = document.getElementById("songtitle");
+let listenersArtist = document.getElementById("listenersArtist");
+let trackList = document.getElementById("trackList");
+let songTime = document.getElementById("songTime");
+
+function apiArtist() {
+  imageArtist.src = data.picture;
+  nameArtist.innerHTML = data.name;
+  listenersArtist.innerHTML = data.nb_fan;
+  trackList.innerHTML = `<li class="flexList">
+  <p class="number">1</p>
+  <img src="${data.picture_small}" alt="albumcover" class="artCover">
+  <h3 class="songTitle"></h3>
+  <p class="streams"></p>
+  <p class="songTime"></p>
+</li>`;
+}
