@@ -1,3 +1,4 @@
+/* const urldkjsa = new URLSearchParams(location.search) */
 const options = {
 	method: 'GET',
 	headers: {
@@ -24,10 +25,14 @@ async function fetchApi(url, option) {
     for (let i = 0; i < 6; i++) {
         cardsTop += `
         <div class="cardTop">
-            <img src="${array[i].album.cover_medium}" alt="albumLogo">
+            <a href="album.html?id=${array[i].id}">
+                <img src="${array[i].album.cover_medium}" alt="albumLogo">
+            </a>
             <div class="cardTopText">
-                <p>${array[i].album.title}</p>
-                <p class="cardId">${array[i].id}</p>
+                <a href="album.html?id=${array[i].id}">
+                    <p>${array[i].album.title}</p>
+                    <p class="cardId">${array[i].id}</p>
+                </a>
             </div>
             <button type="button" id="player1" class="btn cardTopPlayer">
             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16">
@@ -88,6 +93,7 @@ async function showSongs(url, option) {
         container3 += createCardDesktop(array[i].album.cover_medium, array[i].title, array[i].album.title, array[i].id)
     }
     cardsContainerBot[3].innerHTML = container3
+    
     let container4 = ''
     for (let i = 20; i < 25; i++) {
         container4 += createCardDesktop(array[i].album.cover_medium, array[i].title, array[i].album.title, array[i].id)
@@ -111,6 +117,21 @@ async function showSongs(url, option) {
             btnsPlayer1[i].classList.remove('show')
         })
     }
+
+    const cardMobileHearts = document.querySelectorAll('.cardMobileHeart')
+
+    for (let i = 0; i < cardMobileHearts.length; i++) {
+        let isHeartFilled = 'none'
+        cardMobileHearts[i].addEventListener('click', () => {
+            if (isHeartFilled === 'none') {
+                cardMobileHearts[i].style.fill = '#1ed760'
+                isHeartFilled = 'filled'
+            } else {
+                cardMobileHearts[i].style.fill = 'gray'
+                isHeartFilled = 'none'
+            }
+        })
+    }
 }
 
 
@@ -118,15 +139,19 @@ function createMobileCards (card) {
     return `
             <div class="cardMobile">
                 <div class="cardTopMobile">
-                    <img src="${card.album.cover_medium}">
+                    <a href="album.html?id=${card.id}">
+                        <img src="${card.album.cover_medium}">
+                    </a>
                     <div class="cardTopTextMobile">
-                        <p>${card.title}</p>
-                        <p>${card.title} from ${card.album.title}</p>
+                        <a href="album.html?id=${card.id}">
+                            <p>${card.title}</p>
+                            <p>${card.title} from ${card.album.title}</p>
+                        </a>
                     </div>
                 </div>
                 <div class="cardBotMobile">
                     <div class="cardBotMobileLeft">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#19D95F" class="bi bi-heart-fill" viewBox="0 0 16 16">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="gray" class="bi bi-heart-fill cardMobileHeart" viewBox="0 0 16 16">
                             <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314"/>
                         </svg>
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
@@ -163,19 +188,23 @@ function createContainer(categoryName) {
 
 function createCardDesktop(songImg, songTitle, songAlbum, trackId) {
     return `
-    <div class="cardBot">
-        <div class="cardBotImgBtn">
-        <img class="cardBotImg" src="${songImg}" alt="playlistAlbumImage">
-            <button type="button" id="player1" class="btn cardBotPlayer">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16">
-                    <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z" />
-                </svg>
-            </button>
+        <div class="cardBot">
+            <div class="cardBotImgBtn">
+            <a href="album.html?id=${trackId}">
+                <img class="cardBotImg" src="${songImg}" alt="playlistAlbumImage">
+            </a>
+                <button type="button" id="player1" class="btn cardBotPlayer">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16">
+                        <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z" />
+                    </svg>
+                </button>
+            </div>
+            <a href="album.html?id=${trackId}">
+                <p class="cardId">${trackId}</p>
+                <p class="cardBotTitle">${songTitle}</p>
+                <p class="cardBotDesc">${songTitle} from Album: ${songAlbum}</p>
+            </a>
         </div>
-        <p class="cardId">${trackId}</p>
-        <p class="cardBotTitle">${songTitle}</p>
-        <p class="cardBotDesc">${songTitle} from Album: ${songAlbum}</p>
-    </div>
     `
 }
 
