@@ -420,6 +420,10 @@ main {
     margin-bottom: 0;
 }
 
+.row .unfilledHeart {
+    margin-top: -3px;
+}
+
 .colTitoli {
     display: flex;
     align-items: center;
@@ -447,6 +451,7 @@ main {
 
 .titoloBrano {
     flex-basis: 45%;
+    max-width: 70%;
 }
 
 .nRiproduzioni {
@@ -735,8 +740,12 @@ address {
     #altriAlbum {
         flex-wrap: wrap;
     }
-}
 
+    .titoloBrano {
+        max-width: 40%;
+    }
+}
+    
 
 /*
 

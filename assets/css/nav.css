@@ -45,6 +45,11 @@ a.current-page {
   justify-content: space-evenly;
 }
 
+.main-nav li {
+  flex-basis: 33.3%;
+  justify-content: center;
+}
+
 .main-nav a {
   display: flex;
   flex-direction: column;
@@ -165,6 +170,8 @@ ul li:nth-child(3) .icon-box {
     background-color: black;
   
   }
+
+
   
   .main-nav a {
     flex-direction: row;
@@ -174,6 +181,11 @@ ul li:nth-child(3) .icon-box {
     margin-right: 1rem;
   }
 
+  .main-nav li {
+    flex-basis: 100%;
+    justify-content: flex-start;
+  }
+  
   
   .secondary-nav {
     display: block;
