@@ -487,6 +487,14 @@ main {
         justify-content: space-between;
     }
 
+    #elencoBrani .row:hover {
+        background-color: initial;
+    }
+
+    #elencoBrani .row:hover .artista a {
+        color: #a7a7a7;
+    }
+
     .numBrano, .nRiproduzioni, .tempoBrano {
         display: none;
     }
@@ -495,6 +503,9 @@ main {
         display: block;
     }
     
+    a:hover {
+        text-decoration: none;
+    }
 }
 
 /*SECTION DISCOGRAFIA*/
@@ -624,12 +635,16 @@ address {
     }
 
     .cardAlbum {
-        width: 35%;
+        width: 37%;
         background-color: transparent;
         padding: 0;
         border-radius: 0;
         flex: 0 0 auto;
         margin-right: 25px;
+    }
+
+    .cardAlbum:hover {
+        background-color: initial;
     }
 
     .cardAlbum img {
