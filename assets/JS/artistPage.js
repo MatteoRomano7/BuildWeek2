@@ -3,8 +3,8 @@ fetchApi();
 
 async function fetchApi() {
   try {
-    const artistID = `13`;
-    const url = `https://deezerdevs-deezer.p.rapidapi.com/artist/${artistID}`;
+    const artist = "Eminem";
+    const url = `https://deezerdevs-deezer.p.rapidapi.com/search?q=${artist}`;
     const options = {
       method: "GET",
       headers: {
@@ -65,21 +65,28 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 let imageArtist = document.getElementById("imageArtist");
-let nameArtist = document.getElementById("imageArtist");
+let nameArtist = document.getElementById("nameArtist");
 let songTitle = document.getElementById("songtitle");
 let listenersArtist = document.getElementById("listenersArtist");
 let trackList = document.getElementById("trackList");
 let songTime = document.getElementById("songTime");
 
 function apiArtist() {
-  imageArtist.src = data.picture;
-  nameArtist.innerHTML = data.name;
-  listenersArtist.innerHTML = data.nb_fan;
-  trackList.innerHTML = `<li class="flexList">
-  <p class="number">1</p>
-  <img src="${data.picture_small}" alt="albumcover" class="artCover">
-  <h3 class="songTitle"></h3>
-  <p class="streams"></p>
-  <p class="songTime"></p>
-</li>`;
+  imageArtist.src = data.array[0].artist.picture;
+  nameArtist.innerHTML = artist;
+  /*   listenersArtist.innerHTML = ; */
+  for (let i = 0; i < data.array.length; i++) {
+    let trackDurationMinute = Math.floor(data.array[i].duration / 60);
+    let trackDurationSeconds = data.array.duration - trackDurationMinute * 60;
+    let trackDuration = `${trackDurationMinute} :${trackDurationSeconds}`;
+    trackList.innerHTML += `<li class="flexList">
+    <p class="number">${i + 1}</p>
+    <img src="${data.array[i].md5_image}" alt="albumcover" class="artCover">
+    <h3 class="songTitle">${data.array[i].title}</h3>
+    <p class="streams">${data.array[i].rank}</p>
+    <p class="songTime">${trackDuration}</p>
+  </li>`;
+  }
 }
+
+apiArtist();
