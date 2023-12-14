@@ -163,7 +163,8 @@
             display: flex;
             padding: 1%;
             height: 70px;
-            position: absolute;
+            position: fixed;
+            z-index: 20;
             bottom: 80px;
             border-radius: 0; 
         }

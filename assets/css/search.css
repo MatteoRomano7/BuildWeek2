@@ -18,19 +18,20 @@ h1 {
 }
 
 input {
-    width: 100%;
+    width: 80%;
     font-family: 'Circular';
     background-color: #3b3b3b;
     color: white;
     height: 3rem;
     padding: 0.5rem;
     border: 0;
-    border-radius: 2%;
     box-sizing: border-box;
 }
 
 form {
     width: 100%;
+    display: flex;
+    gap: 2px;
 }
 
 h2 {
@@ -94,12 +95,14 @@ img {
     margin-top: 1rem;
 }
 
-.show-more button {
+button {
     background-color: #3b3b3b;
     border: 0;
     color: white;
     padding: 0.75rem;
-    border-radius: 3%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
 }
 
@@ -113,4 +116,13 @@ img {
 
 [disabled=true]:hover {
     background-color: #3b3b3b !important;
+}
+
+[type=submit] {
+    width: 15%;
+    color: #a1a1a1;
+}
+
+[type=submit]:hover {
+    color: white;
 }

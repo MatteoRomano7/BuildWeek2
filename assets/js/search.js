@@ -57,6 +57,7 @@ function searchResults(index = "") {
             `;
         container.appendChild(card);
       }
+      console.log(data)
       if (data.data.length < 25) {
         moreButton.setAttribute('disabled', 'true')
       }
