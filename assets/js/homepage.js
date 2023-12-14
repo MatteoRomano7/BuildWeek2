@@ -1,27 +1,27 @@
 /* const urldkjsa = new URLSearchParams(location.search) */
 const options = {
-	method: 'GET',
-	headers: {
-		'X-RapidAPI-Key': '73999ce929msh48c7f5b93fbd6f4p173171jsn85f07c73f8ec',
-		'X-RapidAPI-Host': 'deezerdevs-deezer.p.rapidapi.com'
-	}
+  method: "GET",
+  headers: {
+    "X-RapidAPI-Key": "73999ce929msh48c7f5b93fbd6f4p173171jsn85f07c73f8ec",
+    "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
+  },
 };
-const urlPlaylist = 'https://deezerdevs-deezer.p.rapidapi.com/search?q=playlist&index=25';
-const urlEminem = 'https://deezerdevs-deezer.p.rapidapi.com/search?q=eminem';
-const cardsContainerTop = document.querySelector('.cardsContainerTop')
-const cardsDesktop = document.querySelector('.cardsDesktop')
-const cardsContainerMobile = document.querySelector('.cardsContainerMobile')
-
+const urlPlaylist =
+  "https://deezerdevs-deezer.p.rapidapi.com/search?q=playlist&index=25";
+const urlEminem = "https://deezerdevs-deezer.p.rapidapi.com/search?q=eminem";
+const cardsContainerTop = document.querySelector(".cardsContainerTop");
+const cardsDesktop = document.querySelector(".cardsDesktop");
+const cardsContainerMobile = document.querySelector(".cardsContainerMobile");
 
 async function fetchApi(url, option) {
-    const response = await fetch(url, option)
-    const data = await response.json()
-    const array = data.data
-    console.log(data)
+  const response = await fetch(url, option);
+  const data = await response.json();
+  const array = data.data;
+  console.log(data);
 
-    let cardsTop = ''
-    for (let i = 0; i < 6; i++) {
-        cardsTop += `
+  let cardsTop = "";
+  for (let i = 0; i < 6; i++) {
+    cardsTop += `
         <div class="cardTop">
             <a href="album.html?id=${array[i].id}">
                 <img src="${array[i].album.cover_medium}" alt="albumLogo">
@@ -38,103 +38,146 @@ async function fetchApi(url, option) {
             </svg>
          </button>
         </div>
-        `
-    }
-    cardsContainerTop.innerHTML = cardsTop
+        `;
+  }
+  cardsContainerTop.innerHTML = cardsTop;
 
-    const ArrayCardsTop = document.querySelectorAll('.cardTop')
-    const btnsPlayer1 = document.querySelectorAll('.cardTopPlayer')
+  const ArrayCardsTop = document.querySelectorAll(".cardTop");
+  const btnsPlayer1 = document.querySelectorAll(".cardTopPlayer");
 
-    for (let i = 0; i < ArrayCardsTop.length; i++) {
-        ArrayCardsTop[i].addEventListener('mouseover', () => {
-            btnsPlayer1[i].classList.add('show')
-        })
-        ArrayCardsTop[i].addEventListener('mouseout', () => {
-            btnsPlayer1[i].classList.remove('show')
-        })
-    }
+  for (let i = 0; i < ArrayCardsTop.length; i++) {
+    ArrayCardsTop[i].addEventListener("mouseover", () => {
+      btnsPlayer1[i].classList.add("show");
+    });
+    ArrayCardsTop[i].addEventListener("mouseout", () => {
+      btnsPlayer1[i].classList.remove("show");
+    });
+  }
 }
 
 async function showSongs(url, option) {
-    const response = await fetch(url, option)
-    const data = await response.json()
-    const array = data.data
+  const response = await fetch(url, option);
+  const data = await response.json();
+  const array = data.data;
 
-    let cardsCategoryDesktop = ''
-    for (let i = 0; i < 5; i++) {
-       cardsCategoryDesktop += createContainer(array[i].artist.name)
-    }
-    cardsDesktop.innerHTML = cardsCategoryDesktop
+  let cardsCategoryDesktop = "";
+  for (let i = 0; i < 5; i++) {
+    cardsCategoryDesktop += createContainer(array[i].artist.name);
+  }
+  cardsDesktop.innerHTML = cardsCategoryDesktop;
 
-    const cardsContainerBot = document.querySelectorAll('.cardsContainerBot')
+  const cardsContainerBot = document.querySelectorAll(".cardsContainerBot");
 
-    let container0 = ''
-    for (let i = 0; i < 5; i++) {
-        container0 += createCardDesktop(array[i].album.cover_medium, array[i].title, array[i].album.title, array[i].id)
-    }
-    cardsContainerBot[0].innerHTML = container0
+  let container0 = "";
+  for (let i = 0; i < 5; i++) {
+    container0 += createCardDesktop(
+      array[i].album.cover_medium,
+      array[i].title,
+      array[i].album.title,
+      array[i].id
+    );
+  }
+  cardsContainerBot[0].innerHTML = container0;
 
-    let container1 = ''
-    for (let i = 5; i < 10; i++) {
-        container1 += createCardDesktop(array[i].album.cover_medium, array[i].title, array[i].album.title, array[i].id)
-    }
-    cardsContainerBot[1].innerHTML = container1
+  let container1 = "";
+  for (let i = 5; i < 10; i++) {
+    container1 += createCardDesktop(
+      array[i].album.cover_medium,
+      array[i].title,
+      array[i].album.title,
+      array[i].id
+    );
+  }
+  cardsContainerBot[1].innerHTML = container1;
 
-    let container2 = ''
-    for (let i = 10; i < 15; i++) {
-        container2 += createCardDesktop(array[i].album.cover_medium, array[i].title, array[i].album.title, array[i].id)
-    }
-    cardsContainerBot[2].innerHTML = container2
+  let container2 = "";
+  for (let i = 10; i < 15; i++) {
+    container2 += createCardDesktop(
+      array[i].album.cover_medium,
+      array[i].title,
+      array[i].album.title,
+      array[i].id
+    );
+  }
+  cardsContainerBot[2].innerHTML = container2;
 
-    let container3 = ''
-    for (let i = 15; i < 20; i++) {
-        container3 += createCardDesktop(array[i].album.cover_medium, array[i].title, array[i].album.title, array[i].id)
-    }
-    cardsContainerBot[3].innerHTML = container3
-    
-    let container4 = ''
-    for (let i = 20; i < 25; i++) {
-        container4 += createCardDesktop(array[i].album.cover_medium, array[i].title, array[i].album.title, array[i].id)
-    }
-    cardsContainerBot[4].innerHTML = container4
+  let container3 = "";
+  for (let i = 15; i < 20; i++) {
+    container3 += createCardDesktop(
+      array[i].album.cover_medium,
+      array[i].title,
+      array[i].album.title,
+      array[i].id
+    );
+  }
+  cardsContainerBot[3].innerHTML = container3;
 
-    let cardsMobile = ''
-    for (let i = 0; i < 10; i++) {
-        cardsMobile += createMobileCards(array[i])
-    }
-    cardsContainerMobile.innerHTML = cardsMobile
+  let container4 = "";
+  for (let i = 20; i < 25; i++) {
+    container4 += createCardDesktop(
+      array[i].album.cover_medium,
+      array[i].title,
+      array[i].album.title,
+      array[i].id
+    );
+  }
+  cardsContainerBot[4].innerHTML = container4;
 
-    const cardsBot = document.querySelectorAll('.cardBot')
-    const btnsPlayer1 = document.querySelectorAll('.cardBotPlayer')
+  let cardsMobile = "";
+  for (let i = 0; i < 10; i++) {
+    cardsMobile += createMobileCards(array[i]);
+  }
+  cardsContainerMobile.innerHTML = cardsMobile;
 
-    for (let i = 0; i < cardsBot.length; i++) {
-        cardsBot[i].addEventListener('mouseover', () => {
-            btnsPlayer1[i].classList.add('show')
-        })
-        cardsBot[i].addEventListener('mouseout', () => {
-            btnsPlayer1[i].classList.remove('show')
-        })
-    }
+  const cardsBot = document.querySelectorAll(".cardBot");
+  const btnsPlayer1 = document.querySelectorAll(".cardBotPlayer");
 
-    const cardMobileHearts = document.querySelectorAll('.cardMobileHeart')
+  for (let i = 0; i < cardsBot.length; i++) {
+    cardsBot[i].addEventListener("mouseover", () => {
+      btnsPlayer1[i].classList.add("show");
+    });
+    cardsBot[i].addEventListener("mouseout", () => {
+      btnsPlayer1[i].classList.remove("show");
+    });
+  }
 
-    for (let i = 0; i < cardMobileHearts.length; i++) {
-        let isHeartFilled = 'none'
-        cardMobileHearts[i].addEventListener('click', () => {
-            if (isHeartFilled === 'none') {
-                cardMobileHearts[i].style.fill = '#1ed760'
-                isHeartFilled = 'filled'
-            } else {
-                cardMobileHearts[i].style.fill = 'gray'
-                isHeartFilled = 'none'
-            }
-        })
-    }
+  const cardMobileHearts = document.querySelectorAll(".cardMobileHeart");
+
+  for (let i = 0; i < cardMobileHearts.length; i++) {
+    let isHeartFilled = "none";
+    cardMobileHearts[i].addEventListener("click", () => {
+      if (isHeartFilled === "none") {
+        cardMobileHearts[i].style.fill = "#1ed760";
+        isHeartFilled = "filled";
+      } else {
+        cardMobileHearts[i].style.fill = "gray";
+        isHeartFilled = "none";
+      }
+    });
+  }
+
+  const playButtons = document.querySelectorAll(".pepe");
+  for (i = 0; i < playButtons.length; i++) {
+    playButtons[i].addEventListener("click", function () {
+      let songId = this.nextElementSibling.innerText;
+      fetch(`https://deezerdevs-deezer.p.rapidapi.com/track/${songId}`, options)
+        .then((response) => response.json())
+        .then((data) => {
+            const audioElem = document.querySelector('audio')
+            audioElem.setAttribute('src', data.preview)
+            isPlaying = false
+            togglePlayback()
+        });
+    });
+  }
+
 }
 
+function testShit() {
+}
 
-function createMobileCards (card) {
-    return `
+function createMobileCards(card) {
+  return `
             <div class="cardMobile">
                 <div class="cardTopMobile">
                     <a href="album.html?id=${card.id}">
@@ -169,11 +212,11 @@ function createMobileCards (card) {
                     </div>
                 </div>
             </div>
-        `
+        `;
 }
 
 function createContainer(categoryName) {
-    return `
+  return `
         <div class="otherAlbums">
             <h3>${categoryName}</h3>
             <p>VISUALIZZA TUTTO</p>
@@ -181,30 +224,30 @@ function createContainer(categoryName) {
         <div class="cardsContainerBot">
             
         </div>
-    `
+    `;
 }
 
 function createCardDesktop(songImg, songTitle, songAlbum, trackId) {
-    return `
+  return `
         <div class="cardBot">
             <div class="cardBotImgBtn">
             <a href="album.html?id=${trackId}">
                 <img class="cardBotImg" src="${songImg}" alt="playlistAlbumImage">
             </a>
-                <button type="button" id="player1" class="btn cardBotPlayer">
+                <button type="button" id="player1" class="btn cardBotPlayer pepe">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16">
                         <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z" />
                     </svg>
                 </button>
+                <p class="cardId">${trackId}</p>
             </div>
             <a href="album.html?id=${trackId}">
-                <p class="cardId">${trackId}</p>
                 <p class="cardBotTitle">${songTitle}</p>
                 <p class="cardBotDesc">${songTitle} from Album: ${songAlbum}</p>
             </a>
         </div>
-    `
+    `;
 }
 
-fetchApi(urlPlaylist ,options)
-showSongs(urlEminem,options)
+fetchApi(urlPlaylist, options);
+showSongs(urlEminem, options);

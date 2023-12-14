@@ -63,13 +63,6 @@ function searchResults(index = "") {
             `;
         container.appendChild(card);
       }
-      const names = [];
-      for (elem of data.data) {
-        let name = elem.artist.name;
-        names.push(name);
-      }
-      names.forEach((elem) => {names.find(elem)});
-      console.log(names);
       if (data.data.length < 25) {
         moreButton.setAttribute("disabled", "true");
       }

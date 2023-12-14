@@ -52,7 +52,7 @@ button {
 }
 
 .searchPage .show-more {
-  /* display: none; */
+  display: none;
   text-align: center;
   margin-top: 1rem;
 }
