@@ -1,10 +1,4 @@
 /* const urldkjsa = new URLSearchParams(location.search) */
-
-const urlPlaylist = 'https://deezerdevs-deezer.p.rapidapi.com/search?q=playlist&index=25';
-const urlEminem = 'https://deezerdevs-deezer.p.rapidapi.com/search?q=eminem';
-const cardsContainerTop = document.querySelector('.cardsContainerTop')
-const cardsDesktop = document.querySelector('.cardsDesktop')
-const cardsContainerMobile = document.querySelector('.cardsContainerMobile')
 const options = {
 	method: 'GET',
 	headers: {
@@ -12,6 +6,26 @@ const options = {
 		'X-RapidAPI-Host': 'deezerdevs-deezer.p.rapidapi.com'
 	}
 }
+const urlPlaylist = 'https://deezerdevs-deezer.p.rapidapi.com/search?q=playlist&index=25';
+const urlEminem = 'https://deezerdevs-deezer.p.rapidapi.com/search?q=eminem';
+const cardsContainerTop = document.querySelector('.cardsContainerTop')
+const cardsDesktop = document.querySelector('.cardsDesktop')
+const cardsContainerMobile = document.querySelector('.cardsContainerMobile')
+const headerMid = document.querySelector('.headerMid')
+const headerBot = document.querySelector('.headerBot')
+const showAnnunci = document.querySelector('.showAnnunci')
+const hideAnnunci = document.querySelector('.hideAnnunci')
+
+hideAnnunci.addEventListener('click', () => {
+    headerMid.style.display = 'block'
+    headerBot.style.display = 'none'
+})
+
+showAnnunci.addEventListener('click', () => {
+    headerMid.style.display = 'none'
+    headerBot.style.display = 'flex'
+})
+
 
 async function fetchApi(url, option) {
     const response = await fetch(url, option)
