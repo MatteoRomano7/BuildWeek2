@@ -1,14 +1,5 @@
 import { playlists } from "../js/playlists.js";
 
-const endpoint = "https://deezerdevs-deezer.p.rapidapi.com/";
-const options = {
-  method: "GET",
-  headers: {
-    "X-RapidAPI-Key": "8b36f7f0e4msh713a7788113b5dfp1c91f9jsna6e735e2137f",
-    "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
-  },
-};
-
 function pass() {
   return;
 }
@@ -20,7 +11,7 @@ function generatePlaylists() {
 
     playlistBox.innerHTML += `
     
-    <div><li><a href="#" title="${playlist}">${playlist}</a></li></div>
+    <div><li><a href="https://open.spotify.com/search/${playlist}" target="blank" title="${playlist}">${playlist}</a></li></div>
     `;
   }
 }

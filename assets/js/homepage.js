@@ -11,8 +11,6 @@ const cardsContainerTop = document.querySelector('.cardsContainerTop')
 const cardsDesktop = document.querySelector('.cardsDesktop')
 const cardsContainerMobile = document.querySelector('.cardsContainerMobile')
 
-fetchApi(urlPlaylist ,options)
-showSongs(urlEminem,options)
 
 async function fetchApi(url, option) {
     const response = await fetch(url, option)
@@ -138,28 +136,5 @@ function createCardDesktop(songImg, songTitle, songAlbum) {
     `
 }
 
-// DROPDOWN JS
-
-const dropdown = document.querySelector('.dropdown')
-const dropdownMenu = document.querySelector('.dropdownMenu')
-
-let isDropdownVisible = 'hidden'
-
-dropdown.addEventListener('click', () => {
-    if (isDropdownVisible === 'hidden') {
-        dropdownMenu.classList.add('show')
-        isDropdownVisible = 'visible'
-    } else {
-        dropdownMenu.classList.remove('show')
-        isDropdownVisible = 'hidden'
-    }
-})
-
-document.addEventListener('click', (event) => {
-    const isClickInsideDrowdown = dropdown.contains(event.target);
-
-    if (!isClickInsideDrowdown) {
-        dropdownMenu.classList.remove('show')
-        isDropdownVisible = 'hidden'
-    }
-})
+fetchApi(urlPlaylist ,options)
+showSongs(urlEminem,options)
