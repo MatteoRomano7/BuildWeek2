@@ -17,6 +17,7 @@ heartFill.addEventListener('click', heartFillBtn)
 
 
 //CENTRAL PLAYER
+const player = document.getElementById('player')
 const audioPlayer = document.getElementById('audioPlayer');
 const progressElement = document.getElementById('progress')
 const timerElement = document.querySelector('.timer')
@@ -257,3 +258,47 @@ function VolumeMuteBtn() {
 
 volumeUp.addEventListener('click', VolumeUpBtn)
 volumeMute.addEventListener('click', VolumeMuteBtn)
+
+//start
+
+
+async function fetchData() {
+  try {
+      let trackId = '1109739';
+      const url = `https://deezerdevs-deezer.p.rapidapi.com/track/${trackId}`;
+
+      const options = {
+          method: 'GET',
+          headers: {
+              'X-RapidAPI-Key': 'e851cdc811mshe7e16f349b95bfep185932jsn67fb1834f7cb',
+              'X-RapidAPI-Host': 'deezerdevs-deezer.p.rapidapi.com'
+          }
+      };
+
+      const response = await fetch(url, options);
+      const data = await response.json();
+      console.log(data);
+  } catch (error) {
+      console.error(error);
+  }
+}
+
+fetchData();
+
+
+let playerTrackImg = document.getElementById("playerTrackImg")
+let playerSongName = document.getElementById("playerSongName")
+let playerArtistName = document.getElementById("playerArtistName")
+let player1 = document.querySelectorAll("#player1")
+
+function startSong(){
+    isPlaying = false
+    playerTrackImg.src = data.artist.picture_small
+    playerSongName.innerHTML = data.title
+    playerArtistName.innerHTML = data.artist.name
+    duration = data.duration
+}
+
+player1.addEventListener('click', resetTimer);
+player1.addEventListener('click', startSong);
+  
