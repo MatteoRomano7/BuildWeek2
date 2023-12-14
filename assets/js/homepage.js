@@ -1,17 +1,17 @@
 /* const urldkjsa = new URLSearchParams(location.search) */
+
+const urlPlaylist = 'https://deezerdevs-deezer.p.rapidapi.com/search?q=playlist&index=25';
+const urlEminem = 'https://deezerdevs-deezer.p.rapidapi.com/search?q=eminem';
+const cardsContainerTop = document.querySelector('.cardsContainerTop')
+const cardsDesktop = document.querySelector('.cardsDesktop')
+const cardsContainerMobile = document.querySelector('.cardsContainerMobile')
 const options = {
 	method: 'GET',
 	headers: {
 		'X-RapidAPI-Key': '73999ce929msh48c7f5b93fbd6f4p173171jsn85f07c73f8ec',
 		'X-RapidAPI-Host': 'deezerdevs-deezer.p.rapidapi.com'
 	}
-};
-const urlPlaylist = 'https://deezerdevs-deezer.p.rapidapi.com/search?q=playlist&index=25';
-const urlEminem = 'https://deezerdevs-deezer.p.rapidapi.com/search?q=eminem';
-const cardsContainerTop = document.querySelector('.cardsContainerTop')
-const cardsDesktop = document.querySelector('.cardsDesktop')
-const cardsContainerMobile = document.querySelector('.cardsContainerMobile')
-
+}
 
 async function fetchApi(url, option) {
     const response = await fetch(url, option)

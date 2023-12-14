@@ -246,9 +246,7 @@ ul {
 }
 
 /* Main */
-main{
-    overflow-y: scroll;
-}
+
 /* Main top */
 
 .greetingAndIcons {
@@ -671,6 +669,9 @@ main{
 }
 
 @media screen and (min-width:768px) {
+    main{
+        overflow-y: scroll;
+    }
     .homepage {
         padding: 10px 20px;
     }
