@@ -88,3 +88,8 @@ body {
     color: grey;
     justify-self: center;
   }
+
+  .activitySection.sidebar.minimized {
+    width: 50;
+    overflow: hidden;
+  }
