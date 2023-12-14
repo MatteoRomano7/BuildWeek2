@@ -5,6 +5,8 @@ button {
   color: white;
 }
 
+
+
 .searchPage a,
 .searchPage button {
   color: white;
@@ -41,7 +43,7 @@ button {
 }
 
 .searchPage {
-  margin: 1rem;
+  margin: 10px 20px;
   overflow-y: scroll;
   width: 100%;
   padding-bottom: 150px;
@@ -151,5 +153,11 @@ button {
 
   .searchResultBox {
     flex-basis: 40%;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .headerTop {
+    display: block;
   }
 }

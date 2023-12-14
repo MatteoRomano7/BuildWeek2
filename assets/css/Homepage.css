@@ -165,9 +165,11 @@ ul {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    /* Andrea: piccolo change poichè se cliccavi fuori dal testo di un link ti apriva il link comunque */
+    align-items: flex-start;
 }
 
-.headerTextTop {
+.headerTextTop {    
     display: flex;
     justify-content: space-between;
     width: 100%;

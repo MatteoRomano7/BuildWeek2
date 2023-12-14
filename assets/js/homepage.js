@@ -29,7 +29,6 @@ async function fetchApi(url, option) {
             <div class="cardTopText">
                 <a href="album.html?id=${array[i].id}">
                     <p>${array[i].album.title}</p>
-                    <p class="cardId">${array[i].id}</p>
                 </a>
             </div>
             <button type="button" id="player1" class="btn cardTopPlayer">
@@ -37,6 +36,8 @@ async function fetchApi(url, option) {
                 <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z" />
             </svg>
          </button>
+         <p class="cardId">${array[i].id}</p>
+
         </div>
         `;
   }
@@ -156,7 +157,7 @@ async function showSongs(url, option) {
     });
   }
 
-  const playButtons = document.querySelectorAll(".pepe");
+  const playButtons = document.querySelectorAll("#player1");
   for (i = 0; i < playButtons.length; i++) {
     playButtons[i].addEventListener("click", function () {
       let songId = this.nextElementSibling.innerText;
@@ -201,13 +202,14 @@ function createMobileCards(card) {
                     </div>
                     <div class="cardBotMobileRight">
                         <p>${card.type}</p>
-                        <p class="cardId">${card.id}</p>
                         <div>
                         <button type="button" id="player1" class="btn">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16">
                                 <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z" />
                             </svg>
                         </button>
+                        <p class="cardId">${card.id}</p>
+
                         </div>
                     </div>
                 </div>
@@ -234,7 +236,7 @@ function createCardDesktop(songImg, songTitle, songAlbum, trackId) {
             <a href="album.html?id=${trackId}">
                 <img class="cardBotImg" src="${songImg}" alt="playlistAlbumImage">
             </a>
-                <button type="button" id="player1" class="btn cardBotPlayer pepe">
+                <button type="button" id="player1" class="btn cardBotPlayer">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16">
                         <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z" />
                     </svg>
