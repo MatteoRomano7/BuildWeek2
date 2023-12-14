@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="assets/css/nav.css" />
     <link rel="stylesheet" href="assets/css/albumstyle.css">
 
+    <script src="assets/js/sidebar.js" defer></script>
     <script src="assets/js/global.js" defer></script>
     <script src="assets/js/nav.js" defer type="module"></script>
     <script src="assets/js/player.js" defer></script>
@@ -27,7 +28,7 @@
       <div class="sidebar nav">
         <ul class="main-nav">
           <li>
-            <a href="#" class="current-page">
+            <a href="index.html" class="current-page">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -44,7 +45,7 @@
             >
           </li>
           <li>
-            <a href="#">
+            <a href="search.html">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -180,7 +181,7 @@
             </div>
             <div id="presentazioneAlbum">
                 <div id="fotoAlbum">
-                    <img src="	https://i.scdn.co/image/ab67616d00001e025b3cb5aa936655424de11fa2" alt="Gioventu brucata">
+                    <!-- <img src="	https://i.scdn.co/image/ab67616d00001e025b3cb5aa936655424de11fa2" alt="Gioventu brucata"> -->
                 </div>
                 <div id="titoloArtistaAlbum">
                     <span class="albumWriteDesktop">Album</span>
@@ -188,9 +189,9 @@
                     <div id="dettagliAlbum">
                         <div class="nomeArtista">
                             <div class="iconaArtista"><img src="https://i.scdn.co/image/ab6761610000f17818505fd55b5918fe7c6b1fcc"
-                                    alt="Pinguini Tattici Nucleari">
+                                    alt="iconaArtista">
                             </div>
-                            <p><a href="#">Pinguini Tattici Nucleari</a></p>
+                            <p><a class="artistName" href="#">Pinguini Tattici Nucleari</a></p>
                         </div>
                         <div class="releaseAlbum">
                             <span class="albumWriteMobile">Album</span>
@@ -199,7 +200,7 @@
                         </div>
                         <div class="dettagliBrani">
                             <span class="dot">·</span>
-                            <p class="nBrani">12 brani,<span class="minutaggioAlbum">53 min 20 sec</span></p>
+                            <p class="nBrani"><span class="cifraTotaleBrani">25</span> brani, <span class="minutaggioAlbum"></span></p>
                         </div>
                     </div>
                 </div>
@@ -211,7 +212,7 @@
             <section id="bottoni">
                 <div>
                     <button type="button" id="playRandom" class="fixBtn btn">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-shuffle" viewBox="0 0 16 16">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-shuffle unfilledHeart" viewBox="0 0 16 16">
                             <path fill-rule="evenodd" d="M0 3.5A.5.5 0 0 1 .5 3H1c2.202 0 3.827 1.24 4.874 2.418.49.552.865 1.102 1.126 1.532.26-.43.636-.98 1.126-1.532C9.173 4.24 10.798 3 13 3v1c-1.798 0-3.173 1.01-4.126 2.082A9.624 9.624 0 0 0 7.556 8a9.624 9.624 0 0 0 1.317 1.918C9.828 10.99 11.204 12 13 12v1c-2.202 0-3.827-1.24-4.874-2.418A10.595 10.595 0 0 1 7 9.05c-.26.43-.636.98-1.126 1.532C4.827 11.76 3.202 13 1 13H.5a.5.5 0 0 1 0-1H1c1.798 0 3.173-1.01 4.126-2.082A9.624 9.624 0 0 0 6.444 8a9.624 9.624 0 0 0-1.317-1.918C4.172 5.01 2.796 4 1 4H.5a.5.5 0 0 1-.5-.5"/>
                             <path d="M13 5.466V1.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384l-2.36 1.966a.25.25 0 0 1-.41-.192zm0 9v-3.932a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384l-2.36 1.966a.25.25 0 0 1-.41-.192z"/>
                           </svg>
@@ -226,11 +227,9 @@
                 </div>
                 <div>
                     <button type="button" id="salvaInLibreria" class="fixBtn btn">
-                        <svg data-encore-id="icon" role="img" fill="currentColor" viewBox="0 0 24 24">
-                            <path
-                                d="M5.21 1.57a6.757 6.757 0 0 1 6.708 1.545.124.124 0 0 0 .165 0 6.741 6.741 0 0 1 5.715-1.78l.004.001a6.802 6.802 0 0 1 5.571 5.376v.003a6.689 6.689 0 0 1-1.49 5.655l-7.954 9.48a2.518 2.518 0 0 1-3.857 0L2.12 12.37A6.683 6.683 0 0 1 .627 6.714 6.757 6.757 0 0 1 5.21 1.57zm3.12 1.803a4.757 4.757 0 0 0-5.74 3.725l-.001.002a4.684 4.684 0 0 0 1.049 3.969l.009.01 7.958 9.485a.518.518 0 0 0 .79 0l7.968-9.495a4.688 4.688 0 0 0 1.049-3.965 4.803 4.803 0 0 0-3.931-3.794 4.74 4.74 0 0 0-4.023 1.256l-.008.008a2.123 2.123 0 0 1-2.9 0l-.007-.007a4.757 4.757 0 0 0-2.214-1.194z">
-                            </path>
-                        </svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-heart-fill unfilledHeart" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314"/>
+                      </svg>
                     </button>
                     <button type="button" id="scaricaAlbum" class="fixBtn btn">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-arrow-down-circle" viewBox="0 0 16 16">
@@ -300,414 +299,7 @@
                                     d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0" />
                             </svg>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="numBrano">
-                            <p>2</p>
-                            <span><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16">
-                                    <path
-                                        d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z" />
-                                </svg></span>
-                        </div>
-                        <div class="titoloBrano">
-                            <h4><a href="">Sciare</a></h4>
-                            <span class="artista"><a href="">Pinguini Tattici Nucleari</a></span>
-                        </div>
-                        <div class="nRiproduzioni">5.585.178</div>
-                        <div class="tempoBrano">
-                            4:41
-                            <span>
-                                <svg data-encore-id="icon" role="img" fill="currentColor" viewBox="0 0 24 24">
-                                    <path
-                                        d="M5.21 1.57a6.757 6.757 0 0 1 6.708 1.545.124.124 0 0 0 .165 0 6.741 6.741 0 0 1 5.715-1.78l.004.001a6.802 6.802 0 0 1 5.571 5.376v.003a6.689 6.689 0 0 1-1.49 5.655l-7.954 9.48a2.518 2.518 0 0 1-3.857 0L2.12 12.37A6.683 6.683 0 0 1 .627 6.714 6.757 6.757 0 0 1 5.21 1.57zm3.12 1.803a4.757 4.757 0 0 0-5.74 3.725l-.001.002a4.684 4.684 0 0 0 1.049 3.969l.009.01 7.958 9.485a.518.518 0 0 0 .79 0l7.968-9.495a4.688 4.688 0 0 0 1.049-3.965 4.803 4.803 0 0 0-3.931-3.794 4.74 4.74 0 0 0-4.023 1.256l-.008.008a2.123 2.123 0 0 1-2.9 0l-.007-.007a4.757 4.757 0 0 0-2.214-1.194z">
-                                    </path>
-                                </svg>
-                            </span>
-                            <strong>
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
-                                    <path
-                                        d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3" />
-                                </svg>
-                            </strong>
-                        </div>
-                        <div class="dotOption">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots-vertical"
-                                viewBox="0 0 16 16">
-                                <path
-                                    d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0" />
-                            </svg>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="numBrano">
-                            <p>3</p>
-                            <span><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16">
-                                    <path
-                                        d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z" />
-                                </svg></span>
-                        </div>
-                        <div class="titoloBrano">
-                            <h4><a href="">Gioventù brucata</a></h4>
-                            <span class="artista"><a href="">Pinguini Tattici Nucleari</a></span>
-                        </div>
-                        <div class="nRiproduzioni">3.421.342</div>
-                        <div class="tempoBrano">
-                            5:24
-                            <span>
-                                <svg data-encore-id="icon" role="img" fill="currentColor" viewBox="0 0 24 24">
-                                    <path
-                                        d="M5.21 1.57a6.757 6.757 0 0 1 6.708 1.545.124.124 0 0 0 .165 0 6.741 6.741 0 0 1 5.715-1.78l.004.001a6.802 6.802 0 0 1 5.571 5.376v.003a6.689 6.689 0 0 1-1.49 5.655l-7.954 9.48a2.518 2.518 0 0 1-3.857 0L2.12 12.37A6.683 6.683 0 0 1 .627 6.714 6.757 6.757 0 0 1 5.21 1.57zm3.12 1.803a4.757 4.757 0 0 0-5.74 3.725l-.001.002a4.684 4.684 0 0 0 1.049 3.969l.009.01 7.958 9.485a.518.518 0 0 0 .79 0l7.968-9.495a4.688 4.688 0 0 0 1.049-3.965 4.803 4.803 0 0 0-3.931-3.794 4.74 4.74 0 0 0-4.023 1.256l-.008.008a2.123 2.123 0 0 1-2.9 0l-.007-.007a4.757 4.757 0 0 0-2.214-1.194z">
-                                    </path>
-                                </svg>
-                            </span>
-                            <strong>
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
-                                    <path
-                                        d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3" />
-                                </svg>
-                            </strong>
-                        </div>
-                        <div class="dotOption">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots-vertical"
-                                viewBox="0 0 16 16">
-                                <path
-                                    d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0" />
-                            </svg>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="numBrano">
-                            <p>4</p>
-                            <span><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16">
-                                    <path
-                                        d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z" />
-                                </svg></span>
-                        </div>
-                        <div class="titoloBrano">
-                            <h4><a href="">Ninnananna per genitori disattenti</a></h4>
-                            <span class="artista"><a href="">Pinguini Tattici Nucleari</a></span>
-                        </div>
-                        <div class="nRiproduzioni">2.365.629</div>
-                        <div class="tempoBrano">
-                            4:04
-                            <span>
-                                <svg data-encore-id="icon" role="img" fill="currentColor" viewBox="0 0 24 24">
-                                    <path
-                                        d="M5.21 1.57a6.757 6.757 0 0 1 6.708 1.545.124.124 0 0 0 .165 0 6.741 6.741 0 0 1 5.715-1.78l.004.001a6.802 6.802 0 0 1 5.571 5.376v.003a6.689 6.689 0 0 1-1.49 5.655l-7.954 9.48a2.518 2.518 0 0 1-3.857 0L2.12 12.37A6.683 6.683 0 0 1 .627 6.714 6.757 6.757 0 0 1 5.21 1.57zm3.12 1.803a4.757 4.757 0 0 0-5.74 3.725l-.001.002a4.684 4.684 0 0 0 1.049 3.969l.009.01 7.958 9.485a.518.518 0 0 0 .79 0l7.968-9.495a4.688 4.688 0 0 0 1.049-3.965 4.803 4.803 0 0 0-3.931-3.794 4.74 4.74 0 0 0-4.023 1.256l-.008.008a2.123 2.123 0 0 1-2.9 0l-.007-.007a4.757 4.757 0 0 0-2.214-1.194z">
-                                    </path>
-                                </svg>
-                            </span>
-                            <strong>
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
-                                    <path
-                                        d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3" />
-                                </svg>
-                            </strong>
-                        </div>
-                        <div class="dotOption">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots-vertical"
-                                viewBox="0 0 16 16">
-                                <path
-                                    d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0" />
-                            </svg>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="numBrano">
-                            <p>5</p>
-                            <span><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16">
-                                    <path
-                                        d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z" />
-                                </svg></span>
-                        </div>
-                        <div class="titoloBrano">
-                            <h4><a href="">L'uomo che inventò il fuoco</a></h4>
-                            <span class="artista"><a href="">Pinguini Tattici Nucleari</a></span>
-                        </div>
-                        <div class="nRiproduzioni">3.417.862</div>
-                        <div class="tempoBrano">
-                            5:23
-                            <span>
-                                <svg data-encore-id="icon" role="img" fill="currentColor" viewBox="0 0 24 24">
-                                    <path
-                                        d="M5.21 1.57a6.757 6.757 0 0 1 6.708 1.545.124.124 0 0 0 .165 0 6.741 6.741 0 0 1 5.715-1.78l.004.001a6.802 6.802 0 0 1 5.571 5.376v.003a6.689 6.689 0 0 1-1.49 5.655l-7.954 9.48a2.518 2.518 0 0 1-3.857 0L2.12 12.37A6.683 6.683 0 0 1 .627 6.714 6.757 6.757 0 0 1 5.21 1.57zm3.12 1.803a4.757 4.757 0 0 0-5.74 3.725l-.001.002a4.684 4.684 0 0 0 1.049 3.969l.009.01 7.958 9.485a.518.518 0 0 0 .79 0l7.968-9.495a4.688 4.688 0 0 0 1.049-3.965 4.803 4.803 0 0 0-3.931-3.794 4.74 4.74 0 0 0-4.023 1.256l-.008.008a2.123 2.123 0 0 1-2.9 0l-.007-.007a4.757 4.757 0 0 0-2.214-1.194z">
-                                     </path>
-                                </svg>
-                            </span>
-                            <strong>
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
-                                    <path
-                                        d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3" />
-                                </svg>
-                            </strong>
-                        </div>
-                        <div class="dotOption">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots-vertical"
-                                viewBox="0 0 16 16">
-                                <path
-                                    d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0" />
-                            </svg>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="numBrano">
-                            <p>6</p>
-                            <span><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16">
-                                    <path
-                                        d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z" />
-                                </svg></span>
-                        </div>
-                        <div class="titoloBrano">
-                            <h4><a href="">Irene</a></h4>
-                            <span class="artista"><a href="">Pinguini Tattici Nucleari</a></span>
-                        </div>
-                        <div class="nRiproduzioni">17.249.689</div>
-                        <div class="tempoBrano">
-                            5:11
-                            <span>
-                                <svg data-encore-id="icon" role="img" fill="currentColor" viewBox="0 0 24 24">
-                                    <path
-                                        d="M5.21 1.57a6.757 6.757 0 0 1 6.708 1.545.124.124 0 0 0 .165 0 6.741 6.741 0 0 1 5.715-1.78l.004.001a6.802 6.802 0 0 1 5.571 5.376v.003a6.689 6.689 0 0 1-1.49 5.655l-7.954 9.48a2.518 2.518 0 0 1-3.857 0L2.12 12.37A6.683 6.683 0 0 1 .627 6.714 6.757 6.757 0 0 1 5.21 1.57zm3.12 1.803a4.757 4.757 0 0 0-5.74 3.725l-.001.002a4.684 4.684 0 0 0 1.049 3.969l.009.01 7.958 9.485a.518.518 0 0 0 .79 0l7.968-9.495a4.688 4.688 0 0 0 1.049-3.965 4.803 4.803 0 0 0-3.931-3.794 4.74 4.74 0 0 0-4.023 1.256l-.008.008a2.123 2.123 0 0 1-2.9 0l-.007-.007a4.757 4.757 0 0 0-2.214-1.194z">
-                                    </path>
-                                </svg>
-                            </span>
-                            <strong>
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
-                                    <path
-                                        d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3" />
-                                </svg>
-                            </strong>
-                        </div>
-                        <div class="dotOption">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots-vertical"
-                                viewBox="0 0 16 16">
-                                <path
-                                    d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0" />
-                            </svg>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="numBrano">
-                            <p>7</p>
-                            <span><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16">
-                                    <path
-                                        d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z" />
-                                </svg></span>
-                        </div>
-                        <div class="titoloBrano">
-                            <h4><a href="">Senti che cantare questi!</a></h4>
-                            <span class="artista"><a href="">Pinguini Tattici Nucleari</a></span>
-                        </div>
-                        <div class="nRiproduzioni">760.496</div>
-                        <div class="tempoBrano">
-                            1:11
-                            <span>
-                                <svg data-encore-id="icon" role="img" fill="currentColor" viewBox="0 0 24 24">
-                                    <path
-                                        d="M5.21 1.57a6.757 6.757 0 0 1 6.708 1.545.124.124 0 0 0 .165 0 6.741 6.741 0 0 1 5.715-1.78l.004.001a6.802 6.802 0 0 1 5.571 5.376v.003a6.689 6.689 0 0 1-1.49 5.655l-7.954 9.48a2.518 2.518 0 0 1-3.857 0L2.12 12.37A6.683 6.683 0 0 1 .627 6.714 6.757 6.757 0 0 1 5.21 1.57zm3.12 1.803a4.757 4.757 0 0 0-5.74 3.725l-.001.002a4.684 4.684 0 0 0 1.049 3.969l.009.01 7.958 9.485a.518.518 0 0 0 .79 0l7.968-9.495a4.688 4.688 0 0 0 1.049-3.965 4.803 4.803 0 0 0-3.931-3.794 4.74 4.74 0 0 0-4.023 1.256l-.008.008a2.123 2.123 0 0 1-2.9 0l-.007-.007a4.757 4.757 0 0 0-2.214-1.194z">
-                                    </path>
-                                </svg>
-                            </span>
-                            <strong>
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
-                                    <path
-                                        d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3" />
-                                </svg>
-                            </strong>
-                        </div>
-                        <div class="dotOption">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots-vertical"
-                                viewBox="0 0 16 16">
-                                <path
-                                    d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0" />
-                            </svg>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="numBrano">
-                            <p>8</p>
-                            <span><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16">
-                                    <path
-                                        d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z" />
-                                </svg></span>
-                        </div>
-                        <div class="titoloBrano">
-                            <h4><a href="">Pula</a></h4>
-                            <span class="artista"><a href="">Pinguini Tattici Nucleari</a></span>
-                        </div>
-                        <div class="nRiproduzioni">899.318</div>
-                        <div class="tempoBrano">
-                            5:46
-                            <span>
-                                <svg data-encore-id="icon" role="img" fill="currentColor" viewBox="0 0 24 24">
-                                    <path
-                                        d="M5.21 1.57a6.757 6.757 0 0 1 6.708 1.545.124.124 0 0 0 .165 0 6.741 6.741 0 0 1 5.715-1.78l.004.001a6.802 6.802 0 0 1 5.571 5.376v.003a6.689 6.689 0 0 1-1.49 5.655l-7.954 9.48a2.518 2.518 0 0 1-3.857 0L2.12 12.37A6.683 6.683 0 0 1 .627 6.714 6.757 6.757 0 0 1 5.21 1.57zm3.12 1.803a4.757 4.757 0 0 0-5.74 3.725l-.001.002a4.684 4.684 0 0 0 1.049 3.969l.009.01 7.958 9.485a.518.518 0 0 0 .79 0l7.968-9.495a4.688 4.688 0 0 0 1.049-3.965 4.803 4.803 0 0 0-3.931-3.794 4.74 4.74 0 0 0-4.023 1.256l-.008.008a2.123 2.123 0 0 1-2.9 0l-.007-.007a4.757 4.757 0 0 0-2.214-1.194z">
-                                    </path>
-                                </svg>
-                            </span>
-                            <strong>
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
-                                    <path
-                                        d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3" />
-                                </svg>
-                            </strong>
-                        </div>
-                        <div class="dotOption">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots-vertical"
-                                viewBox="0 0 16 16">
-                                <path
-                                    d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0" />
-                            </svg>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="numBrano">
-                            <p>9</p>
-                            <span><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16">
-                                    <path
-                                        d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z" />
-                                </svg></span>
-                        </div>
-                        <div class="titoloBrano">
-                            <h4><a href="">79</a></h4>
-                            <span class="artista"><a href="">Pinguini Tattici Nucleari</a></span>
-                        </div>
-                        <div class="nRiproduzioni">1.231.254</div>
-                        <div class="tempoBrano">
-                            4:19
-                            <span>
-                                <svg data-encore-id="icon" role="img" fill="currentColor" viewBox="0 0 24 24">
-                                    <path
-                                        d="M5.21 1.57a6.757 6.757 0 0 1 6.708 1.545.124.124 0 0 0 .165 0 6.741 6.741 0 0 1 5.715-1.78l.004.001a6.802 6.802 0 0 1 5.571 5.376v.003a6.689 6.689 0 0 1-1.49 5.655l-7.954 9.48a2.518 2.518 0 0 1-3.857 0L2.12 12.37A6.683 6.683 0 0 1 .627 6.714 6.757 6.757 0 0 1 5.21 1.57zm3.12 1.803a4.757 4.757 0 0 0-5.74 3.725l-.001.002a4.684 4.684 0 0 0 1.049 3.969l.009.01 7.958 9.485a.518.518 0 0 0 .79 0l7.968-9.495a4.688 4.688 0 0 0 1.049-3.965 4.803 4.803 0 0 0-3.931-3.794 4.74 4.74 0 0 0-4.023 1.256l-.008.008a2.123 2.123 0 0 1-2.9 0l-.007-.007a4.757 4.757 0 0 0-2.214-1.194z">
-                                    </path>
-                                </svg>
-                            </span>
-                            <strong>
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
-                                    <path
-                                        d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3" />
-                                </svg>
-                            </strong>
-                        </div>
-                        <div class="dotOption">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots-vertical"
-                                viewBox="0 0 16 16">
-                                <path
-                                    d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0" />
-                            </svg>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="numBrano">
-                            <p>10</p>
-                            <span><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16">
-                                    <path
-                                        d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z" />
-                                </svg></span>
-                        </div>
-                        <div class="titoloBrano">
-                            <h4><a href="">Gigi cinque ottavi</a></h4>
-                            <span class="artista"><a href="">Pinguini Tattici Nucleari</a></span>
-                        </div>
-                        <div class="nRiproduzioni">965.231</div>
-                        <div class="tempoBrano">
-                            4:27
-                            <span>
-                                <svg data-encore-id="icon" role="img" fill="currentColor" viewBox="0 0 24 24">
-                                    <path
-                                        d="M5.21 1.57a6.757 6.757 0 0 1 6.708 1.545.124.124 0 0 0 .165 0 6.741 6.741 0 0 1 5.715-1.78l.004.001a6.802 6.802 0 0 1 5.571 5.376v.003a6.689 6.689 0 0 1-1.49 5.655l-7.954 9.48a2.518 2.518 0 0 1-3.857 0L2.12 12.37A6.683 6.683 0 0 1 .627 6.714 6.757 6.757 0 0 1 5.21 1.57zm3.12 1.803a4.757 4.757 0 0 0-5.74 3.725l-.001.002a4.684 4.684 0 0 0 1.049 3.969l.009.01 7.958 9.485a.518.518 0 0 0 .79 0l7.968-9.495a4.688 4.688 0 0 0 1.049-3.965 4.803 4.803 0 0 0-3.931-3.794 4.74 4.74 0 0 0-4.023 1.256l-.008.008a2.123 2.123 0 0 1-2.9 0l-.007-.007a4.757 4.757 0 0 0-2.214-1.194z">
-                                    </path>
-                                </svg>
-                            </span>
-                            <strong>
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
-                                    <path
-                                        d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3" />
-                                </svg>
-                            </strong>
-                        </div>
-                        <div class="dotOption">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots-vertical"
-                                viewBox="0 0 16 16">
-                                <path
-                                    d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0" />
-                            </svg>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="numBrano">
-                            <p>11</p>
-                            <span><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16">
-                                    <path
-                                        d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z" />
-                                </svg></span>
-                        </div>
-                        <div class="titoloBrano">
-                            <h4><a href="">Tetris</a></h4>
-                            <span class="artista"><a href="">Pinguini Tattici Nucleari</a></span>
-                        </div>
-                        <div class="nRiproduzioni">1.523.102</div>
-                        <div class="tempoBrano">
-                            5:50
-                            <span>
-                                <svg data-encore-id="icon" role="img" fill="currentColor" viewBox="0 0 24 24">
-                                    <path
-                                        d="M5.21 1.57a6.757 6.757 0 0 1 6.708 1.545.124.124 0 0 0 .165 0 6.741 6.741 0 0 1 5.715-1.78l.004.001a6.802 6.802 0 0 1 5.571 5.376v.003a6.689 6.689 0 0 1-1.49 5.655l-7.954 9.48a2.518 2.518 0 0 1-3.857 0L2.12 12.37A6.683 6.683 0 0 1 .627 6.714 6.757 6.757 0 0 1 5.21 1.57zm3.12 1.803a4.757 4.757 0 0 0-5.74 3.725l-.001.002a4.684 4.684 0 0 0 1.049 3.969l.009.01 7.958 9.485a.518.518 0 0 0 .79 0l7.968-9.495a4.688 4.688 0 0 0 1.049-3.965 4.803 4.803 0 0 0-3.931-3.794 4.74 4.74 0 0 0-4.023 1.256l-.008.008a2.123 2.123 0 0 1-2.9 0l-.007-.007a4.757 4.757 0 0 0-2.214-1.194z">
-                                    </path>
-                                </svg>
-                            </span>
-                            <strong>
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
-                                    <path
-                                        d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3" />
-                                </svg>
-                            </strong>
-                        </div>
-                        <div class="dotOption">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots-vertical"
-                                viewBox="0 0 16 16">
-                                <path
-                                    d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0" />
-                            </svg>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="numBrano">
-                            <p>12</p>
-                            <span><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16">
-                                    <path
-                                        d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z" />
-                                </svg></span>
-                        </div>
-                        <div class="titoloBrano">
-                            <h4><a href="">Il concorso musicale</a></h4>
-                            <span class="artista"><a href="">Pinguini Tattici Nucleari</a></span>
-                        </div>
-                        <div class="nRiproduzioni">23.520.789</div>
-                        <div class="tempoBrano">
-                            5:31
-                            <span>
-                                <svg data-encore-id="icon" role="img" fill="currentColor" viewBox="0 0 24 24">
-                                    <path
-                                        d="M5.21 1.57a6.757 6.757 0 0 1 6.708 1.545.124.124 0 0 0 .165 0 6.741 6.741 0 0 1 5.715-1.78l.004.001a6.802 6.802 0 0 1 5.571 5.376v.003a6.689 6.689 0 0 1-1.49 5.655l-7.954 9.48a2.518 2.518 0 0 1-3.857 0L2.12 12.37A6.683 6.683 0 0 1 .627 6.714 6.757 6.757 0 0 1 5.21 1.57zm3.12 1.803a4.757 4.757 0 0 0-5.74 3.725l-.001.002a4.684 4.684 0 0 0 1.049 3.969l.009.01 7.958 9.485a.518.518 0 0 0 .79 0l7.968-9.495a4.688 4.688 0 0 0 1.049-3.965 4.803 4.803 0 0 0-3.931-3.794 4.74 4.74 0 0 0-4.023 1.256l-.008.008a2.123 2.123 0 0 1-2.9 0l-.007-.007a4.757 4.757 0 0 0-2.214-1.194z">
-                                    </path>
-                                </svg>
-                            </span>
-                            <strong>
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
-                                    <path
-                                        d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3" />
-                                </svg>
-                            </strong>
-                        </div>
-                        <div class="dotOption">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots-vertical"
-                                viewBox="0 0 16 16">
-                                <path
-                                    d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0" />
-                            </svg>
-                        </div>
-                    </div>
+                    </div> 
                 </div>
     
                 
@@ -723,13 +315,13 @@
     
                 <div>
                     <div id="vediDiscografia">
-                        <h2><a href="">Altro di <span class="artista">Pinguini Tattici Nucleari</span></a></h2>
-                        <a href=""><small>Vedi discografia</small></a>
+                        <h2 class="moreOfArtist"></h2>
+                        <p class="artistDiscografy"></p>
                     </div>
         
                     <div id="altriAlbum">
-                        <div class="cardAlbum">
-                            <div class="topCard">
+<!--                        <div class="cardAlbum">
+                             <div class="topCard">
                                 <img src="https://i.scdn.co/image/ab67616d00001e02df8e97d294e5f3d8ec777f68" alt="Fake News">
                                 <div class="cardBtn">
                                     <button type="button" id="player1" class="btn">
@@ -742,68 +334,7 @@
                             </div>
                             <div class="toolText"><h4>Fake News</h4></div>
                             <p>2022</p>
-                        </div>
-                        <div class="cardAlbum">
-                            <div class="topCard">
-                                <img src="https://i.scdn.co/image/ab67616d00001e0299db4ee49d361f876e0a7f14" alt="AHIA!">
-                                <div class="cardBtn">
-                                    <button type="button" id="player1" class="btn">
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16">
-                                            <path
-                                                d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z" />
-                                        </svg>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="toolText"><h4>AHIA!</h4></div>
-                            <p>2020</p>
-                        </div>
-                        <div class="cardAlbum">
-                            <div class="topCard">
-                                <img src="https://i.scdn.co/image/ab67616d00001e023b261dccc69ea751f68ad8a2" alt="Nightmares">
-                                <div class="cardBtn">
-                                    <button type="button" id="player1" class="btn">
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16">
-                                            <path
-                                                d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z" />
-                                        </svg>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="toolText"><h4>Nightmares</h4></div>
-                            <p>2023</p>
-                        </div>
-                        <div class="cardAlbum">
-                            <div class="topCard">
-                                <img src="https://i.scdn.co/image/ab67616d00001e029d4cb13f84ae3a5fd0a93890" alt="Fuori dall'hype Ringo Star">
-                                <div class="cardBtn">
-                                    <button type="button" id="player1" class="btn">
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16">
-                                            <path
-                                                d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z" />
-                                        </svg>
-                                    </button>
-                                </div>
-                        
-                            </div>
-                            <div class="toolText"><h4>Fuori dall'hype Ringo Star</h4></div>
-                            <p>2020</p>
-                        </div>
-                        <div class="cardAlbum">
-                            <div class="topCard">
-                                <img src="https://i.scdn.co/image/ab67616d00001e02ab2d601177caa3074c7d4a2b" alt="Fuori dall'hype">
-                                <div class="cardBtn">
-                                    <button type="button" id="player1" class="btn">
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16">
-                                            <path
-                                                d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z" />
-                                        </svg>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="toolText"><h4>Fuori dall'hype</h4></div>
-                            <p>2019</p>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </section>
@@ -873,6 +404,20 @@
 
       <!-- ASIDE FRIENDS START -->
       <div class="activitySection sidebar">
+        <div class="openFriends">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="30"
+            height="30"
+            fill="currentColor"
+            class="bi bi-people"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1zm-7.978-1A.261.261 0 0 1 7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002a.274.274 0 0 1-.014.002H7.022ZM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4m3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0M6.936 9.28a5.88 5.88 0 0 0-1.23-.247A7.35 7.35 0 0 0 5 9c-4 0-5 3-5 4 0 .667.333 1 1 1h4.216A2.238 2.238 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816M4.92 10A5.493 5.493 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275ZM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0m3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4"
+            />
+          </svg>
+        </div>
         <div id="friends">
           <div id="titoloAmici">
             <h2>Attività amici</h2>
