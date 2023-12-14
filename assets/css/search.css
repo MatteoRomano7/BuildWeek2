@@ -83,12 +83,15 @@ button {
   padding: 0.67rem;
   border-radius: 2%;
   max-width: 130px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .imgPlaceholderBox {
-  float: right;
   width: 33%;
   rotate: 30deg;
+  align-self: flex-end;
 }
 
 .searchPage .imgContainer {
@@ -110,6 +113,24 @@ button {
   padding: 8px 0;
 }
 
+.search-modal {
+  width: 350px;
+  padding: 1rem;
+  text-align: center;
+  position: absolute;
+  left: calc(50% - 175px);
+  bottom: 175px;
+  opacity: 0;
+  transition: opacity 0.3s linear;
+  background-color: rgba(0,0,0,0.90);
+  color:#a1a1a1
+}
+
+.modal-active {
+  opacity: 1;
+  transition: opacity 0.3s linear;
+}
+
 .show-more button {
   margin: 0 auto;
 }
@@ -118,11 +139,11 @@ button {
   background-color: #a1a1a1;
 }
 
-[disabled="true"] {
+[disabled=""] {
   color: gray !important;
 }
 
-[disabled="true"]:hover {
+[disabled=""]:hover {
   background-color: #3b3b3b !important;
 }
 
@@ -154,10 +175,27 @@ button {
   .searchResultBox {
     flex-basis: 40%;
   }
+
+  .search-modal {
+    bottom: 125px;
+  }
 }
 
 @media screen and (min-width: 1200px) {
   .headerTop {
     display: block;
+  }
+
+  .card-placeholder h3 {
+    font-size: 1.2rem;
+  }
+
+  .card-placeholder {
+    max-width: 170px;
+    height: 140px;
+  }
+
+  .imgPlaceholderBox {
+    width: 55%
   }
 }

@@ -621,9 +621,9 @@ address {
     
 }
 
-/* .topCard {
+.topCard {
     position: relative;
-} */
+}
 
 .cardBtn {
     position: absolute;
