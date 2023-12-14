@@ -5,11 +5,9 @@ body {
 }
 
 .albumPage {
-    width: 70%;
-    margin: 0 auto;
     background-color: #212121;
     color: white;
-    
+    overflow-y: scroll;
 }
 
 ul {
@@ -190,7 +188,7 @@ header {
 }
 
 #titoloArtistaAlbum h1 {
-    font-size: 80px;
+    font-size: 3vw;
     font-weight: bold;
     margin: 10px 0px 20px 0px;
 
@@ -234,7 +232,8 @@ header {
     display: flex;
 }
 
-@media screen and (max-width:1024px) {
+
+@media screen and (max-width:1128px) {
     .headerTop {
         display: none;
     }
@@ -282,6 +281,21 @@ header {
     }
 
 }
+
+@media screen and (max-width:430px)  {
+    #fotoAlbum img {
+        width: 10rem;
+    }
+}
+
+@media screen and (min-width:1024px) {
+    #dettagliAlbum {
+        flex-wrap: wrap;
+    }
+    
+}
+
+
 
 /* MAIN */
 
@@ -344,7 +358,25 @@ main {
     color: white;
 }
 
-@media screen and (max-width:1024px) {
+@media screen and (max-width:430px) {
+    #bottoni button {
+        margin-right: 0px;
+    }
+    #player1 {
+        width: 30px;
+        height: 30px;
+    }
+    #player1 svg {
+        width: 20px;
+        left: 0px;
+    }
+    .fixBtn {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+@media screen and (max-width:1128px) {
     #bottoni {
         display: flex;
         align-items: center;
@@ -489,7 +521,8 @@ main {
     margin-top: 40px;
 }
 
-@media screen and (max-width:1024px) {
+
+@media screen and (max-width:1128px) {
     #rigaIntestazione {
         display: none;
     }
@@ -520,6 +553,13 @@ main {
         text-decoration: none;
     }
 }
+
+@media screen and (max-width:430px) {
+    .row {
+        font-size: 0.9rem;
+    }
+}
+
 
 /*SECTION DISCOGRAFIA*/
 
@@ -618,7 +658,7 @@ address {
     transition-delay: 0.1s;
 }
 
-@media screen and (max-width:1024px) {
+@media screen and (max-width:1128px) {
     #discografia {
         display: flex;
         flex-direction: column;
@@ -686,6 +726,12 @@ address {
         to {
             transform: none;
         }
+    }
+}
+
+@media screen and (min-width:1128px) {
+    #altriAlbum {
+        flex-wrap: wrap;
     }
 }
 
@@ -801,14 +847,15 @@ address {
     color: rgba(255,255,255,0.7);
 }
 
-@media screen and (min-width:1024px) {
+@media screen and (min-width:1128px) {
     .albumPageFooter {
         display: block;
     }
 }
 
-@media screen and (max-width:1024px) {
+@media screen and (max-width:1128px) {
     .albumPage {
         width: 100%;
+        padding-bottom: 150px;
     }
 }
