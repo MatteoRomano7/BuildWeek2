@@ -12,13 +12,17 @@ async function fetchApiID() {
       },
     };
 
+    
+
     const response = await fetch(url, options);
+    handleArtistData(result);
+    apiArtistMobile(result);
     const result = await response.json();
     console.log(result);
   } catch (error) {
     console.error(error);
   }
-  handleArtistData(result);
+  
 }
 fetchApi();
 
@@ -37,11 +41,12 @@ async function fetchApi() {
     const response = await fetch(url, options);
     const data = await response.json();
     apiArtist(data.data);
+    apiArtist(data);
     console.log(data);
   } catch (error) {
     console.error(error);
   }
-  apiArtist(data);
+ 
 }
 
 //Dropdown Header
@@ -155,4 +160,3 @@ function apiArtistMobile(array, artistData) {
     `;
   }
 }
-apiArtistMobile();
