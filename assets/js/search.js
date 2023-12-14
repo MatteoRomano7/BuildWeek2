@@ -1,5 +1,5 @@
 const endpoint = "https://deezerdevs-deezer.p.rapidapi.com/search?q=";
-const options = {
+const searchOptions = {
   method: "GET",
   headers: {
     "X-RapidAPI-Key": "8b36f7f0e4msh713a7788113b5dfp1c91f9jsna6e735e2137f",
@@ -21,25 +21,31 @@ function removeAllElements() {
 function searchResults(index = "") {
   const searchText = searchBar.value.trim().toLowerCase();
 
-  fetch(`${endpoint}${searchText}${index}`, options)
+  fetch(`${endpoint}${searchText}${index}`, searchOptions)
     .then((response) => response.json())
     .then((data) => {
-      document.querySelector('h2').style.display = 'none'
+      document.querySelector("h2").style.display = "none";
 
-      if (data.hasOwnProperty('error')) {
-        const nothing = document.createElement('p')
-        nothing.innerText = "Invalid search query"
-        container.appendChild(nothing)
-        setTimeout(() => {location.reload()}, 2000);
-        return
+      if (data.hasOwnProperty("error")) {
+        const nothing = document.createElement("p");
+        nothing.innerText = "Invalid search query";
+        container.appendChild(nothing);
+        searchForm.reset();
+        setTimeout(() => {
+          location.reload();
+        }, 2000);
+        return;
       }
 
       if (data.data.length === 0) {
-        const nothing = document.createElement('p')
-        nothing.innerText = "No results were found matching your search query"
-        container.appendChild(nothing)
-        setTimeout(() => {location.reload()}, 2000);
-        return
+        const nothing = document.createElement("p");
+        nothing.innerText = "No results were found matching your search query";
+        container.appendChild(nothing);
+        searchForm.reset();
+        setTimeout(() => {
+          location.reload();
+        }, 2000);
+        return;
       }
 
       for (i = 0; i < data.data.length; i++) {
@@ -57,9 +63,15 @@ function searchResults(index = "") {
             `;
         container.appendChild(card);
       }
-      console.log(data)
+      const names = [];
+      for (elem of data.data) {
+        let name = elem.artist.name;
+        names.push(name);
+      }
+      names.forEach((elem) => {names.find(elem)});
+      console.log(names);
       if (data.data.length < 25) {
-        moreButton.setAttribute('disabled', 'true')
+        moreButton.setAttribute("disabled", "true");
       }
       showMoreContainer.style.display = "block";
 
