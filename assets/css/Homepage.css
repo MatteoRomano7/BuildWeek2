@@ -299,6 +299,7 @@ main{
 
 .cardTop {
     flex-basis: 48%;
+    position: relative;
     height: 50px;
     margin: 0 0 15px 0;
     display: flex;
@@ -338,10 +339,6 @@ main{
     border-radius: 9px;
     transition: background-color 0.2s ease;
 }
-/* 
-.cardMobile:last-of-type {
-    margin: 10px 0;
-} */
 
 .cardMobile:hover {
     background-color: rgba(255,255,255,0.2);
@@ -407,9 +404,6 @@ main{
 
 .cardBotMobileRight div {
     margin: 0 0 0 10px;
-    padding: 5px 6.5px;
-    background-color:rgba(0, 0, 0, 0.2);
-    border-radius: 50%;
 }
 
 .cardBotPlay {
@@ -465,10 +459,77 @@ main{
     background-color: rgba(255,255,255,0.1);
 }
 
+.cardId {
+    display: none;
+}
+
 .cardBotImg {
     box-shadow: 0px 0px 20px rgba(0,0,0,0.6);
     border-radius: 5px;
     width: 100%;
+}
+
+/* Cards player */
+
+.cardBotImgBtn {
+    position: relative;
+}
+
+#player1 {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #1ed760;
+    border: none;
+    box-shadow: 0px 0px 5px rgba(0,0,0,0.4);
+    transform: scale(0.9);
+    transition: transform 0.2s ease, opacity 0.3s ease, box-shadow 0.2s ease, bottom 0.3s ease;
+}
+
+#player1:hover {
+    cursor: pointer;
+    transform: scale(1);
+    box-shadow: 0px 0px 0px rgba(0,0,0,0.4);
+}
+
+.cardTop #player1 {
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0.7);
+    position: absolute;
+    bottom: 5px;
+    right: 0;
+}
+
+.cardTop #player1.show {
+    opacity: 1;
+    visibility: visible;
+    bottom: 0px;
+}
+
+.cardTop #player1:hover {
+    transform: scale(0.8);
+}
+
+.cardBot #player1 {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    bottom: 5px;
+    right: 0;
+}
+
+.cardBot #player1.show {
+    opacity: 1;
+    visibility: visible;
+    bottom: 0px;
+}
+
+#player1 svg {
+    width: 30px;
+    position: relative;
+    top: 2px;
+    left: 2px;
 }
 
 .cardBotTitle {
@@ -607,7 +668,7 @@ main{
     }
 
     .cardBot {
-        flex-basis: 45%;
+        flex-basis: 44%;
         margin-bottom: 20px;
     }
 }
