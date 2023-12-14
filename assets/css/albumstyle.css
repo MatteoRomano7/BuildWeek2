@@ -343,6 +343,10 @@ main {
         display: inline;
     }
 
+    #player {
+        margin-right: 0 !important;
+    }
+
     #altreOpzioni svg {
         transform: rotate(90deg);
     }
@@ -434,6 +438,19 @@ main {
     cursor: pointer;
 }
 
+.dotOption {
+    display: none;
+}
+
+.dotOption svg {
+    width: 20px;
+}
+
+.dotOption svg:hover {
+    color: white;
+    cursor: pointer;
+}
+
 .artista a {
     color: #a7a7a7;
 }
@@ -466,13 +483,17 @@ main {
 
     .row {
         padding: 0;
-        font-size: 1.3rem;
+        font-size: 1.2rem;
+        justify-content: space-between;
     }
 
     .numBrano, .nRiproduzioni, .tempoBrano {
         display: none;
     }
 
+    .dotOption {
+        display: block;
+    }
     
 }
 
@@ -573,6 +594,89 @@ address {
     transition-delay: 0.1s;
 }
 
+@media screen and (max-width:1024px) {
+    #discografia {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 0;
+    }
+
+    #vediDiscografia h2 {
+        font-size: 1.4rem;
+    }
+
+    #vediDiscografia small {
+        display: none;
+    }
+
+    #creditiAlbum {
+        order: 3;
+    }
+
+    #altriAlbum {
+        justify-content: initial;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+
+    .cardAlbum {
+        width: 35%;
+        background-color: transparent;
+        padding: 0;
+        border-radius: 0;
+        flex: 0 0 auto;
+        margin-right: 25px;
+    }
+
+    .cardAlbum img {
+        border-radius: 0;
+        margin-bottom: 10px;
+    }
+
+    .cardAlbum p {
+        display: none;
+    }
+
+    .cardAlbum h4 {
+        font-size: 1.5rem;
+    }
+
+    .cardBtn {
+        display: none;
+    }
+
+    
+
+    @keyframes fadeInOut {
+        from {
+            transform: none;
+        }
+        to {
+            transform: none;
+        }
+    }
+}
+
+
+/*
+
+#altriAlbum {
+    justify-content: initial;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+
+}
+.cardAlbum {
+    flex: 0 0 auto;
+    margin-right: 3px;
+}
+
+
+*/
 
 /*FOOTER*/
 .albumPageFooter {
@@ -672,5 +776,11 @@ address {
 @media screen and (min-width:1024px) {
     .albumPageFooter {
         display: block;
+    }
+}
+
+@media screen and (max-width:1024px) {
+    .albumPage {
+        width: 100%;
     }
 }
