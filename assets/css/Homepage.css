@@ -143,6 +143,14 @@ ul {
     border-top: 1px solid gray;
 }
 
+/* Header mid */
+
+.headerMid {
+    display: none;
+    text-align: right;
+    margin: 25px 5px 0 0;
+}
+
 /* Header bot */
 
 .headerBot {
