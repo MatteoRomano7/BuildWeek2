@@ -1,0 +1,128 @@
+body, button {
+    font-family: 'Circular';
+    background-color: #222222;
+    color: white;
+
+}
+
+a, button {
+    color:white;
+    text-decoration: none;
+
+
+}
+
+h1 {
+    font-size: 1.5rem;
+    margin: 2rem 0;
+}
+
+input {
+    width: 80%;
+    font-family: 'Circular';
+    background-color: #3b3b3b;
+    color: white;
+    height: 3rem;
+    padding: 0.5rem;
+    border: 0;
+    box-sizing: border-box;
+}
+
+form {
+    width: 100%;
+    display: flex;
+    gap: 2px;
+}
+
+h2 {
+    text-align: center;
+    padding: 3rem 0 1rem 0;
+}
+
+main {
+    margin: 1rem;
+}
+
+.placeholder-categories {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.card-placeholder {
+    background-color: rgb(134, 42, 57);
+    overflow: hidden;
+    padding: 0.67rem;
+    border-radius: 2%;
+    max-width: 130px;
+}
+
+.imgPlaceholderBox {
+    float:right;
+    width: 33%;
+    rotate: 30deg
+}
+
+.imgContainer {
+    max-width: 66px;
+    padding-right: 1rem;
+}
+
+.searchResultBox {
+    display: flex;
+    flex-basis:80%
+}
+
+.searchText {
+    flex-basis: 70%;
+}
+
+.searchText h3 {
+    font-weight: 300;
+    padding: 8px 0;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+.show-more {
+    display: none;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+button {
+    background-color: #3b3b3b;
+    border: 0;
+    color: white;
+    padding: 0.75rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.show-more button:hover {
+    background-color: #a1a1a1;
+}
+
+[disabled=true] {
+    color: gray !important;
+}
+
+[disabled=true]:hover {
+    background-color: #3b3b3b !important;
+}
+
+[type=submit] {
+    width: 15%;
+    color: #a1a1a1;
+}
+
+[type=submit]:hover {
+    color: white;
+}
