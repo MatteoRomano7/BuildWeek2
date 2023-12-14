@@ -12,8 +12,15 @@ const cardsContainerTop = document.querySelector('.cardsContainerTop')
 const cardsDesktop = document.querySelector('.cardsDesktop')
 const cardsContainerMobile = document.querySelector('.cardsContainerMobile')
 
+fetchTrack('https://deezerdevs-deezer.p.rapidapi.com/track/6461432', options)
 fetchApi(urlPlaylist ,options)
 showSongs(urlEminem,options)
+
+async function fetchTrack(url, option)  {
+    const response = await fetch(url, option)
+    const data = await response.json()
+    console.log(data)
+}
 
 async function fetchApi(url, option) {
     const response = await fetch(url, option)
