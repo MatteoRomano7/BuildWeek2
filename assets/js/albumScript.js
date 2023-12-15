@@ -1,11 +1,4 @@
 /*GESTIONE TESTI OVERFLOW*/
-const h4Elements = document.querySelectorAll('h4');
-
-h4Elements.forEach(function (h4) {
-    if (h4.scrollWidth > h4.clientWidth) {
-        h4.classList.add('overflowing');
-    }
-});
 
 //FETCH
 const urlId = new URLSearchParams(location.search)
@@ -97,7 +90,7 @@ async function fetchBraniArtista(url,option) {
                         </svg></span>
                 </div>
                 <div class="titoloBrano">
-                    <h4>${dataSliced[i].title_short}</h4>
+                <div class="toolText"><h4>${dataSliced[i].title_short}</h4></div>
                     <span class="artista"><a href="artist.html?id=${dataSliced[i].artist.id}">${dataSliced[i].artist.name}</a></span>
                 </div>
                 <div class="nRiproduzioni">${numRiproduzioniCasuali}</div>
@@ -126,6 +119,15 @@ async function fetchBraniArtista(url,option) {
         `
     }
     elencoBrani.innerHTML = cards
+
+    const h4Elements = document.querySelectorAll('h4');
+    console.log(h4Elements)
+
+    h4Elements.forEach(function (h4) {
+        if (h4.scrollWidth > h4.clientWidth) {
+            h4.classList.add('overflowing');
+        }
+    });
 
     const unfilledHearts = document.querySelectorAll('.unfilledHeart')
     console.log(unfilledHearts)
@@ -171,7 +173,15 @@ async function altriAlbumFetch(url, option) {
         `
     }
     altriAlbum.innerHTML = cardsBot
+    const h4Elements = document.querySelectorAll('h4');
+
+    console.log(h4Elements)
+
+    h4Elements.forEach(function (h4) {
+        if (h4.scrollWidth > h4.clientWidth) {
+            h4.classList.add('overflowing');
+        }
+    });
 }
 
 // CUORI VERDI AL CLICK
-
