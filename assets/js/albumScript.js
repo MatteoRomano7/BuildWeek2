@@ -226,7 +226,7 @@ async function altriAlbumFetch(url, option) {
                         </button>
                     </div>
                 </div>
-                <div class="toolText"><h4><a href="artistPage.html?id=${data[i].artist.id}">${data[i].title}</a></h4></div>
+                <div class="toolText"><h4><a href="artistPage.html?id=${data[i].artist.id}">${data[i].artist.name}</a></h4></div>
             </div>
         `
     }
@@ -241,7 +241,9 @@ async function altriAlbumFetch(url, option) {
     });
 }
 
-// CUORI VERDI AL CLICK
+const backwardsMobile = document.querySelector('.backwardsMobile')
+backwardsMobile.addEventListener('click', () => history.back())
+
 
 fetch(`https://deezerdevs-deezer.p.rapidapi.com/track/1963530567`, options)
 .then((response) => response.json())
