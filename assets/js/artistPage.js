@@ -235,7 +235,15 @@ fetch(`https://deezerdevs-deezer.p.rapidapi.com/track/1963530567`, options)
 .then((datas)  => {
   
   
+
+    }
+   
+
+    const backwardsMobile = document.querySelector('.backwardsMobile')
+    backwardsMobile.addEventListener('click', () => history.back())
+
   playerApi(datas)
   audioElem.src = datas.preview
   
 })
+
