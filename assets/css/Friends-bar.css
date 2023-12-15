@@ -1,0 +1,91 @@
+#friends {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+
+  .Icons2 {
+    display:flex;
+    align-items: center;
+    margin-top: 5px;
+  }
+
+  .Icons2 svg {
+    margin-right: 6px;
+  }
+  
+  #titoloAmici {
+    flex-grow: 1;
+    color: white;
+  }
+
+  .sidebar {
+    color: #b3b3b3;
+    max-height:100vh;
+  }
+  
+  .activitySection {
+    background-color: black;
+    min-width: 250px;
+    max-width: 250px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: min-width 0.2s ease-out, max-width 0.2s ease-out;
+  }
+
+  .openFriends {
+    display: none;
+    text-align: center;
+  }
+  
+  .activityItem {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+  
+  .avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 15px;
+  }
+  
+  .activityDetails {
+    flex-grow: 1;
+  }
+  
+  .activityDetails h3 {
+    margin: 0 0 5px;
+    font-size: 1rem;
+    font-weight: 600;
+  }
+  
+  .activityDetails p {
+    margin: 0;
+    font-size: 0.7rem;
+
+    color: grey;
+  }
+  
+  .friendPlaylist {
+    font-size: 0.9rem;
+    color: grey;
+    margin-top: 10rem;
+  }
+  
+  .notaMusicale {
+    color: grey;
+  }
+  
+  .timeline {
+    color: grey;
+    justify-self: center;
+    align-self: baseline;
+    font-size: 0.7em;
+  }
+
+  @media screen and (max-width: 1024px) { /*MOBILE*/
+    .activitySection{
+      display: none;
+    }
+  }

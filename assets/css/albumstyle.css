@@ -1,0 +1,872 @@
+@import "circular-font.css";
+
+body {
+    font-family: 'Circular';
+}
+
+.albumPage {
+    background-color: #212121;
+    color: white;
+    overflow-y: scroll;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+h4 {
+    color: white;
+    margin-bottom: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+h4.overflowing:hover {
+    overflow: visible;
+    transform: translateX(calc(-100% + 40px));
+    transition: all 3.4s linear;
+}
+
+.toolText {
+    overflow: hidden;
+}
+
+/* HEADER */
+
+header {
+    background: rgb(229, 198, 81);
+    background: linear-gradient(180deg, rgba(229, 198, 81, 1) 20%, rgba(119, 103, 43, 1) 88%);
+    padding: 20px 30px;
+}
+
+
+
+/*HEADER TOP*/
+
+.headerTop {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin: 0 0 10px 0;
+    /* padding: 0px 30px; */
+}
+
+.backwardForwardBtns {
+    width: 50%;
+}
+
+.backwardForwardBtns button {
+    font-family: 'Nanum Gothic', sans-serif;
+    font-weight: 700;
+    font-size: 1em;
+    text-align: center;
+    background-color: #0000008a;
+    border: none;
+    border-radius: 55%;
+    height: 30px;
+    width: 30px;
+    color: rgba(255,255,255,0.5);
+    transition: background-color 0.3s ease;
+}
+
+.backwardForwardBtns button:hover {
+    color: rgba(255,255,255,1);
+    background-color: #0a0a0a;
+    cursor: pointer;
+}
+
+.backward {
+    padding: 0 2px 0 0;
+    margin: 0 10px 0 0;
+}
+
+.forward {
+    padding: 0 0 0 2px;
+}
+
+.dropdownDiv {
+    position: relative;
+    width: 50%;
+    display: flex;
+    justify-content: end;
+}
+
+.dropdown {
+    display: flex;
+    align-items: center;
+    background-color: #0000008a;
+    border-radius: 50px;
+    padding: 3px;
+    transition: background-color 0.3s ease;
+}
+
+.dropdown:hover {
+    background-color: #0a0a0a;
+    cursor: pointer;
+}
+
+.dropdown img {
+    height: 25px;
+    border-radius: 55%;
+}
+
+.dropdown p {
+    color: white;
+    padding: 4px 10px 2px 10px;
+    font-size: 0.9em;
+}
+
+.dropdown svg {
+    padding: 0 5px;
+}
+
+.dropdownMenu {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    top: 35px;
+    right: 0px;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: #252525;
+    box-shadow: 0px 5px 10px rgba(0,0,0,0.3);
+    transition: opacity 0.2s ease-in-out;
+}
+
+.dropdownMenu.show {
+    opacity: 1;
+    visibility: visible;
+    z-index: 10;
+}
+
+.dropdownMenuLi {
+    font-weight: 300;
+    font-size: 0.9em;
+    padding: 15px 15px;
+    border-radius: 3px;
+    transition: background-color 0.1s ease;
+}
+
+.dropdownMenuLi:hover {
+    background-color: rgba(255,255,255,0.1);
+}
+
+.dropdownMenuLi:last-of-type {
+    border-top: 1px solid gray;
+}
+
+/*HEADER BOTTOM*/
+
+#presentazioneAlbum {
+    padding-top: 30px;
+    display: flex;
+    align-items: flex-end;
+}
+
+#fotoAlbum {
+    margin-right: 30px;
+}
+
+#fotoAlbum img {
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease-in-out;
+}
+
+#fotoAlbum img:hover {
+    cursor: pointer;
+    transform: scale(1.03);
+}
+
+#titoloArtistaAlbum h1 {
+    font-size: 3vw;
+    font-weight: bold;
+    margin: 10px 0px 20px 0px;
+
+}
+
+#dettagliAlbum {
+    display: flex;
+    align-items: center;
+}
+
+.nomeArtista {
+    display: flex;
+    align-items: center;
+}
+
+.iconaArtista {
+    width: 30px;
+    overflow: hidden;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+.iconaArtista img {
+    width: 100%;
+    border-radius: 50%;
+}
+
+.dot {
+    margin: 0 5px;
+}
+
+.releaseAlbum {
+    display: flex;
+}
+
+.albumWriteMobile {
+    display: none;
+}
+
+.dettagliBrani {
+    display: flex;
+}
+
+
+@media screen and (max-width:1128px) {
+    .headerTop {
+        display: none;
+    }
+
+    .albumWriteDesktop {
+        display: none;
+    }
+
+    #presentazioneAlbum {
+        flex-direction: column;
+    }
+
+    #fotoAlbum {
+        align-self: center;
+        margin: 0;
+    }
+
+    #fotoAlbum img {
+        width: 18rem;
+    }
+
+    #titoloArtistaAlbum {
+        align-self: flex-start;
+    }
+
+    #titoloArtistaAlbum h1 {
+        font-size: 2em;
+    }
+
+    #dettagliAlbum {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nomeArtista {
+        padding-bottom: 15px;
+    }
+
+    .albumWriteMobile {
+        display: block;
+    }
+
+    .dettagliBrani {
+        display: none;
+    }
+
+}
+
+@media screen and (max-width:430px)  {
+    #fotoAlbum img {
+        width: 10rem;
+    }
+}
+
+@media screen and (min-width:1024px) {
+    #dettagliAlbum {
+        flex-wrap: wrap;
+    }
+    
+}
+
+
+
+/* MAIN */
+
+main {
+    background: rgb(87,76,31);
+    background: linear-gradient(180deg, rgba(87,76,31,1) 2%, rgba(42,38,23,1) 5%, rgba(33,33,33,1) 10%);
+    color: #a7a7a7;
+}
+
+/*BOTTONI*/
+#bottoni {
+    padding: 30px;
+}
+
+#bottoni div {
+    display: inline;
+}
+
+#bottoni button {
+    margin-right: 20px;
+}
+
+#playRandom {
+    display: none;
+}
+
+#player1 {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #1ed760;
+    border: none;
+}
+
+#player1 svg {
+    width: 30px;
+    position: relative;
+    top: 2px;
+    left: 2px;
+}
+
+.btn {
+    transition: transform 0.1s ease-in-out;
+}
+
+.btn:hover {
+    cursor: pointer;
+    transform: scale(1.06);
+}
+
+.fixBtn {
+    width: 40px;
+    height: 40px;
+    background-color: transparent;
+    border: none;
+    color: #a7a7a7;
+}
+
+.fixBtn:hover {
+    color: white;
+}
+
+@media screen and (max-width:430px) {
+    #bottoni button {
+        margin-right: 0px;
+    }
+    #player1 {
+        width: 30px;
+        height: 30px;
+    }
+    #player1 svg {
+        width: 20px;
+        left: 0px;
+    }
+    .fixBtn {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+@media screen and (max-width:1128px) {
+    #bottoni {
+        display: flex;
+        align-items: center;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+    }
+
+    #playRandom {
+        display: inline;
+    }
+
+    #player1 {
+        margin-right: 0 !important;
+    }
+
+    #altreOpzioni svg {
+        transform: rotate(90deg);
+    }
+}
+
+/*CONTENUTO ALBUM*/
+#contenutoAlbum {
+    padding: 0px 30px;
+}
+
+#rigaIntestazione {
+    padding: 10px 0px;
+    margin-bottom: 40px;
+    border-bottom: 1px solid hsla(0,0%,100%,.1);
+}
+
+.row {
+    padding: 10px 60px 10px 20px;
+    display: flex; 
+    margin-bottom: 20px;
+    align-items: center;
+    border-radius: 5px;
+}
+
+.row-top{
+    margin-bottom: 0;
+}
+
+.row .unfilledHeart {
+    margin-top: -3px;
+}
+
+.colTitoli {
+    display: flex;
+    align-items: center;
+    flex-basis: 33%;
+    
+}
+
+.numBrano {
+    font-size: 20px;
+    flex-basis: 4%;
+    position: relative;
+}
+
+.numBrano span {
+    position: absolute;
+    top: -3px;
+    left: -5px;
+    opacity: 0;
+}
+
+.numBrano svg {
+    color: white;
+    width: 25px;
+}
+
+.titoloBrano {
+    flex-basis: 45%;
+    max-width: 70%;
+}
+
+.nRiproduzioni {
+    text-align: right;
+    flex-basis: 20%;
+}
+
+.tempoBrano {
+    text-align: right;
+    flex-basis: 31%;
+    position: relative;
+}
+
+.tempoBrano span {
+    position: absolute;
+    top: -2px;
+    right: 70px;
+    opacity: 0;
+}
+
+.tempoBrano strong {
+    position: absolute;
+    top: -2px;
+    right: -40px;
+    opacity: 0;
+}
+
+.tempoBrano svg {
+    width: 20px;
+}
+
+.tempoBrano svg:hover {
+    color: white;
+    cursor: pointer;
+}
+
+.dotOption {
+    display: none;
+}
+
+.dotOption svg {
+    width: 20px;
+}
+
+.dotOption svg:hover {
+    color: white;
+    cursor: pointer;
+}
+
+.artista a {
+    color: #a7a7a7;
+}
+
+#elencoBrani .row:hover {
+    background-color: rgba(255,255,255,0.1);
+}
+
+#elencoBrani .row:hover span,
+#elencoBrani .row:hover strong {
+    opacity: 1;
+}
+
+#elencoBrani .row:hover p {
+    opacity: 0;
+}
+
+#elencoBrani .row:hover a {
+    color: white;
+}
+
+#creditiAlbum {
+    margin-top: 40px;
+}
+
+
+@media screen and (max-width:1128px) {
+    #rigaIntestazione {
+        display: none;
+    }
+
+    .row {
+        padding: 0;
+        font-size: 1.2rem;
+        justify-content: space-between;
+    }
+
+    #elencoBrani .row:hover {
+        background-color: initial;
+    }
+
+    #elencoBrani .row:hover .artista a {
+        color: #a7a7a7;
+    }
+
+    .numBrano, .nRiproduzioni, .tempoBrano {
+        display: none;
+    }
+
+    .dotOption {
+        display: block;
+    }
+    
+    a:hover {
+        text-decoration: none;
+    }
+}
+
+@media screen and (max-width:430px) {
+    .row {
+        font-size: 0.9rem;
+    }
+}
+
+
+
+
+/*SECTION DISCOGRAFIA*/
+
+#discografia {
+    margin: 50px 0px 10px;
+    padding: 0px 30px;
+}
+
+#creditiAlbum {
+    padding-bottom: 50px;
+}
+
+address {
+    font-size: 0.7rem;
+}
+
+#vediDiscografia {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+#vediDiscografia h2 {
+    font-size: 25px;
+    font-weight: bold;
+    color: white;
+}
+
+#vediDiscografia small {
+    color: #a7a7a7;
+}
+
+/*CARDS ALBUM*/
+#altriAlbum {
+    display: flex;
+    justify-content: space-between;
+}
+
+.cardAlbum {
+   padding: 20px 20px 30px 20px;
+   border-radius: 12px;
+   background-color: #181818;
+   width: 15%;
+   cursor: pointer;
+}
+
+.cardAlbum:hover {
+    background-color: #282828;
+}
+
+
+
+.cardAlbum img {
+    width: 100%;
+    border-radius: 12px;
+    margin-bottom: 35px;
+    
+}
+
+.topCard {
+    position: relative;
+}
+
+.cardBtn {
+    position: absolute;
+    bottom: 45px;
+    right: 10px;
+    border-radius: 50%;
+    box-shadow: 0px 5px 10px rgba(0,0,0,0.6);
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+@keyframes fadeInOut {
+    0%, 100% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+
+    80% {
+        opacity: 0;
+    }
+
+    80%, 100% {
+        transform: translateY(0%);
+        opacity: 1;
+    }
+}
+
+.cardAlbum:hover .cardBtn {
+    animation: 0.5s fadeInOut;
+    opacity: 1;
+}
+
+.cardAlbum .cardBtn {
+    transition-delay: 0.1s;
+}
+
+@media screen and (max-width:1128px) {
+    #discografia {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 0;
+    }
+
+    #vediDiscografia h2 {
+        font-size: 1.4rem;
+    }
+
+    #vediDiscografia small {
+        display: none;
+    }
+
+    #creditiAlbum {
+        order: 3;
+    }
+
+    #altriAlbum {
+        justify-content: initial;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+
+    .cardAlbum {
+        width: 37%;
+        background-color: transparent;
+        padding: 0;
+        border-radius: 0;
+        flex: 0 0 auto;
+        margin-right: 25px;
+    }
+
+    .cardAlbum:hover {
+        background-color: initial;
+    }
+
+    .cardAlbum img {
+        border-radius: 0;
+        margin-bottom: 10px;
+    }
+
+    .cardAlbum p {
+        display: none;
+    }
+
+    .cardAlbum h4 {
+        font-size: 1.5rem;
+    }
+
+    .cardBtn {
+        display: none;
+    }
+
+    
+
+    @keyframes fadeInOut {
+        from {
+            transform: none;
+        }
+        to {
+            transform: none;
+        }
+    }
+}
+
+@media screen and (min-width:1128px) {
+    #altriAlbum {
+        flex-wrap: wrap;
+    }
+
+    .titoloBrano {
+        max-width: 40%;
+    }
+}
+    
+
+/*
+
+#altriAlbum {
+    justify-content: initial;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+
+}
+.cardAlbum {
+    flex: 0 0 auto;
+    margin-right: 3px;
+}
+
+
+*/
+
+/*FOOTER*/
+.albumPageFooter {
+    display: none;
+    margin: 125px 0 0 0;
+    padding: 0px 30px;
+}
+
+/* Footer top */
+
+.footerNavTop {
+    display: flex;
+    padding: 0 0 20px 0;
+    border-bottom: 1px solid rgb(70, 70, 70);
+}
+
+.navTop {
+    display: flex;
+    justify-content: space-between;
+    width: 60%;
+}
+
+.navTitle {
+    font-size: 1.1em;
+}
+
+.navTop p {
+    color: white;
+}
+
+.navTop li {
+    margin: 15px 0;
+}
+
+.navTop li a:hover {
+    color: white;
+}
+
+.navLinks {
+    color: rgba(255,255,255,0.5);
+}
+
+.socialIcons {
+    width: 40%;
+    display: flex;
+    justify-content: end;
+}
+
+.socialIcons div {
+    margin: 0 5px;
+    height: 40px;
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    background-color: rgba(255,255,255,0.1);
+    transition: background-color 0.1s ease;
+}
+
+.socialIcons div:hover {
+    cursor: pointer;
+    background-color: rgba(255,255,255,0.3);
+}
+
+/* Footer bot */
+
+.footerNavBot {
+    font-size: 0.9em;
+    padding-top: 50px;
+    padding-bottom: 70px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.footerNavBot ul {
+    display: flex;
+    font-size: 0.9em;
+}
+
+.footerNavBot ul .navBotLinks {
+    text-decoration: none;
+    color: rgba(255,255,255,0.5);
+    margin: 0 10px 0 0;
+    transition: color 0.1s ease;
+}
+
+.footerNavBot ul .navBotLinks:hover {
+    color: rgba(255,255,255,0.8);
+}
+
+.footerNavBot p {
+    font-weight: 300;
+    color: rgba(255,255,255,0.7);
+}
+
+@media screen and (min-width:1128px) {
+    .albumPageFooter {
+        display: block;
+    }
+}
+
+@media screen and (max-width:1128px) {
+    .albumPage {
+        width: 100%;
+        padding-bottom: 150px;
+    }
+}
