@@ -53,7 +53,6 @@ async function fetchApi(url, option) {
   const response = await fetch(url, option);
   const data = await response.json();
   const array = data.data;
-  console.log(data);
 
   let cardsTop = "";
   for (let i = 0; i < 6; i++) {
@@ -96,7 +95,6 @@ async function showSongs(url, option) {
   const response = await fetch(url, option);
   const data = await response.json();
   const array = data.data;
-  console.log(array)
 
   let cardsCategoryDesktop = "";
   for (let i = 0; i < 5; i++) {
@@ -209,10 +207,8 @@ async function showSongs(url, option) {
             togglePlayback()
             advanceProgressBar()
             resetTimer()
-            // console.log(interval)
 
             playerApi(data)
-            console.log(data)
             
         });
     });

@@ -26,7 +26,6 @@ function searchResults(index = "") {
   fetch(`${endpoint}${searchText}${index}`, searchOptions)
     .then((response) => response.json())
     .then((data) => {
-      console.log(data)
       if (data.hasOwnProperty("error")) {
         modalText.innerText = "Invalid search query";
         modal.classList.toggle("modal-active");
@@ -58,7 +57,6 @@ function searchResults(index = "") {
 
       for (i = 0; i < data.data.length; i++) {
         let content = data.data[i];
-        console.log(content)
         const card = document.createElement("div");
         card.classList.add("searchResultBox");
         card.innerHTML = `
@@ -82,7 +80,6 @@ function searchResults(index = "") {
       //     ).length,
       //   });
       // });
-      // console.log(relevant);
 
       if (data.data.length < 25) {
         moreButton.disabled = true;
