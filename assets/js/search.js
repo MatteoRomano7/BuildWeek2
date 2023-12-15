@@ -57,6 +57,7 @@ function searchResults(index = "") {
 
       for (i = 0; i < data.data.length; i++) {
         let content = data.data[i];
+        console.log(content)
         const card = document.createElement("div");
         card.classList.add("searchResultBox");
         card.innerHTML = `
@@ -64,23 +65,23 @@ function searchResults(index = "") {
                 <img src="${content.album.cover}"></img>
             </div>
             <div class="searchText">
-            <h3><a href="album.html?id=${content.album.id}">${content.title}</a></h3>
-            <p><a href="artist.html=id=${content.artist.id}">${content.artist.name}</a><p>
+            <h3><a href="album.html?id=${content.id}">${content.title}</a></h3>
+            <p><a href="artist.html?id=${content.id}">${content.artist.name}</a><p>
             </div>
             `;
         container.appendChild(card);
       }
 
-      let pepe = data.data;
-      let relevant = {};
-      pepe.map((elem) => {
-        Object.assign(relevant, {
-          [elem.artist.name]: pepe.filter(
-            (a) => a.artist.name === elem.artist.name
-          ).length,
-        });
-      });
-      console.log(relevant);
+      // let pepe = data.data;
+      // let relevant = {};
+      // pepe.map((elem) => {
+      //   Object.assign(relevant, {
+      //     [elem.artist.name]: pepe.filter(
+      //       (a) => a.artist.name === elem.artist.name
+      //     ).length,
+      //   });
+      // });
+      // console.log(relevant);
 
       if (data.data.length < 25) {
         moreButton.disabled = true;
