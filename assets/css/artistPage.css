@@ -9,6 +9,17 @@ body {
     overflow-y: scroll;
 }
 
+.artistPage svg {
+    opacity: 0.8;
+    transition: transform 0.2s ease;
+}
+
+.artistPage svg:hover {
+    cursor: pointer;
+    opacity: 1;
+    transform: scale(1.2);
+}
+
 /* HEADER */
 
 .header {
@@ -104,6 +115,7 @@ body {
 .iconBarDesktop {
     display: none;
     align-items: center;
+    margin: 0 0 15px 0;
 }
 
 #player1 {
@@ -133,9 +145,16 @@ body {
     padding: 7px 15px 5px 15px;
     color: white;
     font-family: 'Circular';
-    border: 1px solid white;
+    border: 1px solid rgba(255,255,255,0.5);
     border-radius: 3px;
     background-color: rgba(0,0,0,0);
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.followingBtn:hover {
+    cursor: pointer;
+    background-color: rgba(255,255,255,0.1);
+    transform: scale(1.05);
 }
 
 /* Main bot */
@@ -250,6 +269,20 @@ body {
     width: 100%;
     display: flex;
     align-items: center;
+    padding: 5px 0;
+    margin: 10px 0;
+    background-color: rgba(255,255,255,0);
+    transition: background-color 0.1s ease;
+}
+
+.trackCard:hover {
+    cursor: pointer;
+    border-radius: 3px;
+    background-color: rgba(255,255,255,0.1);
+}
+
+.cardId {
+    display: none;
 }
 
 .trackCard > div {
@@ -287,7 +320,23 @@ body {
     text-align: right;
 }
 
+.trackCard #player1 {
+    width: 20px;
+    height: 20px;
+    background-color: rgba(0,0,0,0);
+    padding: 0;
+    border: none;
+    border-radius: none;
+}
+
 /* Media query Desktop */
+
+@media screen and (min-width:600px) {
+    .headerBot img {
+        position: relative;
+        top: -50px;
+    }
+}
 
 @media screen and (min-width:1200px) {
     .header {
@@ -307,6 +356,11 @@ body {
 
     .verifiedText svg {
         margin: 0 5px 0 0;
+    }
+
+    .headerBot img {
+        position: relative;
+        top: -100px;
     }
     
     .monthlyListener {
@@ -353,6 +407,16 @@ body {
     }
 }
 
-.cardId {
-    display: none;
+@media screen and (min-width:1400px) {
+    .headerBot img {
+        position: relative;
+        top: -150px;
+    }
+}
+
+@media screen and (min-width:1800px) {
+    .headerBot img {
+        position: relative;
+        top: -200px;
+    }
 }

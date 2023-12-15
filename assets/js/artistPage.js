@@ -19,7 +19,6 @@ const monthlyListenerMobile = document.querySelector('.monthlyListenerMobile')
 
 //CARDS
 const trackCardsContainer = document.querySelector('.trackCardsContainer')
-const trackIndex = document.querySelector('.trackIndex')
 const trackImg = document.querySelector('.trackImg')
 const trackTitle = document.querySelector('.trackTitle')
 const trackListeners = document.querySelector('.trackListeners')
@@ -58,12 +57,12 @@ async function fetchTracks(url,option) {
 
     let cards = ''
     for (let i = 0; i < 10; i++) {
-        let randomListeners = Math.floor(Math.random() * 1000000)
-        let trackIndex = i + 1
+        let randomListeners = Math.floor(Math.random() * 1000) + '.' + Math.floor(Math.random() * 1000)
+        let trackIndexNumber = i + 1
         cards += `
             <div class="trackCard">
                 <div class="trackIndexDiv">
-                    <p class="trackIndex">${trackIndex}</p>
+                    <p class="trackIndex">${trackIndexNumber}</p>
                 </div>
                 <div class="trackImgDiv">
                     <img class="trackImg" src="${data.data[i].album.cover_medium}" alt="trackImg">
@@ -86,4 +85,22 @@ async function fetchTracks(url,option) {
     let randomLikedSongs = Math.floor(Math.random() * 15)
     likedSongsMobileNumber.innerHTML = randomLikedSongs
     likedSongsNumber.innerHTML = randomLikedSongs
+
+    const trackCards = document.querySelectorAll('.trackCard')
+    console.log(trackCards)
+    const trackIndexes = document.querySelectorAll('.trackIndexDiv')
+    console.log(trackIndexes)
+    for (let i = 0; i < trackCards.length; i++) {
+        trackCards[i].addEventListener('mouseover', () => {
+                trackIndexes[i].innerHTML = `
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-play-fill" id="player1" viewBox="0 0 16 16">
+                    <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/>
+                </svg>
+            `
+        })
+        let trackIndexNumber = i + 1
+        trackCards[i].addEventListener('mouseout', () => {
+            trackIndexes[i].innerHTML = `<p class="trackIndex">${trackIndexNumber}</p>`
+        })
+    }
 }
