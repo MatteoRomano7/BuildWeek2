@@ -17,9 +17,25 @@ const showAnnunci = document.querySelector('.showAnnunci')
 const hideAnnunci = document.querySelector('.hideAnnunci')
 const audioElem = document.querySelector('audio')
 const headerPlay = document.querySelector(".headerPlay")
+const headerSave = document.querySelector('.headerSave')
+
+let isHeaderSaved = 'none'
+
+headerSave.addEventListener('click', () => {
+  if (isHeaderSaved === 'none') {
+    headerSave.style.backgroundColor = '#1ed760'
+    headerSave.style.color = 'black'
+    headerSave.innerText = 'Salvato'
+    isHeaderSaved = 'saved'
+  } else {
+    headerSave.style.backgroundColor = 'rgba(0,0,0,0)'
+    headerSave.style.color = 'rgba(255,255,255,0.6)'
+    headerSave.innerText = 'Salva'
+    isHeaderSaved = 'none'
+  }
+})
 
 const playerInfo = document.querySelector(".leftDiv")
-
 
 
 hideAnnunci.addEventListener('click', () => {

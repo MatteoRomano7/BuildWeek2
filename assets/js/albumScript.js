@@ -252,5 +252,4 @@ fetch(`https://deezerdevs-deezer.p.rapidapi.com/track/1963530567`, options)
   
   playerApi(datas)
   audioElem.src = datas.preview
-  
 })
