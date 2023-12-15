@@ -876,3 +876,10 @@ address {
         padding-bottom: 150px;
     }
 }
+
+@media screen and (max-width:430px) {
+    #salvaInLibreria svg {
+        height: 18px;
+        width: 18px;
+    }
+}
