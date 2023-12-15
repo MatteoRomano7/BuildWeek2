@@ -420,6 +420,8 @@ main {
     margin-bottom: 0;
 }
 
+
+
 .row .unfilledHeart {
     margin-top: -3px;
 }
@@ -483,7 +485,7 @@ main {
     width: 20px;
 }
 
-.tempoBrano svg:hover {
+#elencoBrani .tempoBrano svg:hover {
     color: white;
     cursor: pointer;
 }
@@ -618,6 +620,9 @@ address {
     background-color: #282828;
 }
 
+.cardAlbum a:hover {
+    text-decoration: none;
+}
 
 
 .cardAlbum img {

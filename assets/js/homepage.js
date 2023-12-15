@@ -15,6 +15,12 @@ const headerMid = document.querySelector('.headerMid')
 const headerBot = document.querySelector('.headerBot')
 const showAnnunci = document.querySelector('.showAnnunci')
 const hideAnnunci = document.querySelector('.hideAnnunci')
+const audioElem = document.querySelector('audio')
+const headerPlay = document.querySelector(".headerPlay")
+
+let playerInfo = document.querySelector(".leftDiv")
+
+
 
 hideAnnunci.addEventListener('click', () => {
     headerMid.style.display = 'block'
@@ -53,7 +59,7 @@ async function fetchApi(url, option) {
          <p class="cardId">${array[i].id}</p>
 
         </div>
-        `;
+        `
   }
   cardsContainerTop.innerHTML = cardsTop;
 
@@ -172,6 +178,7 @@ async function showSongs(url, option) {
     });
   }
 
+ 
   const playButtons = document.querySelectorAll("#player1");
   for (i = 0; i < playButtons.length; i++) {
     playButtons[i].addEventListener("click", function () {
@@ -179,16 +186,36 @@ async function showSongs(url, option) {
       fetch(`https://deezerdevs-deezer.p.rapidapi.com/track/${songId}`, options)
         .then((response) => response.json())
         .then((data) => {
-            const audioElem = document.querySelector('audio')
+            clearInterval(interval)
+            
             audioElem.setAttribute('src', data.preview)
             isPlaying = false
             togglePlayback()
+            advanceProgressBar()
+            resetTimer()
+            // console.log(interval)
+
+            playerApi(data)
+            console.log(data)
+            
         });
     });
   }
 
 }
 
+function playerApi(results){
+  const leftDivSongImg = playerInfo.querySelector("img")
+  const LeftDivArtistName =  playerInfo.querySelector("h4")
+  const LeftDivTrackName =  playerInfo.querySelector("h2")
+
+  leftDivSongImg.src = results.album.cover
+  LeftDivArtistName.innerHTML = results.artist.name
+  LeftDivTrackName.innerHTML = results.title
+
+  }
+  
+ 
 function testShit() {
 }
 
@@ -268,4 +295,39 @@ function createCardDesktop(songImg, songTitle, songAlbum, trackId) {
 
 fetchApi(urlPlaylist ,options)
 showSongs(urlEminem,options)
-//
+
+let suggestedSongId = 1963530567
+
+function defaultSong(){
+
+fetch(`https://deezerdevs-deezer.p.rapidapi.com/track/${suggestedSongId}`, options)
+.then((response) => response.json())
+.then((datas)  => {
+  
+  clearInterval(interval)
+  playerApi(datas)
+  audioElem.src = datas.preview
+  isPlaying = false
+  togglePlayback()
+  advanceProgressBar()
+  resetTimer()
+
+})
+}
+
+fetch(`https://deezerdevs-deezer.p.rapidapi.com/track/${suggestedSongId}`, options)
+.then((response) => response.json())
+.then((datas)  => {
+  
+  
+  playerApi(datas)
+  audioElem.src = datas.preview
+  
+})
+
+headerPlay.addEventListener("click", function() {
+  defaultSong()
+
+})
+
+  
