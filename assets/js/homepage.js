@@ -1,17 +1,31 @@
 /* const urldkjsa = new URLSearchParams(location.search) */
 const options = {
-  method: "GET",
-  headers: {
-    "X-RapidAPI-Key": "73999ce929msh48c7f5b93fbd6f4p173171jsn85f07c73f8ec",
-    "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
-  },
-};
-const urlPlaylist =
-  "https://deezerdevs-deezer.p.rapidapi.com/search?q=playlist&index=25";
-const urlEminem = "https://deezerdevs-deezer.p.rapidapi.com/search?q=eminem";
-const cardsContainerTop = document.querySelector(".cardsContainerTop");
-const cardsDesktop = document.querySelector(".cardsDesktop");
-const cardsContainerMobile = document.querySelector(".cardsContainerMobile");
+	method: 'GET',
+	headers: {
+		'X-RapidAPI-Key': '73999ce929msh48c7f5b93fbd6f4p173171jsn85f07c73f8ec',
+		'X-RapidAPI-Host': 'deezerdevs-deezer.p.rapidapi.com'
+	}
+}
+const urlPlaylist = 'https://deezerdevs-deezer.p.rapidapi.com/search?q=playlist&index=25';
+const urlEminem = 'https://deezerdevs-deezer.p.rapidapi.com/search?q=eminem';
+const cardsContainerTop = document.querySelector('.cardsContainerTop')
+const cardsDesktop = document.querySelector('.cardsDesktop')
+const cardsContainerMobile = document.querySelector('.cardsContainerMobile')
+const headerMid = document.querySelector('.headerMid')
+const headerBot = document.querySelector('.headerBot')
+const showAnnunci = document.querySelector('.showAnnunci')
+const hideAnnunci = document.querySelector('.hideAnnunci')
+
+hideAnnunci.addEventListener('click', () => {
+    headerMid.style.display = 'block'
+    headerBot.style.display = 'none'
+})
+
+showAnnunci.addEventListener('click', () => {
+    headerMid.style.display = 'none'
+    headerBot.style.display = 'flex'
+})
+
 
 async function fetchApi(url, option) {
   const response = await fetch(url, option);
@@ -251,5 +265,6 @@ function createCardDesktop(songImg, songTitle, songAlbum, trackId) {
     `;
 }
 
-fetchApi(urlPlaylist, options);
-showSongs(urlEminem, options);
+fetchApi(urlPlaylist ,options)
+showSongs(urlEminem,options)
+//

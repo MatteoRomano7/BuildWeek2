@@ -229,6 +229,16 @@
   
 }
 
+@media screen and (min-width: 1200px) {
+  .headerTop {
+    display: flex;
+  }
+  
+}
+
+.nav ul {
+    
+}
 
 /* SCROLLBAR */
 
