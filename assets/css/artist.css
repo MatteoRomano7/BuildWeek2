@@ -34,6 +34,7 @@ svg {
 
 #ArtistPage {
   display: none;
+  width: 90vw;
 }
 
 .headerTop {
@@ -157,6 +158,11 @@ svg {
   border-top: 1px solid gray;
 }
 
+#centralArtist{
+    width: 90%;
+    overflow-y: scroll;
+}
+
 #artistHeader {
   background-color: transparent;
   width: 100%;
@@ -168,7 +174,7 @@ svg {
 #artistHeader img {
   position: absolute;
   top: -7rem;
-  max-width: 100%;
+  max-width: 120%;
 }
 
 .verified {
@@ -176,12 +182,12 @@ svg {
 }
 
 #artistInfo {
-  padding-top: 17rem;
-  padding-left: 5rem;
-  margin-bottom: 5rem;
+   top: 100px;
+     left: 20%;
+    
   position: absolute;
-  top: 0px;
-  left: 0px;
+  top: 200px;
+  left: 400px;
   z-index: 5;
   opacity: 1;
 }

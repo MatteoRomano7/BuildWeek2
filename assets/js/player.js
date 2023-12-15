@@ -25,7 +25,7 @@ const playIcon = document.getElementById('play-icon')
 const stopIcon = document.getElementById('stop-icon')
 
 let currentTime = 0
-const duration = 242 //DURATION DEL TIMER IN SECONDS
+let duration = 30 //DURATION DEL TIMER IN SECONDS
 let isPlaying = true //FALSE PER FARLO INZIARE DA SUBITO TRUE PER L INVERSO
 let interval
 
@@ -40,6 +40,7 @@ function advanceProgressBar() {
   currentTime += 1
   
   if (currentTime <= duration) {
+
     const progressWidth = (currentTime / duration) * 100
     progressElement.style.width = `${progressWidth}%`
 
@@ -58,6 +59,7 @@ function advanceProgressBar() {
 }
 
 
+
 function togglePlayback() {
   if (isPlaying) {
     clearInterval(interval)
@@ -66,11 +68,13 @@ function togglePlayback() {
     stopIcon.style.display = 'none'
     audioPlayer.pause()
   } else {
-    interval = setInterval(advanceProgressBar, 1000);
-    isPlaying = true;
+   
+    interval = setInterval(advanceProgressBar, 1000)
+    isPlaying = true
     playIcon.style.display = 'none'
     stopIcon.style.display = 'block'
     audioPlayer.play()
+    
   }
 }
 
@@ -79,6 +83,7 @@ togglePlayback()
 
 playIcon.addEventListener('click', togglePlayback)
 stopIcon.addEventListener('click', togglePlayback)
+
 
 const backBtn = document.getElementById('backbtn')
 

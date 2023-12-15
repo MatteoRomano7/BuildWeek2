@@ -1,0 +1,81 @@
+body {
+    font-family: 'Circular';
+    color: white;
+}
+
+.artistPage {
+    box-sizing: border-box;
+}
+
+/* HEADER */
+
+.header {
+    background-color: gray;
+    width: 100%;
+}
+
+.headerTop {
+ padding: 15px;
+ z-index: 10;
+}
+
+.headerBot {
+    height: 250px;
+    overflow: hidden;
+    position: relative;
+}
+
+.headerBot img {
+    width: 100%;
+}
+
+.headerBotText {
+    position: absolute;
+    bottom: 10px;
+    left: 20px;
+    z-index: 10;
+}
+
+.verifiedText {
+    display: none;
+}
+
+.artistName {
+    font-size: 3em;
+    font-weight: 600;
+    margin: 10px 0;
+}
+
+.monthlyListener {
+    display: none;
+    font-size: 0.9em;
+    font-weight: 300;
+}
+
+/* Main */
+
+.artistPageMain {
+    background: rgb(18,18,18);
+    background: linear-gradient(0deg, rgba(18,18,18,1) 35%, rgba(33,33,33,1) 100%);
+}
+
+#player1 {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #1ed760;
+    border: none;
+    box-shadow: 0px 0px 5px rgba(0,0,0,0.4);
+    transform: scale(0.9);
+    transition: transform 0.2s ease, opacity 0.3s ease, box-shadow 0.2s ease, bottom 0.3s ease;
+}
+
+#player1:hover {
+    cursor: pointer;
+    transform: scale(1);
+    box-shadow: 0px 0px 0px rgba(0,0,0,0.4);
+}
+
+#player1 svg {
+    padding: 1px 0 0 3px;
+}

@@ -53,7 +53,7 @@ async function fetchApi(url, option) {
          <p class="cardId">${array[i].id}</p>
 
         </div>
-        `;
+        `
   }
   cardsContainerTop.innerHTML = cardsTop;
 
@@ -171,6 +171,7 @@ async function showSongs(url, option) {
     });
   }
 
+  let playerInfo = document.querySelector("#playerInfo")
   const playButtons = document.querySelectorAll("#player1");
   for (i = 0; i < playButtons.length; i++) {
     playButtons[i].addEventListener("click", function () {
@@ -178,10 +179,28 @@ async function showSongs(url, option) {
       fetch(`https://deezerdevs-deezer.p.rapidapi.com/track/${songId}`, options)
         .then((response) => response.json())
         .then((data) => {
+            clearInterval(interval)
             const audioElem = document.querySelector('audio')
             audioElem.setAttribute('src', data.preview)
             isPlaying = false
             togglePlayback()
+            advanceProgressBar()
+            resetTimer()
+            // console.log(interval)
+
+            function playerApi(results){
+            playerInfo.innerHTML = `<img
+            src="${results.picture_small}"
+            alt=""
+          />
+          <div>
+            <h2>${results.title}</h2>
+            <h4>${results.album.name}</h4>
+          </div>`
+            }
+            
+            playerApi(data)
+            
         });
     });
   }
