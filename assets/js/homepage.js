@@ -16,6 +16,9 @@ const headerBot = document.querySelector('.headerBot')
 const showAnnunci = document.querySelector('.showAnnunci')
 const hideAnnunci = document.querySelector('.hideAnnunci')
 
+let playerInfo = document.querySelector(".leftDiv")
+
+
 hideAnnunci.addEventListener('click', () => {
     headerMid.style.display = 'block'
     headerBot.style.display = 'none'
@@ -171,7 +174,7 @@ async function showSongs(url, option) {
     });
   }
 
-  let playerInfo = document.querySelector("#playerInfo")
+ 
   const playButtons = document.querySelectorAll("#player1");
   for (i = 0; i < playButtons.length; i++) {
     playButtons[i].addEventListener("click", function () {
@@ -188,18 +191,8 @@ async function showSongs(url, option) {
             resetTimer()
             // console.log(interval)
 
-            function playerApi(results){
-            playerInfo.innerHTML = `<img
-            src="${results.picture_small}"
-            alt=""
-          />
-          <div>
-            <h2>${results.title}</h2>
-            <h4>${results.album.name}</h4>
-          </div>`
-            }
-            
             playerApi(data)
+            console.log(data)
             
         });
     });
@@ -207,6 +200,18 @@ async function showSongs(url, option) {
 
 }
 
+function playerApi(results){
+  const leftDivSongImg = playerInfo.querySelector("img")
+  const LeftDivArtistName =  playerInfo.querySelector("h4")
+  const LeftDivTrackName =  playerInfo.querySelector("h2")
+
+  leftDivSongImg.src = results.album.cover
+  LeftDivArtistName.innerHTML = results.artist.name
+  LeftDivTrackName.innerHTML = results.title
+
+  }
+  
+ 
 function testShit() {
 }
 
