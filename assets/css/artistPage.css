@@ -1,12 +1,14 @@
 body {
     font-family: 'Circular';
     color: white;
+    background-color: #212121;
 }
 
 .artistPage {
     box-sizing: border-box;
     width: 100%;
     overflow-y: scroll;
+    padding: 0 0 150px 0;
 }
 
 .artistPage svg {
@@ -335,6 +337,12 @@ body {
     .headerBot img {
         position: relative;
         top: -50px;
+    }
+}
+
+@media screen and (min-width:768px) {
+    .artistPage {
+        padding: 0;
     }
 }
 
