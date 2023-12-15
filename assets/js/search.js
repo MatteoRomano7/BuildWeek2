@@ -26,11 +26,12 @@ function searchResults(index = "") {
   fetch(`${endpoint}${searchText}${index}`, searchOptions)
     .then((response) => response.json())
     .then((data) => {
-
       if (data.hasOwnProperty("error")) {
-        modalText.innerText = 'Invalid search query'
-        modal.classList.toggle("modal-active")
-        setTimeout(() => {modal.classList.toggle("modal-active")}, 1000)
+        modalText.innerText = "Invalid search query";
+        modal.classList.toggle("modal-active");
+        setTimeout(() => {
+          modal.classList.toggle("modal-active");
+        }, 1000);
 
         searchForm.reset();
 
@@ -38,17 +39,17 @@ function searchResults(index = "") {
       }
 
       if (data.data.length === 0) {
-        modalText.innerText = 'Nothing was found'
-        modal.classList.toggle("modal-active")
-        setTimeout(() => {modal.classList.toggle("modal-active")}, 1000)
-      
+        modalText.innerText = "Nothing was found";
+        modal.classList.toggle("modal-active");
+        setTimeout(() => {
+          modal.classList.toggle("modal-active");
+        }, 1000);
+
         return;
       }
-      console.log(globalIndex)
 
       if (globalIndex === 0) {
-        console.log('pepe')
-        removeAllElements()
+        removeAllElements();
       }
 
       document.querySelector("h2").style.display = "none";
@@ -69,14 +70,23 @@ function searchResults(index = "") {
             `;
         container.appendChild(card);
       }
+
+      let pepe = data.data;
+      let relevant = {};
+      pepe.map((elem) => {
+        Object.assign(relevant, {
+          [elem.artist.name]: pepe.filter(
+            (a) => a.artist.name === elem.artist.name
+          ).length,
+        });
+      });
+      console.log(relevant);
+
       if (data.data.length < 25) {
-        moreButton.disabled = true
+        moreButton.disabled = true;
       } else {
-        moreButton.disabled = false
-
+        moreButton.disabled = false;
       }
-
-
     });
 }
 
@@ -88,7 +98,7 @@ moreButton.addEventListener("click", () => {
 // searchForm.addEventListener("submit", removeAllElements);
 // searchForm.addEventListener("submit", () => {
 // });
-searchForm.addEventListener('submit', () => globalIndex = 0);
+searchForm.addEventListener("submit", () => (globalIndex = 0));
 
 searchForm.addEventListener("submit", (e) => {
   e.preventDefault();
