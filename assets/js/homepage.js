@@ -78,7 +78,7 @@ async function showSongs(url, option) {
 
   let cardsCategoryDesktop = "";
   for (let i = 0; i < 5; i++) {
-    cardsCategoryDesktop += createContainer(array[i].artist.name);
+    cardsCategoryDesktop += createContainer(array[i].artist.name, `artistPage.html?id=${array[i].artist.id}`);
   }
   cardsDesktop.innerHTML = cardsCategoryDesktop;
 
@@ -232,11 +232,11 @@ function createMobileCards(card) {
         `;
 }
 
-function createContainer(categoryName) {
+function createContainer(categoryName, artistUrl) {
   return `
         <div class="otherAlbums">
             <h3>${categoryName}</h3>
-            <p>VISUALIZZA TUTTO</p>
+            <p><a href="${artistUrl}">VISUALIZZA TUTTO</a></p>
         </div>
         <div class="cardsContainerBot">
             
