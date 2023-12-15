@@ -26,6 +26,7 @@ function searchResults(index = "") {
   fetch(`${endpoint}${searchText}${index}`, searchOptions)
     .then((response) => response.json())
     .then((data) => {
+      console.log(data)
       if (data.hasOwnProperty("error")) {
         modalText.innerText = "Invalid search query";
         modal.classList.toggle("modal-active");
@@ -64,8 +65,8 @@ function searchResults(index = "") {
                 <img src="${content.album.cover}"></img>
             </div>
             <div class="searchText">
-            <h3><a href="album.html?id=${content.album.id}">${content.title}</a></h3>
-            <p><a href="artist.html=id=${content.artist.id}">${content.artist.name}</a><p>
+            <h3><a href="album.html?id=${data.data[i].id}">${content.title}</a></h3>
+            <p><a href="artistPage.html?id=${content.artist.id}">${content.artist.name}</a><p>
             </div>
             `;
         container.appendChild(card);
