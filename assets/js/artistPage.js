@@ -111,13 +111,14 @@ async function fetchTracks(url,option) {
                 <div class="trackIndexDiv">
                     <p class="trackIndex">${trackIndexNumber}</p>
                 </div>
+                <p class="cardId">${data.data[i].id}</p>
                 <div class="trackImgDiv">
                     <img class="trackImg" src="${data.data[i].album.cover_medium}" alt="trackImg">
                 </div>
                 <div class="trackTitleDiv">
                     <h3 class="trackTitle">${data.data[i].title}</h3>
                     <p class="trackListeners">${randomListeners}</p>
-                    <p class="cardId">${data.data[i].id}</p>
+                    
                 </div>
                 <div class="trackMoreInfoDiv">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
@@ -152,3 +153,43 @@ async function fetchTracks(url,option) {
     }
 }
 
+const audioElem = document.querySelector('audio')
+
+let playerInfo = document.querySelector(".leftDiv")
+
+const playButtons = document.querySelectorAll("#player1");
+
+
+for (i = 0; i < playButtons.length; i++) {
+  playButtons[i].addEventListener("click", function () {
+    let songId = this.nextElementSibling.innerText;
+    fetch(`https://deezerdevs-deezer.p.rapidapi.com/track/${songId}`, options)
+      .then((response) => response.json())
+      .then((data) => {
+          clearInterval(interval)
+          
+          audioElem.setAttribute('src', data.preview)
+          isPlaying = false
+          togglePlayback()
+          advanceProgressBar()
+          resetTimer()
+          // console.log(interval)
+
+          playerApi(data)
+          console.log(data)
+          
+      });
+  });
+}
+
+function playerApi(results){
+    const leftDivSongImg = playerInfo.querySelector("img")
+    const LeftDivArtistName =  playerInfo.querySelector("h4")
+    const LeftDivTrackName =  playerInfo.querySelector("h2")
+  
+    leftDivSongImg.src = results.album.cover
+    LeftDivArtistName.innerHTML = results.artist.name
+    LeftDivTrackName.innerHTML = results.title
+  
+    }
+   
