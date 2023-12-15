@@ -90,6 +90,7 @@ header {
     margin: 0 10px 0 0;
 }
 
+
 .forward {
     padding: 0 0 0 2px;
 }
@@ -743,6 +744,10 @@ address {
 }
 
 @media screen and (min-width:1128px) {
+    .headerTopMobile {
+        display: none;
+    }
+
     #altriAlbum {
         flex-wrap: wrap;
     }
@@ -874,5 +879,12 @@ address {
     .albumPage {
         width: 100%;
         padding-bottom: 150px;
+    }
+}
+
+@media screen and (max-width:430px) {
+    #salvaInLibreria svg {
+        height: 18px;
+        width: 18px;
     }
 }

@@ -13,10 +13,15 @@ const options = {
 let firstTrack
 
 //HEADER
-const headerBotImg = document.querySelector(".headerBotImg");
-const artistName = document.querySelector(".artistName");
-const monthlyListener = document.querySelector(".monthlyListener");
-const monthlyListenerMobile = document.querySelector(".monthlyListenerMobile");
+const headerBotImg = document.querySelector('.headerBotImg')
+const artistName = document.querySelector('.artistName') 
+const monthlyListener = document.querySelector('.monthlyListener')
+const monthlyListenerMobile = document.querySelector('.monthlyListenerMobile')
+
+//MAIN
+const followingBtn = document.querySelector('.followingBtn')
+const shuffleIcon = document.querySelector('.shuffleIcon')
+const seguitiBtn = document.querySelector('.seguitiBtn')
 
 //CARDS
 const trackCardsContainer = document.querySelector(".trackCardsContainer");
@@ -38,7 +43,49 @@ const likedSongsMobileArtist = document.querySelector(
   ".likedSongsMobileArtist"
 );
 
-fetchArtist(urlArtista, options);
+fetchArtist(urlArtista, options)
+
+let isFollowingBtnOn = 'off'
+
+followingBtn.addEventListener('click', () => {
+    if (isFollowingBtnOn === 'off') {
+        seguitiBtn.style.backgroundColor = '#3d91f4'
+        followingBtn.style.backgroundColor = '#3d91f4'
+        followingBtn.innerHTML = 'FOLLOWING'
+        isFollowingBtnOn = 'on'
+    } else {
+        seguitiBtn.style.backgroundColor = 'rgba(255,255,255,0)'
+        followingBtn.style.backgroundColor = 'rgba(255,255,255,0)'
+        followingBtn.innerHTML = 'FOLLOW'
+        isFollowingBtnOn = 'off'
+    }
+})
+
+seguitiBtn.addEventListener('click', () => {
+    if (isFollowingBtnOn === 'off') {
+        seguitiBtn.style.backgroundColor = '#3d91f4'
+        followingBtn.style.backgroundColor = '#3d91f4'
+        followingBtn.innerHTML = 'FOLLOWING'
+        isFollowingBtnOn = 'on'
+    } else {
+        seguitiBtn.style.backgroundColor = 'rgba(255,255,255,0)'
+        followingBtn.style.backgroundColor = 'rgba(255,255,255,0)'
+        followingBtn.innerHTML = 'FOLLOW'
+        isFollowingBtnOn = 'off'
+    }
+})
+
+let isShuffleOn = 'off'
+
+shuffleIcon.addEventListener('click', () => {
+    if (isShuffleOn === 'off') {
+        shuffleIcon.style.fill = '#1ed760'
+        isShuffleOn = 'on'
+    } else {
+        shuffleIcon.style.fill = 'currentColor'
+        isShuffleOn = 'off'
+    }
+})
 
 async function fetchArtist(url, option) {
   const response = await fetch(url, option);

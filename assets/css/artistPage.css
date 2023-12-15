@@ -1,12 +1,14 @@
 body {
     font-family: 'Circular';
     color: white;
+    background-color: #212121;
 }
 
 .artistPage {
     box-sizing: border-box;
     width: 100%;
     overflow-y: scroll;
+    padding: 0 0 150px 0;
 }
 
 .artistPage svg {
@@ -25,11 +27,28 @@ body {
 .header {
     background-color: gray;
     width: 100%;
+    position: relative;
 }
 
 .headerTop {
  padding: 15px;
  z-index: 10;
+}
+
+.headerTop button {
+    opacity: 0.8;
+    transition: opacity 0.3s ease
+}
+
+.headerTop button:hover {
+    opacity: 1;
+}
+
+.headerTopMobile {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 100;
 }
 
 .headerBot {
@@ -338,6 +357,12 @@ body {
     }
 }
 
+@media screen and (min-width:768px) {
+    .artistPage {
+        padding: 0;
+    }
+}
+
 @media screen and (min-width:1200px) {
     .header {
         position: relative;
@@ -348,6 +373,10 @@ body {
         position: absolute;
         top: 0px;
     } 
+
+    .headerTopMobile {
+        display: none;
+    }
 
     .verifiedText {
         display: flex;
