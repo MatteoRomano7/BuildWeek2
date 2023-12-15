@@ -18,7 +18,7 @@ const hideAnnunci = document.querySelector('.hideAnnunci')
 const audioElem = document.querySelector('audio')
 const headerPlay = document.querySelector(".headerPlay")
 
-let playerInfo = document.querySelector(".leftDiv")
+const playerInfo = document.querySelector(".leftDiv")
 
 
 
@@ -315,7 +315,7 @@ fetch(`https://deezerdevs-deezer.p.rapidapi.com/track/${suggestedSongId}`, optio
 })
 }
 
-fetch(`https://deezerdevs-deezer.p.rapidapi.com/track/${suggestedSongId}`, options)
+fetch(`https://deezerdevs-deezer.p.rapidapi.com/track/1963530567`, options)
 .then((response) => response.json())
 .then((datas)  => {
   
