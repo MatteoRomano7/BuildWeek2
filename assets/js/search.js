@@ -106,3 +106,12 @@ searchForm.addEventListener("submit", (e) => {
   e.preventDefault();
   searchResults();
 });
+
+fetch(`https://deezerdevs-deezer.p.rapidapi.com/track/1963530567`, options)
+.then((response) => response.json())
+.then((datas)  => {
+  
+  
+  playerApi(datas)
+  audioElem.src = datas.preview
+})
