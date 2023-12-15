@@ -15,8 +15,11 @@ const headerMid = document.querySelector('.headerMid')
 const headerBot = document.querySelector('.headerBot')
 const showAnnunci = document.querySelector('.showAnnunci')
 const hideAnnunci = document.querySelector('.hideAnnunci')
+const audioElem = document.querySelector('audio')
+const headerPlay = document.querySelector(".headerPlay")
 
 let playerInfo = document.querySelector(".leftDiv")
+
 
 
 hideAnnunci.addEventListener('click', () => {
@@ -183,7 +186,7 @@ async function showSongs(url, option) {
         .then((response) => response.json())
         .then((data) => {
             clearInterval(interval)
-            const audioElem = document.querySelector('audio')
+            
             audioElem.setAttribute('src', data.preview)
             isPlaying = false
             togglePlayback()
@@ -291,4 +294,41 @@ function createCardDesktop(songImg, songTitle, songAlbum, trackId) {
 
 fetchApi(urlPlaylist ,options)
 showSongs(urlEminem,options)
-//
+
+let suggestedSongId = 1963530567
+
+function defaultSong(){
+
+fetch(`https://deezerdevs-deezer.p.rapidapi.com/track/${suggestedSongId}`, options)
+.then((response) => response.json())
+.then((datas)  => {
+  
+  clearInterval(interval)
+  playerApi(datas)
+  audioElem.src = datas.preview
+  isPlaying = false
+  togglePlayback()
+  advanceProgressBar()
+  resetTimer()
+
+})
+}
+
+fetch(`https://deezerdevs-deezer.p.rapidapi.com/track/${suggestedSongId}`, options)
+.then((response) => response.json())
+.then((datas)  => {
+  
+  
+  playerApi(datas)
+  audioElem.src = datas.preview
+  
+})
+
+headerPlay.addEventListener("click", function() {
+  defaultSong()
+
+})
+
+
+
+  
