@@ -10,13 +10,15 @@ const container = document.querySelector(".placeholder-categories");
 const searchForm = document.querySelector("form");
 const searchBar = document.querySelector("input");
 const showMoreContainer = document.querySelector(".show-more");
-let index = 0;
+let globalIndex = 0;
 
 function removeAllElements() {
   while (container.firstChild) {
     container.firstChild.remove();
   }
 }
+const modal = document.querySelector(".search-modal");
+const modalText = document.querySelector(".search-modal p");
 
 function searchResults(index = "") {
   const searchText = searchBar.value.trim().toLowerCase();
@@ -24,29 +26,34 @@ function searchResults(index = "") {
   fetch(`${endpoint}${searchText}${index}`, searchOptions)
     .then((response) => response.json())
     .then((data) => {
-      document.querySelector("h2").style.display = "none";
-
       if (data.hasOwnProperty("error")) {
-        const nothing = document.createElement("p");
-        nothing.innerText = "Invalid search query";
-        container.appendChild(nothing);
-        searchForm.reset();
+        modalText.innerText = "Invalid search query";
+        modal.classList.toggle("modal-active");
         setTimeout(() => {
-          location.reload();
-        }, 2000);
+          modal.classList.toggle("modal-active");
+        }, 1000);
+
+        searchForm.reset();
+
         return;
       }
 
       if (data.data.length === 0) {
-        const nothing = document.createElement("p");
-        nothing.innerText = "No results were found matching your search query";
-        container.appendChild(nothing);
-        searchForm.reset();
+        modalText.innerText = "Nothing was found";
+        modal.classList.toggle("modal-active");
         setTimeout(() => {
-          location.reload();
-        }, 2000);
+          modal.classList.toggle("modal-active");
+        }, 1000);
+
         return;
       }
+
+      if (globalIndex === 0) {
+        removeAllElements();
+      }
+
+      document.querySelector("h2").style.display = "none";
+      showMoreContainer.style.display = "block";
 
       for (i = 0; i < data.data.length; i++) {
         let content = data.data[i];
@@ -63,30 +70,36 @@ function searchResults(index = "") {
             `;
         container.appendChild(card);
       }
-      const names = [];
-      for (elem of data.data) {
-        let name = elem.artist.name;
-        names.push(name);
-      }
-      names.forEach((elem) => {names.find(elem)});
-      console.log(names);
-      if (data.data.length < 25) {
-        moreButton.setAttribute("disabled", "true");
-      }
-      showMoreContainer.style.display = "block";
 
-      index = 0;
+      let pepe = data.data;
+      let relevant = {};
+      pepe.map((elem) => {
+        Object.assign(relevant, {
+          [elem.artist.name]: pepe.filter(
+            (a) => a.artist.name === elem.artist.name
+          ).length,
+        });
+      });
+      console.log(relevant);
+
+      if (data.data.length < 25) {
+        moreButton.disabled = true;
+      } else {
+        moreButton.disabled = false;
+      }
     });
 }
 
 const moreButton = showMoreContainer.querySelector("button");
 moreButton.addEventListener("click", () => {
-  index += 25;
-  searchResults(`&index=${index}`);
+  globalIndex += 25;
+  searchResults(`&index=${globalIndex}`);
 });
-searchForm.addEventListener("submit", removeAllElements);
+// searchForm.addEventListener("submit", removeAllElements);
 // searchForm.addEventListener("submit", () => {
 // });
+searchForm.addEventListener("submit", () => (globalIndex = 0));
+
 searchForm.addEventListener("submit", (e) => {
   e.preventDefault();
   searchResults();
