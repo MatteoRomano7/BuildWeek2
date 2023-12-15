@@ -1,5 +1,4 @@
 /* Fetch from Deezer API */
-fetchApiID()
 async function fetchApiID() {
   try {
     const artistID = "13";
@@ -12,19 +11,19 @@ async function fetchApiID() {
       },
     };
 
-    
-
     const response = await fetch(url, options);
+    const result = await response.json(); 
     handleArtistData(result);
-    apiArtistMobile(result);
-    const result = await response.json();
+    apiArtistMobileHeader(result);
     console.log(result);
   } catch (error) {
     console.error(error);
   }
-  
 }
-fetchApi();
+
+fetchApiID();
+
+
 
 async function fetchApi() {
   try {
@@ -41,13 +40,14 @@ async function fetchApi() {
     const response = await fetch(url, options);
     const data = await response.json();
     apiArtist(data.data);
-    apiArtist(data);
+    apiArtistMobile(data.data);
     console.log(data);
   } catch (error) {
     console.error(error);
   }
- 
 }
+
+fetchApi();
 
 //Dropdown Header
 const dropdown = document.querySelector(".dropdown");
@@ -118,6 +118,7 @@ function apiArtist(array) {
 
 
 
+
 function handleArtistData(artistData) {
   nameArtist.innerHTML = artistData.name;
   imageArtist.src = artistData.picture_xl; 
@@ -131,15 +132,15 @@ let imageArtistMobile = document.getElementById("imageArtistMobile")
 let nameArtistMobile = document.getElementById("nameArtistMobile")
 let likedTracksMobile = document.getElementById("likedTracksMobile")
 let listenersArtistMobile = document.getElementById("listenersArtistMobile")
-let cardMobile = document.getElementById("cardMobileID")
+let cardMobile = document.getElementById("MobileCardContainer")
+let likedimgMobile = document.getElementById("likedimgMobile")
 
 
-function apiArtistMobile(array, artistData) {
-  imageArtistMobile.src = artistData.picture_xl; 
-  nameArtistMobile.innerHTML = artistData.name
+function apiArtistMobile(array) {
   
   for (let i = 0; i < 10; i++) {
     cardMobile.innerHTML += `
+    <div class="cardMobile">
       <div class="numberMobile">
         <p>${i + 1}</p>
       </div>
@@ -148,7 +149,7 @@ function apiArtistMobile(array, artistData) {
       </div>
       <div class="titleMobile">
         <h3>${array[i].title_short}</h3>
-        <p>${artistData.nb_fan}</p>
+        
       </div>
       <div class="optionMobile">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -157,6 +158,16 @@ function apiArtistMobile(array, artistData) {
             d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0" />
         </svg>
       </div>
+      </div>
     `;
   }
+}
+
+
+function apiArtistMobileHeader(artistData){
+  imageArtistMobile.src = artistData.picture_xl
+  nameArtistMobile.innerHTML = artistData.name
+  listenersArtistMobile.innerHTML = `${artistData.nb_fan} ascoltatori mensili`
+  likedTracksMobile.innerHTML = `8 brani di ${artistData.name}`
+  likedimgMobile.src = artistData.picture_small
 }
