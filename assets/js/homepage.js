@@ -329,6 +329,4 @@ headerPlay.addEventListener("click", function() {
 
 })
 
-
-
   
