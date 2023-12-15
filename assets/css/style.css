@@ -42,7 +42,36 @@
     padding: 0 2px 0 0;
     margin: 0 10px 0 0;
   }
+
+  .backwardsMobile {
+    opacity: 0.8;
+    font-family: "Nanum Gothic", sans-serif;
+    font-weight: 700;
+    font-size: 1em;
+    text-align: center;
+    background-color: #131313;
+    border: none;
+    border-radius: 55%;
+    display: inline;
+    padding: 0;
+    height: 30px;
+    width: 30px;
+    color: rgba(255, 255, 255, 0.5);
+    transition: background-color 0.3s ease, opacity 0.3s ease;
+  }
+
+  .backwardsMobile:hover {
+    opacity: 1;
+    color: rgba(255, 255, 255, 1);
+    background-color: #0a0a0a;
+    cursor: pointer;
+  }
   
+  .backwardsMobile {
+    padding: 0 2px 0 0;
+    margin: 0 10px 0 0;
+  }
+
   .forward {
     padding: 0 0 0 2px;
   }
