@@ -90,7 +90,6 @@ shuffleIcon.addEventListener('click', () => {
 async function fetchArtist(url, option) {
   const response = await fetch(url, option);
   const data = await response.json();
-  console.log(data);
 
   headerBotImg.innerHTML = `<img src="${data.picture_xl}" alt="backgroundImg">`;
   artistName.textContent = data.name;
@@ -107,7 +106,6 @@ async function fetchArtist(url, option) {
 async function fetchTracks(url, option) {
   const response = await fetch(url, option);
   const data = await response.json();
-  console.log(data);
 
   let cards = "";
   for (let i = 0; i < 10; i++) {
@@ -139,7 +137,6 @@ async function fetchTracks(url, option) {
 
   firstTrack = data.data[0].id
   const albumPlay = document.querySelector('.pepe')
-  console.log(albumPlay)
 
 albumPlay.addEventListener("click", function () {
   fetch(
