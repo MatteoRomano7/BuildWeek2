@@ -137,6 +137,7 @@ async function fetchTracks(url, option) {
 
   firstTrack = data.data[0].id
   const albumPlay = document.querySelector('.pepe')
+  const albumPlay2 = document.querySelector('.pepe2')
 
 albumPlay.addEventListener("click", function () {
   fetch(
@@ -155,6 +156,24 @@ albumPlay.addEventListener("click", function () {
       playerApi(a);
     });
 });
+
+albumPlay2.addEventListener("click", function () {
+    fetch(
+      `https://deezerdevs-deezer.p.rapidapi.com/track/${firstTrack}`,
+      options
+    )
+      .then((response) => response.json())
+      .then((a) => {
+        clearInterval(interval);
+        audioElem.setAttribute("src", a.preview);
+        isPlaying = false;
+        togglePlayback();
+        advanceProgressBar();
+        resetTimer();
+  
+        playerApi(a);
+      });
+  });
 
 
 

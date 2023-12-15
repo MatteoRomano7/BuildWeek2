@@ -104,7 +104,7 @@ searchForm.addEventListener("submit", (e) => {
   searchResults();
 });
 
-fetch(`https://deezerdevs-deezer.p.rapidapi.com/track/1963530567`, options)
+fetch(`https://deezerdevs-deezer.p.rapidapi.com/track/1963530567`, searchOptions)
 .then((response) => response.json())
 .then((datas)  => {
   
@@ -112,3 +112,18 @@ fetch(`https://deezerdevs-deezer.p.rapidapi.com/track/1963530567`, options)
   playerApi(datas)
   audioElem.src = datas.preview
 })
+
+const audioElem = document.querySelector('audio')
+let playerInfo = document.querySelector('.leftDiv')
+
+function playerApi(results){
+
+  const leftDivSongImg = playerInfo.querySelector("img")
+  const LeftDivArtistName =  playerInfo.querySelector("h4")
+  const LeftDivTrackName =  playerInfo.querySelector("h2")
+
+  leftDivSongImg.src = results.album.cover
+  LeftDivArtistName.innerHTML = results.artist.name
+  LeftDivTrackName.innerHTML = results.title
+
+  }
