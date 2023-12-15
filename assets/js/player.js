@@ -24,6 +24,7 @@ const durationElement = document.querySelector('.duration')
 const playIcon = document.getElementById('play-icon')
 const stopIcon = document.getElementById('stop-icon')
 
+
 let currentTime = 0
 let duration = 30 //DURATION DEL TIMER IN SECONDS
 let isPlaying = true //FALSE PER FARLO INZIARE DA SUBITO TRUE PER L INVERSO
@@ -84,8 +85,11 @@ togglePlayback()
 playIcon.addEventListener('click', togglePlayback)
 stopIcon.addEventListener('click', togglePlayback)
 
-
+// BACK BTN E UP BTN
 const backBtn = document.getElementById('backbtn')
+const upbtn = document.getElementById("upbtn")
+
+
 
 function resetTimer() {
   currentTime = 0
@@ -97,8 +101,18 @@ function resetTimer() {
   audioPlayer.currentTime = 0
 }
 
-backBtn.addEventListener('click', resetTimer);
+backBtn.addEventListener('click', resetTimer)
 
+function endTimer() {
+  currentTime = duration
+  const minutes = Math.floor(currentTime / 60)
+  const seconds = currentTime % 60
+  const formattedTime = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`
+  timerElement.textContent = formattedTime
+  progress.style.width = '100%'
+  audioPlayer.currentTime = 0
+}
+upbtn.addEventListener('click', endTimer)
 
 //CENTRAL PROGRESSBAR DRAGGING 
 const progressContainer = document.querySelector('.progress-bar');
