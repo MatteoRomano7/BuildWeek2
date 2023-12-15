@@ -7,7 +7,7 @@
 /* DROPDOWN MENU IMPORTED */
 
 .headerTop {
-    display: flex;
+    display: none;
     align-items: center;
     width: 100%;
     margin: 0 0 10px 0;
@@ -220,6 +220,20 @@
     #mainContainer{
         max-height: 90vh;
     }  
+}
+
+@media screen and (min-width: 1200px) {
+  .headerTop {
+    display: flex;
+  }
+  
+}
+
+@media screen and (min-width: 1200px) {
+  .headerTop {
+    display: flex;
+  }
+  
 }
 
 .nav ul {
