@@ -4,6 +4,7 @@
 const urlId = new URLSearchParams(location.search)
 const idValue = urlId.get('id');
 const urlArtista = 'https://deezerdevs-deezer.p.rapidapi.com/track/' + idValue
+let firstTrack
 
 //HEADER ALBUM PAGE
 const fotoAlbum = document.querySelector('#fotoAlbum')
@@ -22,6 +23,9 @@ const artista = document.querySelector('.moreOfArtist')
 const artistDiscografy = document.querySelector('.artistDiscografy')
 const altriAlbum = document.querySelector('#altriAlbum')
 
+const audioElem = document.querySelector('audio')
+const playerInfo = document.querySelector(".leftDiv")
+
 const options = {
 	method: 'GET',
 	headers: {
@@ -35,7 +39,6 @@ fetchAlbumArtista(urlArtista, options)
 async function fetchAlbumArtista(url, option) {
     const response = await fetch(url, option)
     const data = await response.json()
-    console.log(data)
 
     fetchBraniArtista(`https://deezerdevs-deezer.p.rapidapi.com/search?q=${data.album.title}`, options)
     altriAlbumFetch(`https://deezerdevs-deezer.p.rapidapi.com/search?q=${data.artist.name}`, options)
@@ -57,7 +60,6 @@ async function fetchBraniArtista(url,option) {
     const data = dataDaEstrapolare.data
     let numRandom = 10 + Math.floor(Math.random() * 13)
     const dataSliced = data.slice(0, numRandom)
-    console.log(dataSliced)
 
     let albumDuration = 0
     for (let i = 0; i < dataSliced.length; i++) {
@@ -118,10 +120,56 @@ async function fetchBraniArtista(url,option) {
             </div>
         `
     }
+
     elencoBrani.innerHTML = cards
 
+    let playCards = elencoBrani.querySelectorAll('.row')
+    for (let i = 0; i < playCards.length; i++ ) {
+      playCards[i].addEventListener("click", function () {
+          fetch(
+            `https://deezerdevs-deezer.p.rapidapi.com/track/${data[i].id}`,
+            options
+          )
+            .then((response) => response.json())
+            .then((data) => {
+              clearInterval(interval);
+              audioElem.setAttribute("src", data.preview);
+              isPlaying = false;
+              togglePlayback();
+              advanceProgressBar();
+              resetTimer();
+      
+              playerApi(data);
+            });
+        });
+      
+    }
+
+    firstTrack = data[0].id
+
+    const albumPlay = document.querySelector('.pepe')
+  
+  albumPlay.addEventListener("click", function () {
+    fetch(
+      `https://deezerdevs-deezer.p.rapidapi.com/track/${firstTrack}`,
+      options
+    )
+      .then((response) => response.json())
+      .then((a) => {
+        clearInterval(interval);
+        audioElem.setAttribute("src", a.preview);
+        isPlaying = false;
+        togglePlayback();
+        advanceProgressBar();
+        resetTimer();
+  
+        playerApi(a);
+      });
+  });
+  
+  
+
     const h4Elements = document.querySelectorAll('h4');
-    console.log(h4Elements)
 
     h4Elements.forEach(function (h4) {
         if (h4.scrollWidth > h4.clientWidth) {
@@ -130,7 +178,6 @@ async function fetchBraniArtista(url,option) {
     });
 
     const unfilledHearts = document.querySelectorAll('.unfilledHeart')
-    console.log(unfilledHearts)
 
     for (let i = 0; i < unfilledHearts.length; i++) {
         let isHeartFilled = 'none'
@@ -147,11 +194,22 @@ async function fetchBraniArtista(url,option) {
 
 }
 
+// FUNZIONE DI GIUSEPPE 
+function playerApi(results) {
+    const leftDivSongImg = playerInfo.querySelector("img");
+    const LeftDivArtistName = playerInfo.querySelector("h4");
+    const LeftDivTrackName = playerInfo.querySelector("h2");
+  
+    leftDivSongImg.src = results.album.cover;
+    LeftDivArtistName.innerHTML = results.artist.name;
+    LeftDivTrackName.innerHTML = results.title;
+  }
+  
+
 async function altriAlbumFetch(url, option) {
     const response = await fetch(url, option)
     const dataDaEstrapolare = await response.json()
     const data = dataDaEstrapolare.data
-    console.log(data)
     
     let cardsBot = ''
     for (let i = 0; i < 5; i++) {
@@ -175,7 +233,6 @@ async function altriAlbumFetch(url, option) {
     altriAlbum.innerHTML = cardsBot
     const h4Elements = document.querySelectorAll('h4');
 
-    console.log(h4Elements)
 
     h4Elements.forEach(function (h4) {
         if (h4.scrollWidth > h4.clientWidth) {
@@ -185,3 +242,13 @@ async function altriAlbumFetch(url, option) {
 }
 
 // CUORI VERDI AL CLICK
+
+fetch(`https://deezerdevs-deezer.p.rapidapi.com/track/1963530567`, options)
+.then((response) => response.json())
+.then((datas)  => {
+  
+  
+  playerApi(datas)
+  audioElem.src = datas.preview
+  
+})

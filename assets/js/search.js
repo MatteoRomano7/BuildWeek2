@@ -58,6 +58,7 @@ function searchResults(index = "") {
 
       for (i = 0; i < data.data.length; i++) {
         let content = data.data[i];
+        console.log(content)
         const card = document.createElement("div");
         card.classList.add("searchResultBox");
         card.innerHTML = `
@@ -72,16 +73,16 @@ function searchResults(index = "") {
         container.appendChild(card);
       }
 
-      let pepe = data.data;
-      let relevant = {};
-      pepe.map((elem) => {
-        Object.assign(relevant, {
-          [elem.artist.name]: pepe.filter(
-            (a) => a.artist.name === elem.artist.name
-          ).length,
-        });
-      });
-      console.log(relevant);
+      // let pepe = data.data;
+      // let relevant = {};
+      // pepe.map((elem) => {
+      //   Object.assign(relevant, {
+      //     [elem.artist.name]: pepe.filter(
+      //       (a) => a.artist.name === elem.artist.name
+      //     ).length,
+      //   });
+      // });
+      // console.log(relevant);
 
       if (data.data.length < 25) {
         moreButton.disabled = true;
