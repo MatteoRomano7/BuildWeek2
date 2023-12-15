@@ -44,11 +44,11 @@ async function fetchAlbumArtista(url, option) {
     titoloAlbum.textContent = `${data.album.title}`
     iconaArtista.innerHTML = `<img src="${data.artist.picture_small}" alt="${data.artist.name}">`
     artistName.textContent = `${data.artist.name}`
-    artistName.href = `artist.html?id=${data.artist.id}`
+    artistName.href = `artistPage.html?id=${data.artist.id}`
     annoUscita.textContent = `${data.album.release_date}`
     
-    artista.innerHTML = `<a href="artist.html?id=${data.artist.id}">Altro di ${data.artist.name}</a>`
-    artistDiscografy.innerHTML = `<a href="artist.html?id=${data.artist.id}"><small>Vedi discografia</small></a>`
+    artista.innerHTML = `<a href="artistPage.html?id=${data.artist.id}">Altro di ${data.artist.name}</a>`
+    artistDiscografy.innerHTML = `<a href="artistPage.html?id=${data.artist.id}"><small>Vedi discografia</small></a>`
 }
 
 async function fetchBraniArtista(url,option) {
@@ -91,7 +91,7 @@ async function fetchBraniArtista(url,option) {
                 </div>
                 <div class="titoloBrano">
                 <div class="toolText"><h4>${dataSliced[i].title_short}</h4></div>
-                    <span class="artista"><a href="artist.html?id=${dataSliced[i].artist.id}">${dataSliced[i].artist.name}</a></span>
+                    <span class="artista"><a href="artistPage.html?id=${dataSliced[i].artist.id}">${dataSliced[i].artist.name}</a></span>
                 </div>
                 <div class="nRiproduzioni">${numRiproduzioniCasuali}</div>
                 <div class="tempoBrano">
@@ -168,7 +168,7 @@ async function altriAlbumFetch(url, option) {
                         </button>
                     </div>
                 </div>
-                <div class="toolText"><h4><a href="artist.html?id=${data[i].artist.id}">${data[i].title}</a></h4></div>
+                <div class="toolText"><h4><a href="artistPage.html?id=${data[i].artist.id}">${data[i].title}</a></h4></div>
             </div>
         `
     }

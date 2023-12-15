@@ -5,6 +5,8 @@ body {
 
 .artistPage {
     box-sizing: border-box;
+    width: 100%;
+    overflow-y: scroll;
 }
 
 /* HEADER */
@@ -32,7 +34,7 @@ body {
 .headerBotText {
     position: absolute;
     bottom: 10px;
-    left: 20px;
+    left: 15px;
     z-index: 10;
 }
 
@@ -57,12 +59,58 @@ body {
 .artistPageMain {
     background: rgb(18,18,18);
     background: linear-gradient(0deg, rgba(18,18,18,1) 35%, rgba(33,33,33,1) 100%);
+    padding: 15px 15px;
+}
+
+.monthlyListenerMobile {
+    font-weight: 300;
+    color: rgba(255,255,255,0.5);
+    font-size: 0.9em;
+    margin: 10px 0;
+}
+
+.iconBarMobile {
+    display: flex;
+    align-items: center;
+}
+
+.iconBarLeft {
+    width: 50%;
+    display: flex;
+    align-items: center;
+}
+
+.seguitiBtn {
+    padding: 5px 10px;
+    margin: 0 30px 0 0;
+    border: 2px solid rgba(255,255,255,0.02);
+    border-radius: 5px;
+    background-color: rgba(0,0,0,0);
+    font-family: 'Circular';
+    color: white;
+}
+
+.iconBarRight {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.shuffleIcon {
+    padding: 0 10px 0 0;
+}
+
+.iconBarDesktop {
+    display: none;
+    align-items: center;
 }
 
 #player1 {
     width: 50px;
     height: 50px;
     border-radius: 50%;
+    margin: 0;
     background-color: #1ed760;
     border: none;
     box-shadow: 0px 0px 5px rgba(0,0,0,0.4);
@@ -78,4 +126,233 @@ body {
 
 #player1 svg {
     padding: 1px 0 0 3px;
+}
+
+.followingBtn {
+    margin: 0 20px;
+    padding: 7px 15px 5px 15px;
+    color: white;
+    font-family: 'Circular';
+    border: 1px solid white;
+    border-radius: 3px;
+    background-color: rgba(0,0,0,0);
+}
+
+/* Main bot */
+
+.artistPageMainBot {
+    display: flex;
+    flex-direction: column;
+}
+
+.artistPageMainBot h2 {
+    font-size: 1.3em;
+    margin: 15px 0;
+    font-weight: 600;
+}
+
+.mainLeft {
+    order: 1;
+}
+
+.mainRight {
+    order: 0;
+}
+
+
+.likedSongsMobile {
+    display: flex;
+    align-items: center;
+    margin: 15px 0;
+}
+
+.likedSongsMobileLeft {
+    position: relative;
+    margin: 0 10px 0 0;
+}
+
+.artistImgSmall {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.artistImgSmallHeart {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    padding: 3px;
+    background-color: #aafdba;
+    border-radius: 50%;
+    border: 2px solid white;
+}
+
+.likedSongsMobileRight {
+    font-weight: 300;
+}
+
+.likedSongsOfArtist {
+    margin: 5px 0;
+    font-size: 0.9em;
+    color: rgba(255,255,255,0.5);
+}
+
+.likedSongsDesktopBot {
+    display: none;
+}
+
+.likedSongsDesktopImg {
+    position: relative;
+    margin: 0 15px 0 0;
+}
+
+.artistImgMedium {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+
+.artistImgMediumHeart {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    padding: 3px;
+    background-color: #1ed760;
+    border: 2px solid #121212;
+    border-radius: 50%;
+}
+
+.likedSongsDesktopText {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.likedSongsDesktopText p:first-of-type {
+    font-size: 0.8em;
+    margin: 0 0 3px 0;
+}
+
+.likedSongsDesktopText p:last-of-type {
+    font-size: 0.7em;
+    font-weight: 300;
+    color: rgba(255,255,255,0.5)
+}
+
+/* Cards */
+
+.trackCardsContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.trackCard {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.trackCard > div {
+    flex-grow: 0;
+}
+
+.trackIndexDiv {
+    width: 20px;
+    margin: 0 0 0 20px;
+}
+
+.trackImgDiv {
+    width: 50px;
+    margin: 0 20px;
+}
+
+.trackImgDiv img {
+    width: 50px;
+    height: 50px;
+}
+
+.trackTitleDiv {
+    max-width: 50%;
+}
+
+.trackListeners {
+    margin: 5px 0 0 0;
+    font-weight: 300;
+    font-size: 0.8em;
+    color: rgba(255,255,255,0.5);
+}
+
+.trackCard .trackMoreInfoDiv {
+    flex-grow: 2;
+    text-align: right;
+}
+
+/* Media query Desktop */
+
+@media screen and (min-width:1200px) {
+    .header {
+        position: relative;
+    }
+
+    .headerTop {
+        width: 95%;
+        position: absolute;
+        top: 0px;
+    } 
+
+    .verifiedText {
+        display: flex;
+        align-items: center;
+    }
+
+    .verifiedText svg {
+        margin: 0 5px 0 0;
+    }
+    
+    .monthlyListener {
+        display: block;
+    }
+
+    .monthlyListenerMobile {
+        display: none;
+    }
+
+    .iconBarMobile {
+        display: none;
+    }
+
+    .iconBarDesktop {
+        display: flex
+    }
+
+    .artistPageMainBot {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .mainLeft {
+        width: 60%;
+        order: 0;
+    }
+
+    .trackCardsContainer {
+        padding: 0 15px 0 0;
+    }
+
+    .mainRight {
+        width: 40%;
+        order: 1;
+    }
+
+    .likedSongsMobile {
+        display: none;
+    }
+
+    .likedSongsDesktopBot {
+        display: flex;
+    }
+}
+
+.cardId {
+    display: none;
 }
