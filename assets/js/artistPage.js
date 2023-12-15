@@ -193,3 +193,6 @@ function playerApi(results){
   
     }
    
+
+    const backwardsMobile = document.querySelector('.backwardsMobile')
+    backwardsMobile.addEventListener('click', () => history.back())
