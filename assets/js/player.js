@@ -24,6 +24,7 @@ const durationElement = document.querySelector('.duration')
 const playIcon = document.getElementById('play-icon')
 const stopIcon = document.getElementById('stop-icon')
 
+
 let currentTime = 0
 let duration = 30 //DURATION DEL TIMER IN SECONDS
 let isPlaying = true //FALSE PER FARLO INZIARE DA SUBITO TRUE PER L INVERSO
@@ -84,8 +85,11 @@ togglePlayback()
 playIcon.addEventListener('click', togglePlayback)
 stopIcon.addEventListener('click', togglePlayback)
 
-
+// BACK BTN E UP BTN
 const backBtn = document.getElementById('backbtn')
+const upbtn = document.getElementById("upbtn")
+
+
 
 function resetTimer() {
   currentTime = 0
@@ -97,8 +101,18 @@ function resetTimer() {
   audioPlayer.currentTime = 0
 }
 
-backBtn.addEventListener('click', resetTimer);
+backBtn.addEventListener('click', resetTimer)
 
+function endTimer() {
+  currentTime = duration
+  const minutes = Math.floor(currentTime / 60)
+  const seconds = currentTime % 60
+  const formattedTime = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`
+  timerElement.textContent = formattedTime
+  progress.style.width = '100%'
+  audioPlayer.currentTime = 0
+}
+upbtn.addEventListener('click', endTimer)
 
 //CENTRAL PROGRESSBAR DRAGGING 
 const progressContainer = document.querySelector('.progress-bar');
@@ -264,45 +278,5 @@ volumeUp.addEventListener('click', VolumeUpBtn)
 volumeMute.addEventListener('click', VolumeMuteBtn)
 
 
-//TODO: API PLAYER ALMOST DONE (CREDO)
 
-/* async function fetchData() {
-  try {
-      let trackId = '1109739';
-      const url = `https://deezerdevs-deezer.p.rapidapi.com/track/${trackId}`;
-
-      const options = {
-          method: 'GET',
-          headers: {
-              'X-RapidAPI-Key': 'e851cdc811mshe7e16f349b95bfep185932jsn67fb1834f7cb',
-              'X-RapidAPI-Host': 'deezerdevs-deezer.p.rapidapi.com'
-          }
-      };
-
-      const response = await fetch(url, options);
-      const data = await response.json();
-      console.log(data);
-  } catch (error) {
-      console.error(error);
-  }
-}
-
-fetchData();
-
-
-let playerTrackImg = document.getElementById("playerTrackImg")
-let playerSongName = document.getElementById("playerSongName")
-let playerArtistName = document.getElementById("playerArtistName")
-let player1 = document.querySelectorAll("#player1")
-
-function startSong(){
-    isPlaying = false
-    playerTrackImg.src = data.artist.picture_small
-    playerSongName.innerHTML = data.title
-    playerArtistName.innerHTML = data.artist.name
-    duration = data.duration
-}
-
-player1.addEventListener('click', resetTimer);
-player1.addEventListener('click', startSong); */
   

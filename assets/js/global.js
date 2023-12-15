@@ -27,3 +27,6 @@ buttonBack.addEventListener('click', () => history.back())
 
 const buttonForward = document.querySelector('.backwardForwardBtns .forward')
 buttonForward.addEventListener('click', () => history.forward())
+
+
+
