@@ -607,6 +607,7 @@ address {
 
 .cardAlbum {
    padding: 20px 20px 30px 20px;
+   margin-bottom: 20px;
    border-radius: 12px;
    background-color: #181818;
    width: 15%;
